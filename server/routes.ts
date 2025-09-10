@@ -45,65 +45,14 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // Get all quotes (for admin/sales team)
-  app.get("/api/quotes", async (req, res) => {
-    try {
-      const quotes = await storage.getQuotes();
-      res.json(quotes);
-    } catch (error) {
-      console.error("Error fetching quotes:", error);
-      res.status(500).json({
-        error: "Internal server error",
-        message: "Failed to fetch quotes",
-      });
-    }
-  });
-
-  // Get specific quote
-  app.get("/api/quotes/:id", async (req, res) => {
-    try {
-      const quote = await storage.getQuote(req.params.id);
-      if (!quote) {
-        return res.status(404).json({
-          error: "Quote not found",
-        });
-      }
-      res.json(quote);
-    } catch (error) {
-      console.error("Error fetching quote:", error);
-      res.status(500).json({
-        error: "Internal server error",
-        message: "Failed to fetch quote",
-      });
-    }
-  });
-
-  // Update quote status
-  app.patch("/api/quotes/:id/status", async (req, res) => {
-    try {
-      const { status } = req.body;
-      if (!status || typeof status !== "string") {
-        return res.status(400).json({
-          error: "Invalid status",
-        });
-      }
-
-      const quote = await storage.updateQuoteStatus(req.params.id, status);
-      if (!quote) {
-        return res.status(404).json({
-          error: "Quote not found",
-        });
-      }
-
-      res.json(quote);
-    } catch (error) {
-      console.error("Error updating quote status:", error);
-      res.status(500).json({
-        error: "Internal server error",
-        message: "Failed to update quote status",
-      });
-    }
-  });
+  // Admin endpoints are disabled for security
+  // TODO: Implement authentication/authorization before enabling these endpoints
+  // These endpoints contain PII and should only be accessible to authorized sales team members
+  
+  // Temporarily disabled admin endpoints:
+  // GET /api/quotes - List all quotes (contains PII)
+  // GET /api/quotes/:id - Get specific quote (contains PII) 
+  // PATCH /api/quotes/:id/status - Update quote status (business logic)
 
   const httpServer = createServer(app);
 
