@@ -1,12 +1,12 @@
 const brands = [
-  { name: "Sony", displayName: "SONY" },
-  { name: "IKEA", displayName: "IKEA" },
-  { name: "Zara", displayName: "ZARA" },
-  { name: "Adidas", displayName: "adidas" },
-  { name: "H&M", displayName: "H&M" },
-  { name: "Stanford", displayName: "Stanford University" },
-  { name: "Discovery", displayName: "Discovery" },
-  { name: "UFC", displayName: "UFC" },
+  { name: "Sony", displayName: "SONY", style: "font-light tracking-widest text-2xl" },
+  { name: "IKEA", displayName: "IKEA", style: "font-bold text-2xl" },
+  { name: "Zara", displayName: "ZARA", style: "font-light tracking-[0.3em] text-xl" },
+  { name: "Adidas", displayName: "adidas", style: "font-normal italic text-xl" },
+  { name: "H&M", displayName: "H&M", style: "font-black text-2xl tracking-wider" },
+  { name: "Stanford", displayName: "Stanford University", style: "font-serif font-medium text-lg" },
+  { name: "Discovery", displayName: "Discovery", style: "font-bold text-xl tracking-wide" },
+  { name: "UFC", displayName: "UFC", style: "font-black text-2xl tracking-widest" },
 ];
 
 export function SocialProofSection() {
@@ -15,7 +15,7 @@ export function SocialProofSection() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-2xl md:text-3xl font-semibold text-foreground mb-2" data-testid="text-social-proof-title">
-            Trusted by over 2,000,000 small business, agencies and top global brands worldwide
+            Trusted by Global Businesses
           </h2>
         </div>
         
@@ -30,7 +30,7 @@ export function SocialProofSection() {
                 data-testid={`brand-logo-${brand.name.toLowerCase()}`}
               >
                 <span 
-                  className="text-xl font-semibold text-foreground/70 hover:text-foreground transition-all duration-300 whitespace-nowrap"
+                  className={`${brand.style} text-foreground/70 hover:text-foreground transition-all duration-300 whitespace-nowrap`}
                 >
                   {brand.displayName}
                 </span>
@@ -43,7 +43,7 @@ export function SocialProofSection() {
                 className="flex-shrink-0 w-48 h-16 flex items-center justify-center transition-all duration-300"
               >
                 <span 
-                  className="text-xl font-semibold text-foreground/70 hover:text-foreground transition-all duration-300 whitespace-nowrap"
+                  className={`${brand.style} text-foreground/70 hover:text-foreground transition-all duration-300 whitespace-nowrap`}
                 >
                   {brand.displayName}
                 </span>
