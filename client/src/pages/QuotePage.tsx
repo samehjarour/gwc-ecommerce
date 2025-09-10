@@ -77,10 +77,30 @@ export function QuotePage() {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData); // todo: remove mock functionality
-    setIsSubmitted(true);
+    
+    try {
+      const response = await fetch("/api/quotes", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.details || errorData.message || "Failed to submit quote");
+      }
+
+      const result = await response.json();
+      console.log("Quote submitted successfully:", result);
+      setIsSubmitted(true);
+    } catch (error) {
+      console.error("Error submitting quote:", error);
+      alert("Failed to submit quote request. Please try again.");
+    }
   };
 
   const toggleSelection = (field: keyof typeof formData, value: string) => {

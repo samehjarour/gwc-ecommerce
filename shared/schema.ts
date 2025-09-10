@@ -1,5 +1,5 @@
 import { sql } from "drizzle-orm";
-import { pgTable, text, varchar } from "drizzle-orm/pg-core";
+import { pgTable, text, varchar, timestamp, jsonb } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
@@ -9,10 +9,42 @@ export const users = pgTable("users", {
   password: text("password").notNull(),
 });
 
+export const quotes = pgTable("quotes", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  firstName: text("first_name").notNull(),
+  lastName: text("last_name").notNull(),
+  email: text("email").notNull(),
+  phone: text("phone").notNull(),
+  company: text("company").notNull(),
+  shipFrom: text("ship_from").notNull(),
+  shipTo: jsonb("ship_to").notNull(), // Array of destination countries
+  platforms: jsonb("platforms").notNull(), // Array of platform integrations
+  products: jsonb("products").notNull(), // Array of product categories
+  additionalInfo: text("additional_info"),
+  status: text("status").notNull().default("new"), // new, contacted, closed
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().notNull(),
+});
+
 export const insertUserSchema = createInsertSchema(users).pick({
   username: true,
   password: true,
 });
 
+export const insertQuoteSchema = createInsertSchema(quotes).omit({
+  id: true,
+  status: true,
+  createdAt: true,
+  updatedAt: true,
+}).extend({
+  shipTo: z.array(z.string()).min(1, "Please select at least one destination"),
+  platforms: z.array(z.string()).min(1, "Please select at least one platform"),
+  products: z.array(z.string()).min(1, "Please select at least one product category"),
+  email: z.string().email("Please enter a valid email address"),
+  phone: z.string().min(1, "Phone number is required"),
+});
+
 export type InsertUser = z.infer<typeof insertUserSchema>;
 export type User = typeof users.$inferSelect;
+export type InsertQuote = z.infer<typeof insertQuoteSchema>;
+export type Quote = typeof quotes.$inferSelect;
