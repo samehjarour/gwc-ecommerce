@@ -1,8 +1,8 @@
-import sonyLogo from "@assets/sony_1757527184709.gif";
-import ikeaLogo from "@assets/IKEA-logo-1_1757527184709.png";
-import zaraLogo from "@assets/Zara-logo_1757527184709.png";
-import adidasLogo from "@assets/Adidas-logo_1757527184709.png";
-import hmLogo from "@assets/H&M-logo_1757527184708.png";
+import sonyLogo from "@assets/generated_images/Sony_logo_blue_color_1d750c80.png";
+import ikeaLogo from "@assets/generated_images/IKEA_logo_blue_yellow_1351a63e.png";
+import zaraLogo from "@assets/generated_images/Zara_logo_black_red_441191cc.png";
+import adidasLogo from "@assets/generated_images/Adidas_logo_three_stripes_7aee6017.png";
+import hmLogo from "@assets/generated_images/H&M_logo_red_white_b30d60a9.png";
 
 const brands = [
   { name: "Sony", logo: sonyLogo },
@@ -32,13 +32,13 @@ export function SocialProofSection() {
             {brands.map((brand, index) => (
               <div 
                 key={`first-${index}`}
-                className="flex-shrink-0 w-32 h-16 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300"
+                className="flex-shrink-0 w-56 h-28 flex items-center justify-center transition-all duration-300"
                 data-testid={`brand-logo-${brand.name.toLowerCase()}`}
               >
                 <img 
                   src={brand.logo} 
                   alt={brand.name}
-                  className="max-w-full max-h-full object-contain filter brightness-0 opacity-60 hover:brightness-100 hover:opacity-100 transition-all duration-300"
+                  className="max-w-full max-h-full object-contain opacity-90 hover:opacity-100 transition-all duration-300"
                 />
               </div>
             ))}
@@ -46,12 +46,12 @@ export function SocialProofSection() {
             {brands.map((brand, index) => (
               <div 
                 key={`second-${index}`}
-                className="flex-shrink-0 w-32 h-16 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300"
+                className="flex-shrink-0 w-56 h-28 flex items-center justify-center transition-all duration-300"
               >
                 <img 
                   src={brand.logo} 
                   alt={brand.name}
-                  className="max-w-full max-h-full object-contain filter brightness-0 opacity-60 hover:brightness-100 hover:opacity-100 transition-all duration-300"
+                  className="max-w-full max-h-full object-contain opacity-90 hover:opacity-100 transition-all duration-300"
                 />
               </div>
             ))}
