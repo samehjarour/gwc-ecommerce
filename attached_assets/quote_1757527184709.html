@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Your Quote - GWC</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Proxima+Nova:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="Newlogo_white_clean.png" alt="GWC - Delivering Logistics Innovation" class="logo-img" />
+            </div>
+            <nav class="nav">
+                <a href="index.html">Home</a>
+                <a href="#services">Services</a>
+                <a href="#locations">Locations</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Quote Form Section -->
+    <section class="quote-form-section">
+        <div class="container">
+            <div class="quote-header">
+                <h1>Get Your Custom Quote</h1>
+                <p>Tell us about your e-commerce fulfillment needs and we'll provide a tailored solution.</p>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="progress-bar">
+                <div class="progress-step active" data-step="1">
+                    <div class="step-number">1</div>
+                    <span>Shipping Details</span>
+                </div>
+                <div class="progress-step" data-step="2">
+                    <div class="step-number">2</div>
+                    <span>Platform & Products</span>
+                </div>
+                <div class="progress-step" data-step="3">
+                    <div class="step-number">3</div>
+                    <span>Contact Information</span>
+                </div>
+            </div>
+
+            <!-- Quote Form -->
+            <form class="quote-form" id="quoteForm">
+                
+                <!-- Step 1: Shipping Details -->
+                <div class="form-step active" id="step1">
+                    <h2>Where do you want to ship from?</h2>
+                    <div class="location-grid">
+                        <label class="location-option">
+                            <input type="radio" name="ship_from" value="china">
+                            <div class="location-card">
+                                <div class="flag">🇨🇳</div>
+                                <span>China</span>
+                            </div>
+                        </label>
+                        <label class="location-option">
+                            <input type="radio" name="ship_from" value="usa">
+                            <div class="location-card">
+                                <div class="flag">🇺🇸</div>
+                                <span>USA</span>
+                            </div>
+                        </label>
+                        <label class="location-option">
+                            <input type="radio" name="ship_from" value="europe">
+                            <div class="location-card">
+                                <div class="flag">🇪🇺</div>
+                                <span>Europe</span>
+                            </div>
+                        </label>
+                        <label class="location-option">
+                            <input type="radio" name="ship_from" value="india">
+                            <div class="location-card">
+                                <div class="flag">🇮🇳</div>
+                                <span>India</span>
+                            </div>
+                        </label>
+                        <label class="location-option">
+                            <input type="radio" name="ship_from" value="turkey">
+                            <div class="location-card">
+                                <div class="flag">🇹🇷</div>
+                                <span>Turkey</span>
+                            </div>
+                        </label>
+                        <label class="location-option">
+                            <input type="radio" name="ship_from" value="other">
+                            <div class="location-card">
+                                <div class="flag">🌍</div>
+                                <span>Other</span>
+                            </div>
+                        </label>
+                    </div>
+
+                    <h2>Where do you want to ship/expand to?</h2>
+                    <div class="location-grid">
+                        <label class="location-option">
+                            <input type="checkbox" name="ship_to" value="saudi">
+                            <div class="location-card">
+                                <div class="flag">🇸🇦</div>
+                                <span>Saudi Arabia</span>
+                            </div>
+                        </label>
+                        <label class="location-option">
+                            <input type="checkbox" name="ship_to" value="uae">
+                            <div class="location-card">
+                                <div class="flag">🇦🇪</div>
+                                <span>UAE</span>
+                            </div>
+                        </label>
+                        <label class="location-option">
+                            <input type="checkbox" name="ship_to" value="kuwait">
+                            <div class="location-card">
+                                <div class="flag">🇰🇼</div>
+                                <span>Kuwait</span>
+                            </div>
+                        </label>
+                        <label class="location-option">
+                            <input type="checkbox" name="ship_to" value="qatar">
+                            <div class="location-card">
+                                <div class="flag">🇶🇦</div>
+                                <span>Qatar</span>
+                            </div>
+                        </label>
+                        <label class="location-option">
+                            <input type="checkbox" name="ship_to" value="bahrain">
+                            <div class="location-card">
+                                <div class="flag">🇧🇭</div>
+                                <span>Bahrain</span>
+                            </div>
+                        </label>
+                        <label class="location-option">
+                            <input type="checkbox" name="ship_to" value="oman">
+                            <div class="location-card">
+                                <div class="flag">🇴🇲</div>
+                                <span>Oman</span>
+                            </div>
+                        </label>
+                    </div>
+
+                    <button type="button" class="next-btn" onclick="nextStep(2)">
+                        Next Step
+                        <span class="arrow">→</span>
+                    </button>
+                </div>
+
+                <!-- Step 2: Platform & Products -->
+                <div class="form-step" id="step2">
+                    <h2>Which platform do you want to integrate with?</h2>
+                    <div class="platform-grid">
+                        <label class="platform-option">
+                            <input type="checkbox" name="platform" value="shopify">
+                            <div class="platform-card">
+                                <div class="platform-icon">🛍️</div>
+                                <span>Shopify</span>
+                            </div>
+                        </label>
+                        <label class="platform-option">
+                            <input type="checkbox" name="platform" value="amazon">
+                            <div class="platform-card">
+                                <div class="platform-icon">📦</div>
+                                <span>Amazon</span>
+                            </div>
+                        </label>
+                        <label class="platform-option">
+                            <input type="checkbox" name="platform" value="noon">
+                            <div class="platform-card">
+                                <div class="platform-icon">🌙</div>
+                                <span>Noon</span>
+                            </div>
+                        </label>
+                        <label class="platform-option">
+                            <input type="checkbox" name="platform" value="magento">
+                            <div class="platform-card">
+                                <div class="platform-icon">🎯</div>
+                                <span>Magento</span>
+                            </div>
+                        </label>
+                        <label class="platform-option">
+                            <input type="checkbox" name="platform" value="woocommerce">
+                            <div class="platform-card">
+                                <div class="platform-icon">🔧</div>
+                                <span>WooCommerce</span>
+                            </div>
+                        </label>
+                        <label class="platform-option">
+                            <input type="checkbox" name="platform" value="custom">
+                            <div class="platform-card">
+                                <div class="platform-icon">⚙️</div>
+                                <span>Custom Platform</span>
+                            </div>
+                        </label>
+                    </div>
+
+                    <h2>What are you selling?</h2>
+                    <div class="product-categories">
+                        <label class="category-option">
+                            <input type="checkbox" name="products" value="fashion">
+                            <div class="category-card">
+                                <div class="category-icon">👕</div>
+                                <span>Fashion & Apparel</span>
+                            </div>
+                        </label>
+                        <label class="category-option">
+                            <input type="checkbox" name="products" value="electronics">
+                            <div class="category-card">
+                                <div class="category-icon">📱</div>
+                                <span>Electronics</span>
+                            </div>
+                        </label>
+                        <label class="category-option">
+                            <input type="checkbox" name="products" value="home">
+                            <div class="category-card">
+                                <div class="category-icon">🏠</div>
+                                <span>Home & Garden</span>
+                            </div>
+                        </label>
+                        <label class="category-option">
+                            <input type="checkbox" name="products" value="beauty">
+                            <div class="category-card">
+                                <div class="category-icon">💄</div>
+                                <span>Beauty & Personal Care</span>
+                            </div>
+                        </label>
+                        <label class="category-option">
+                            <input type="checkbox" name="products" value="sports">
+                            <div class="category-card">
+                                <div class="category-icon">⚽</div>
+                                <span>Sports & Outdoors</span>
+                            </div>
+                        </label>
+                        <label class="category-option">
+                            <input type="checkbox" name="products" value="other">
+                            <div class="category-card">
+                                <div class="category-icon">📦</div>
+                                <span>Other</span>
+                            </div>
+                        </label>
+                    </div>
+
+                    <div class="step-navigation">
+                        <button type="button" class="prev-btn" onclick="previousStep(1)">
+                            <span class="arrow">←</span>
+                            Previous
+                        </button>
+                        <button type="button" class="next-btn" onclick="nextStep(3)">
+                            Next Step
+                            <span class="arrow">→</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 3: Contact Information -->
+                <div class="form-step" id="step3">
+                    <h2>Contact Information</h2>
+                    <div class="contact-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name *</label>
+                                <input type="text" id="firstName" name="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name *</label>
+                                <input type="text" id="lastName" name="lastName" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number *</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="company">Company Name *</label>
+                            <input type="text" id="company" name="company" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="website">Website URL</label>
+                            <input type="url" id="website" name="website">
+                        </div>
+                        <div class="form-group">
+                            <label for="monthlyOrders">Estimated Monthly Orders</label>
+                            <select id="monthlyOrders" name="monthlyOrders">
+                                <option value="">Select range</option>
+                                <option value="1-100">1-100 orders</option>
+                                <option value="101-500">101-500 orders</option>
+                                <option value="501-1000">501-1,000 orders</option>
+                                <option value="1001-5000">1,001-5,000 orders</option>
+                                <option value="5000+">5,000+ orders</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Additional Requirements</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Tell us about any specific requirements or questions you have..."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="step-navigation">
+                        <button type="button" class="prev-btn" onclick="previousStep(2)">
+                            <span class="arrow">←</span>
+                            Previous
+                        </button>
+                        <button type="submit" class="submit-btn">
+                            Get My Quote
+                            <span class="arrow">✓</span>
+                        </button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>GWC</h3>
+                    <p>Your trusted partner for e-commerce fulfillment across the Middle East.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 GWC. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
