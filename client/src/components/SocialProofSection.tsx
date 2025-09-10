@@ -1,12 +1,12 @@
 const brands = [
-  { name: "Sony", displayName: "SONY", style: "font-light tracking-widest text-2xl" },
-  { name: "IKEA", displayName: "IKEA", style: "font-bold text-2xl" },
-  { name: "Zara", displayName: "ZARA", style: "font-light tracking-[0.3em] text-xl" },
-  { name: "Adidas", displayName: "adidas", style: "font-normal italic text-xl" },
-  { name: "H&M", displayName: "H&M", style: "font-black text-2xl tracking-wider" },
-  { name: "Stanford", displayName: "Stanford University", style: "font-serif font-medium text-lg" },
-  { name: "Discovery", displayName: "Discovery", style: "font-bold text-xl tracking-wide" },
-  { name: "UFC", displayName: "UFC", style: "font-black text-2xl tracking-widest" },
+  { name: "Sony", displayName: "SONY", style: "font-light tracking-widest text-3xl" },
+  { name: "IKEA", displayName: "IKEA", style: "font-bold text-3xl" },
+  { name: "Zara", displayName: "ZARA", style: "font-light tracking-[0.3em] text-2xl" },
+  { name: "Adidas", displayName: "adidas", style: "font-normal italic text-2xl" },
+  { name: "H&M", displayName: "H&M", style: "font-black text-3xl tracking-wider" },
+  { name: "Stanford", displayName: "Stanford University", style: "font-serif font-medium text-xl" },
+  { name: "Discovery", displayName: "Discovery", style: "font-bold text-2xl tracking-wide" },
+  { name: "UFC", displayName: "UFC", style: "font-black text-3xl tracking-widest" },
 ];
 
 export function SocialProofSection() {
