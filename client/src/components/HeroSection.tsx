@@ -83,11 +83,11 @@ export function HeroSection() {
           
           {/* Main Title */}
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight" data-testid="text-hero-title">
-            GWC as your trusted{" "}
+            Multichannel eCommerce{" "}
             <span className="text-white bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
-              e-commerce scalability
+              Fulfillment
             </span>{" "}
-            partner
+            Made Simple
           </h1>
           
           {/* Subtitle */}
