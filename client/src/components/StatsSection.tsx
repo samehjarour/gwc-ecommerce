@@ -60,8 +60,8 @@ export function StatsSection() {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           <StatItem 
-            number="1st" 
-            label="Advanced fulfillment facility in GCC" 
+            number="9" 
+            label="Fulfillment Centers across GCC, Europe and US" 
             delay={0}
           />
           <StatItem 
