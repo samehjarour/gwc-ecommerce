@@ -20,13 +20,17 @@ const countries = [
   { code: "other", flag: "🌍", name: "Other" },
 ];
 
-const gccCountries = [
+const shipToCountries = [
   { code: "saudi", flag: "🇸🇦", name: "Saudi Arabia" },
   { code: "uae", flag: "🇦🇪", name: "UAE" },
   { code: "kuwait", flag: "🇰🇼", name: "Kuwait" },
   { code: "qatar", flag: "🇶🇦", name: "Qatar" },
   { code: "bahrain", flag: "🇧🇭", name: "Bahrain" },
   { code: "oman", flag: "🇴🇲", name: "Oman" },
+  { code: "usa", flag: "🇺🇸", name: "United States" },
+  { code: "uk", flag: "🇬🇧", name: "United Kingdom" },
+  { code: "germany", flag: "🇩🇪", name: "Germany" },
+  { code: "austria", flag: "🇦🇹", name: "Austria" },
 ];
 
 const platforms = [
@@ -229,7 +233,7 @@ export function QuotePage() {
                       <div>
                         <h3 className="text-lg font-semibold mb-4">Where do you want to ship/expand to?</h3>
                         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                          {gccCountries.map((country) => (
+                          {shipToCountries.map((country) => (
                             <button
                               key={country.code}
                               type="button"
