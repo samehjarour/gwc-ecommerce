@@ -92,9 +92,7 @@ export function HeroSection() {
           
           {/* Subtitle */}
           <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed" data-testid="text-hero-subtitle">
-            GWC is a MENA based fulfillment solution{" "}
-            <strong className="text-white">trusted by 100+ brands</strong> to ship orders from 
-            anywhere to their customers across the Middle East.
+            GWC is your trusted, scalability logistics partner in major global markets
           </p>
           
           {/* USP Pill */}
