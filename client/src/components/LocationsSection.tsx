@@ -7,7 +7,7 @@ const locations = [
   { flag: "🇩🇪", name: "Germany" },
   { flag: "🇦🇹", name: "Austria" },
   { flag: "🇫🇷", name: "France" },
-  { flag: "🏛️", name: "GCC" },
+  { flag: "🕌", name: "GCC" },
 ];
 
 export function LocationsSection() {
