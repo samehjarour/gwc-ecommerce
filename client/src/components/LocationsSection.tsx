@@ -2,12 +2,12 @@ import { useEffect, useState, useRef } from "react";
 import vanImage from "@assets/GWC Van - Riyadh_1_1757527184708.jpg";
 
 const locations = [
-  { flag: "🇸🇦", name: "Saudi Arabia" },
-  { flag: "🇦🇪", name: "UAE" },
-  { flag: "🇰🇼", name: "Kuwait" },
-  { flag: "🇶🇦", name: "Qatar" },
-  { flag: "🇧🇭", name: "Bahrain" },
-  { flag: "🇴🇲", name: "Oman" },
+  { flag: "🇬🇧", name: "United Kingdom" },
+  { flag: "🇺🇸", name: "United States" },
+  { flag: "🇩🇪", name: "Germany" },
+  { flag: "🇦🇹", name: "Austria" },
+  { flag: "🇫🇷", name: "France" },
+  { flag: "🏛️", name: "GCC" },
 ];
 
 export function LocationsSection() {
@@ -40,14 +40,14 @@ export function LocationsSection() {
             isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
           }`}>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6" data-testid="text-locations-title">
-              Our Network
+              Global Network
             </h2>
             <h3 className="text-xl md:text-2xl font-semibold text-foreground mb-4">
-              Strategic Presence Across the GCC
+              Strategic Presence Across Major Global Markets
             </h3>
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              With facilities and partnerships spanning the Gulf Cooperation Council, we provide 
-              comprehensive coverage for your e-commerce expansion needs.
+              With facilities and partnerships spanning key international markets, we provide 
+              comprehensive coverage for your global e-commerce expansion needs.
             </p>
             
             {/* Location Grid */}
