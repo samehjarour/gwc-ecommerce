@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import vanImage from "@assets/GWC Van - Riyadh_1_1757527184708.jpg";
+import vanImage from "@assets/GWC Truck - Dubai_1757565747938.jpg";
 
 const locations = [
   { flag: "🇬🇧", name: "United Kingdom" },
@@ -79,7 +79,7 @@ export function LocationsSection() {
             <div className="relative group">
               <img 
                 src={vanImage} 
-                alt="GWC Fleet in Riyadh" 
+                alt="GWC Fleet in Dubai" 
                 className="w-full h-auto rounded-2xl shadow-2xl group-hover:scale-[1.02] transition-transform duration-500"
                 data-testid="img-gwc-fleet"
               />
