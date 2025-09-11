@@ -83,16 +83,16 @@ export function HeroSection() {
           
           {/* Main Title */}
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight" data-testid="text-hero-title">
-            Multichannel eCommerce{" "}
+            Scale Your Brand Across{" "}
             <span className="text-white bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
-              Fulfillment
+              Three Continents
             </span>{" "}
-            Made Simple
+            in One Step
           </h1>
           
           {/* Subtitle */}
           <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed" data-testid="text-hero-subtitle">
-            GWC is your trusted, scalability logistics partner in major global markets
+            Instant market access across the GCC, UK, Germany, Austria, and France with a single integrated solution.
           </p>
           
           {/* USP Pill */}
@@ -108,7 +108,7 @@ export function HeroSection() {
                 className="bg-white text-black hover:bg-white/90 font-semibold px-8 py-6 text-lg group"
                 data-testid="button-get-quote-hero"
               >
-                Get Your Quote
+                Start Your Expansion Today
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
