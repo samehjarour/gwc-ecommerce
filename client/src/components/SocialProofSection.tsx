@@ -1,13 +1,4 @@
-const brands = [
-  { name: "Sony", displayName: "SONY", style: "font-light tracking-widest text-3xl" },
-  { name: "IKEA", displayName: "IKEA", style: "font-bold text-3xl" },
-  { name: "Zara", displayName: "ZARA", style: "font-light tracking-[0.3em] text-2xl" },
-  { name: "Adidas", displayName: "adidas", style: "font-normal italic text-2xl" },
-  { name: "H&M", displayName: "H&M", style: "font-black text-3xl tracking-wider" },
-  { name: "Stanford", displayName: "Stanford University", style: "font-serif font-medium text-xl" },
-  { name: "Discovery", displayName: "Discovery", style: "font-bold text-2xl tracking-wide" },
-  { name: "UFC", displayName: "UFC", style: "font-black text-3xl tracking-widest" },
-];
+import customerLogos from "@assets/image_1758532265261.png";
 
 export function SocialProofSection() {
   return (
@@ -17,39 +8,19 @@ export function SocialProofSection() {
           <h2 className="text-2xl md:text-3xl font-semibold text-foreground mb-2" data-testid="text-social-proof-title">
             Trusted by Global Businesses
           </h2>
+          <p className="text-muted-foreground" data-testid="text-social-proof-subtitle">
+            From retail giants to tech leaders, GWC powers fulfillment across industries
+          </p>
         </div>
         
-        {/* Logo Carousel */}
-        <div className="relative overflow-hidden" data-testid="carousel-brands">
-          <div className="flex animate-brand-scroll space-x-12 md:space-x-16">
-            {/* First set */}
-            {brands.map((brand, index) => (
-              <div 
-                key={`first-${index}`}
-                className="flex-shrink-0 w-48 h-16 flex items-center justify-center transition-all duration-300"
-                data-testid={`brand-logo-${brand.name.toLowerCase()}`}
-              >
-                <span 
-                  className={`${brand.style} text-foreground/70 hover:text-foreground transition-all duration-300 whitespace-nowrap`}
-                >
-                  {brand.displayName}
-                </span>
-              </div>
-            ))}
-            {/* Duplicate set for seamless loop */}
-            {brands.map((brand, index) => (
-              <div 
-                key={`second-${index}`}
-                className="flex-shrink-0 w-48 h-16 flex items-center justify-center transition-all duration-300"
-              >
-                <span 
-                  className={`${brand.style} text-foreground/70 hover:text-foreground transition-all duration-300 whitespace-nowrap`}
-                >
-                  {brand.displayName}
-                </span>
-              </div>
-            ))}
-          </div>
+        {/* Customer Logos Grid */}
+        <div className="max-w-5xl mx-auto" data-testid="customer-logos">
+          <img 
+            src={customerLogos} 
+            alt="GWC customer logos including IKEA, McDonald's, Qatar Airways, Huawei, Carrefour, Vodafone, and many other global brands across retail, technology, fashion, and hospitality industries"
+            className="w-full h-auto rounded-2xl shadow-lg"
+            data-testid="img-customer-logos"
+          />
         </div>
       </div>
     </section>
