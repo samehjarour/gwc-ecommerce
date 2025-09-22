@@ -43,7 +43,7 @@ export function AnalyticsSection() {
             </h2>
             
             <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-              IQ Platform is simple, intuitive, and powerful. Our priority was 
+              Our platform is simple, intuitive, and powerful. Our priority was 
               to make it as user-friendly as possible. Integrate your online 
               store and start selling.
             </p>
