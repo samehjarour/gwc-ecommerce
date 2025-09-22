@@ -91,8 +91,8 @@ export function HeroSection() {
           </h1>
           
           {/* Subtitle */}
-          <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed" data-testid="text-hero-subtitle">
-            Transparent pricing, no hidden fees. Start selling in UAE, Saudi Arabia, and Qatar with our integrated fulfillment network.
+          <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-4xl mx-auto leading-relaxed" data-testid="text-hero-subtitle">
+            Transparent pricing, no hidden fees. Start selling in UAE, Saudi Arabia, and Qatar with our integrated fulfillment network, from smart warehousing to award winning last mile delivery.
           </p>
           
           
