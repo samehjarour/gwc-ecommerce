@@ -70,8 +70,8 @@ export function ServicesSection() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           <ServiceCard
             icon={<Bot className="w-8 h-8" />}
-            title="E-commerce Fulfillment powered by automation"
-            description="GWC is a MENA based fulfillment solution trusted by 100+ brands to ship orders from anywhere to their customers."
+            title="E-commerce Fulfillment powered by robotics and automation"
+            description="IQ is a MENA based robotic fulfillment solution trusted by 300+ brands to ship orders from anywhere to their customers."
             delay={0}
           />
           <ServiceCard
