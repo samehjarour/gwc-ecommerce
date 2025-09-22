@@ -1,20 +1,23 @@
+import aceImage from "@assets/ACE_1758550429047.png";
+import carrefourImage from "@assets/Carrefour_1758550429048.png";
+import huaweiImage from "@assets/HUAWEI_1758550429079.png";
+import ikeaImage from "@assets/IKEA_1758550429079.png";
+import jumboImage from "@assets/Jumbo_1758550429079.png";
+import mcdonaldsImage from "@assets/McDonalds_1758550429079.png";
+import nestleImage from "@assets/Nestle_1758550429080.png";
+import qatarAirwaysImage from "@assets/QA_1758550429080.png";
+import vodafoneImage from "@assets/Vodafone_1758550429080.png";
+
 const brands = [
-  { name: "IKEA", displayName: "IKEA", style: "font-bold text-2xl tracking-wide" },
-  { name: "McDonald's", displayName: "McDonald's", style: "font-bold text-2xl" },
-  { name: "Qatar Airways", displayName: "QATAR AIRWAYS", style: "font-light tracking-widest text-xl" },
-  { name: "Huawei", displayName: "HUAWEI", style: "font-light tracking-wider text-2xl" },
-  { name: "Carrefour", displayName: "Carrefour", style: "font-normal text-2xl" },
-  { name: "Vodafone", displayName: "Vodafone", style: "font-normal text-2xl" },
-  { name: "ACE", displayName: "ACE", style: "font-bold text-2xl tracking-wide" },
-  { name: "LuLu", displayName: "LuLu", style: "font-normal italic text-2xl" },
-  { name: "Ericsson", displayName: "ERICSSON", style: "font-light tracking-wider text-xl" },
-  { name: "ooredoo", displayName: "ooredoo", style: "font-normal text-2xl" },
-  { name: "PAN", displayName: "PAN", style: "font-bold text-2xl tracking-widest" },
-  { name: "Al Meera", displayName: "Al Meera", style: "font-normal text-xl" },
-  { name: "Jumbo", displayName: "Jumbo", style: "font-bold text-2xl" },
-  { name: "Nestlé", displayName: "Nestlé", style: "font-normal text-2xl" },
-  { name: "Apparel Group", displayName: "APPAREL GROUP", style: "font-light tracking-wide text-lg" },
-  { name: "Alshaya Group", displayName: "ALSHAYA GROUP", style: "font-light tracking-wide text-lg" },
+  { name: "IKEA", image: ikeaImage, alt: "IKEA logo" },
+  { name: "McDonald's", image: mcdonaldsImage, alt: "McDonald's logo" },
+  { name: "Qatar Airways", image: qatarAirwaysImage, alt: "Qatar Airways logo" },
+  { name: "Huawei", image: huaweiImage, alt: "Huawei logo" },
+  { name: "Carrefour", image: carrefourImage, alt: "Carrefour logo" },
+  { name: "Vodafone", image: vodafoneImage, alt: "Vodafone logo" },
+  { name: "ACE", image: aceImage, alt: "ACE logo" },
+  { name: "Jumbo", image: jumboImage, alt: "Jumbo logo" },
+  { name: "Nestlé", image: nestleImage, alt: "Nestlé logo" },
 ];
 
 export function SocialProofSection() {
@@ -40,11 +43,11 @@ export function SocialProofSection() {
                 className="flex-shrink-0 w-48 h-16 flex items-center justify-center transition-all duration-300"
                 data-testid={`brand-logo-${brand.name.toLowerCase().replace(/\s+/g, '-')}`}
               >
-                <span 
-                  className={`${brand.style} text-white/80 hover:text-white transition-all duration-300 whitespace-nowrap`}
-                >
-                  {brand.displayName}
-                </span>
+                <img 
+                  src={brand.image} 
+                  alt={brand.alt}
+                  className="max-w-full max-h-full object-contain filter invert brightness-0 opacity-80 hover:opacity-100 transition-all duration-300"
+                />
               </div>
             ))}
             {/* Duplicate set for seamless loop */}
@@ -53,11 +56,11 @@ export function SocialProofSection() {
                 key={`second-${index}`}
                 className="flex-shrink-0 w-48 h-16 flex items-center justify-center transition-all duration-300"
               >
-                <span 
-                  className={`${brand.style} text-white/80 hover:text-white transition-all duration-300 whitespace-nowrap`}
-                >
-                  {brand.displayName}
-                </span>
+                <img 
+                  src={brand.image} 
+                  alt={brand.alt}
+                  className="max-w-full max-h-full object-contain filter invert brightness-0 opacity-80 hover:opacity-100 transition-all duration-300"
+                />
               </div>
             ))}
           </div>
