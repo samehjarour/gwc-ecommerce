@@ -91,29 +91,9 @@ export function HeroSection() {
           </h1>
           
           {/* Subtitle */}
-          <p className="text-xl md:text-2xl text-white/90 mb-6 max-w-3xl mx-auto leading-relaxed" data-testid="text-hero-subtitle">
-            Transparent pricing, no hidden fees. Start selling in Saudi Arabia, UAE, Qatar with our integrated fulfillment network.
+          <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed" data-testid="text-hero-subtitle">
+            Transparent pricing, no hidden fees. Start selling in UAE, Saudi Arabia, and Qatar with our integrated fulfillment network.
           </p>
-          
-          {/* Problem/Solution Framework */}
-          <div className="mb-8 max-w-4xl mx-auto">
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-              <div className="grid md:grid-cols-2 gap-6 text-left">
-                <div>
-                  <h3 className="text-red-400 font-semibold text-lg mb-2">The Problem</h3>
-                  <p className="text-white/80 text-base">
-                    European brands struggle with complex GCC market entry, hidden fulfillment costs, and regulatory compliance.
-                  </p>
-                </div>
-                <div>
-                  <h3 className="text-green-400 font-semibold text-lg mb-2">Our Solution</h3>
-                  <p className="text-white/80 text-base">
-                    We provide transparent pricing, automated compliance, and seamless integration with your existing European operations.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
           
           
           {/* CTA Buttons */}
