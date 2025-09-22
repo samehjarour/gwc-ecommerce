@@ -78,27 +78,43 @@ export function HeroSection() {
         <div className="max-w-4xl mx-auto">
           {/* Eyebrow */}
           <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white/90 text-sm font-semibold mb-6" data-testid="text-eyebrow">
-            GWC Fulfillment Platform
+            European to GCC Market Expansion
           </div>
           
           {/* Main Title */}
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight" data-testid="text-hero-title">
-            Scale Your Brand Across{" "}
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight" data-testid="text-hero-title">
+            Expand Your European Business to the GCC's{" "}
             <span className="text-white bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
-              Three Continents
+              €25-35 Billion
             </span>{" "}
-            in One Step
+            E-Commerce Market
           </h1>
           
           {/* Subtitle */}
-          <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed" data-testid="text-hero-subtitle">
-            Instant market access across the GCC, UK, Germany, Austria, and France with a single integrated solution.
+          <p className="text-xl md:text-2xl text-white/90 mb-6 max-w-3xl mx-auto leading-relaxed" data-testid="text-hero-subtitle">
+            Transparent pricing, no hidden fees. Start selling in Saudi Arabia, UAE, Qatar with our integrated fulfillment network.
           </p>
           
-          {/* USP Pill */}
-          <div className="inline-flex items-center px-6 py-3 rounded-full bg-white/15 backdrop-blur-sm border border-white/25 text-white font-semibold mb-8" data-testid="text-usp">
-            Delivering Logistics Innovation
+          {/* Problem/Solution Framework */}
+          <div className="mb-8 max-w-4xl mx-auto">
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+              <div className="grid md:grid-cols-2 gap-6 text-left">
+                <div>
+                  <h3 className="text-red-400 font-semibold text-lg mb-2">The Problem</h3>
+                  <p className="text-white/80 text-base">
+                    European brands struggle with complex GCC market entry, hidden fulfillment costs, and regulatory compliance.
+                  </p>
+                </div>
+                <div>
+                  <h3 className="text-green-400 font-semibold text-lg mb-2">Our Solution</h3>
+                  <p className="text-white/80 text-base">
+                    We provide transparent pricing, automated compliance, and seamless integration with your existing European operations.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
+          
           
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -108,7 +124,7 @@ export function HeroSection() {
                 className="bg-white text-black hover:bg-white/90 font-semibold px-8 py-6 text-lg group"
                 data-testid="button-get-quote-hero"
               >
-                Start Your Expansion Today
+                Start Your GCC Expansion
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
