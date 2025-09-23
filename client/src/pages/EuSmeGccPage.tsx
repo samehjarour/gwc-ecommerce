@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { PricingSection } from "@/components/PricingSection";
 import { IntegrationsSection } from "@/components/IntegrationsSection";
+import { SocialProofSection } from "@/components/SocialProofSection";
 import { CheckCircle, Clock, Euro, MapPin, Shield, TrendingUp } from "lucide-react";
 import { trackPricingView, getVariant } from "@/lib/analytics";
 import { useEffect, useRef } from "react";
@@ -71,6 +72,9 @@ export default function EuSmeGccPage() {
       pageTitle="Expand Your European Business to GCC Markets | GWC Logistics"
       metaDescription="Launch your European business in the €25-35 billion GCC e-commerce market. Transparent EUR pricing, 30-day setup, automated compliance for Saudi Arabia, UAE, Qatar."
     >
+      {/* Social Proof Section */}
+      <SocialProofSection />
+
       {/* Problem & Solution Section */}
       <section className="py-20 bg-muted/30" data-testid="eu-sme-problem-solution">
         <div className="container mx-auto px-4">

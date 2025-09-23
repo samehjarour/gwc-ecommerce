@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { PricingSection } from "@/components/PricingSection";
 import { IntegrationsSection } from "@/components/IntegrationsSection";
+import { SocialProofSection } from "@/components/SocialProofSection";
 import { CheckCircle, Code, Cpu, Zap, Activity, Database, Globe, Webhook } from "lucide-react";
 import { trackPricingView, getVariant } from "@/lib/analytics";
 import { useEffect, useRef } from "react";
@@ -71,6 +72,9 @@ export default function TechInnovationPage() {
       pageTitle="Technology Innovation Leaders | Advanced Logistics APIs & ML Platform"
       metaDescription="Developer-first logistics platform with GraphQL APIs, real-time webhooks, ML-powered optimization, and blockchain transparency for technology innovation leaders."
     >
+      {/* Social Proof Section */}
+      <SocialProofSection />
+
       {/* Technical Capabilities Section */}
       <section className="py-20 bg-gradient-to-b from-background to-muted/20">
         <div className="container mx-auto px-4">

@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { PricingSection } from "@/components/PricingSection";
 import { IntegrationsSection } from "@/components/IntegrationsSection";
+import { SocialProofSection } from "@/components/SocialProofSection";
 import { CheckCircle, MapPin, Building, Users, Truck, Star, Globe, Award } from "lucide-react";
 import { trackPricingView, getVariant } from "@/lib/analytics";
 import { useEffect, useRef } from "react";
@@ -71,6 +72,9 @@ export default function UaeRegionalPage() {
       pageTitle="UAE Regional Expansion Hub | Strategic Gateway to MENA & GCC Markets"
       metaDescription="Leverage UAE as your strategic hub for regional expansion across GCC, MENA, and South Asia. Local expertise, regional partnerships, and 420M consumer access."
     >
+      {/* Social Proof Section */}
+      <SocialProofSection />
+
       {/* Strategic Advantage Section */}
       <section className="py-20 bg-gradient-to-b from-background to-muted/20">
         <div className="container mx-auto px-4">

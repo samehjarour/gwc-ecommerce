@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { PricingSection } from "@/components/PricingSection";
 import { IntegrationsSection } from "@/components/IntegrationsSection";
+import { SocialProofSection } from "@/components/SocialProofSection";
 import { CheckCircle, Heart, Shield, Users, Zap, Globe, Star, Award } from "lucide-react";
 import { trackPricingView, getVariant } from "@/lib/analytics";
 import { useEffect, useRef } from "react";
@@ -71,6 +72,9 @@ export default function GccEuMuslimPage() {
       pageTitle="GCC to European Muslim Markets | Culturally-Aware Cross-Border Commerce"
       metaDescription="Connect GCC businesses with 25+ million Muslim consumers across Europe through authentic, halal-compliant e-commerce solutions and community-trusted fulfillment."
     >
+      {/* Social Proof Section */}
+      <SocialProofSection />
+
       {/* Cultural Values Section */}
       <section className="py-20 bg-gradient-to-b from-background to-muted/20">
         <div className="container mx-auto px-4">

@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { PricingSection } from "@/components/PricingSection";
 import { IntegrationsSection } from "@/components/IntegrationsSection";
+import { SocialProofSection } from "@/components/SocialProofSection";
 import { CheckCircle, Building2, Shield, Users, BarChart3, Clock, Zap, Lock } from "lucide-react";
 import { trackPricingView, getVariant } from "@/lib/analytics";
 import { useEffect, useRef } from "react";
@@ -71,6 +72,9 @@ export default function EnterpriseCrossBorderPage() {
       pageTitle="Enterprise Cross-Border Logistics | Fortune 500 Scale Solutions"
       metaDescription="Enterprise-grade cross-border logistics with 99.9% uptime, automated compliance, dedicated support, and SOC 2 Type II security for Fortune 500 companies."
     >
+      {/* Social Proof Section */}
+      <SocialProofSection />
+
       {/* Enterprise Features Section */}
       <section className="py-20 bg-gradient-to-b from-background to-muted/20">
         <div className="container mx-auto px-4">
