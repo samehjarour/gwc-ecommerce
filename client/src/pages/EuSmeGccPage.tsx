@@ -359,6 +359,115 @@ export default function EuSmeGccPage() {
         </div>
       </section>
 
+      {/* European Partnership Section */}
+      <section className="py-20 bg-gradient-to-b from-muted/20 to-background">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <Badge variant="outline" className="mb-4" data-testid="badge-european-partnership">
+              European Strategic Partnership
+            </Badge>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6" data-testid="heading-quivo-european-partner">
+              Powered by Quivo: Your Trusted European Logistics Partner for GCC Expansion
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto" data-testid="text-european-partnership">
+              As fellow Europeans, Quivo understands the unique challenges of expanding from Europe to GCC markets. 
+              Our strategic partnership combines European business expertise with cutting-edge GCC logistics infrastructure.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <h3 className="text-2xl font-bold mb-6" data-testid="heading-european-expertise">
+                European Expertise Meets GCC Innovation
+              </h3>
+              <div className="space-y-4 mb-8">
+                <div className="flex items-center gap-3" data-testid="feature-european-understanding">
+                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
+                  <span><strong>European Business Culture:</strong> Deep understanding of EU compliance, GDPR, and business practices</span>
+                </div>
+                <div className="flex items-center gap-3" data-testid="feature-seamless-integration">
+                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
+                  <span><strong>Seamless Integration:</strong> Connect your existing European operations with GCC fulfillment</span>
+                </div>
+                <div className="flex items-center gap-3" data-testid="feature-language-support">
+                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
+                  <span><strong>Native Language Support:</strong> Customer service in German, French, Spanish, and English</span>
+                </div>
+                <div className="flex items-center gap-3" data-testid="feature-timezone-alignment">
+                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
+                  <span><strong>European Time Zones:</strong> Real-time support during European business hours</span>
+                </div>
+              </div>
+              <Button size="lg" data-testid="button-european-partnership">
+                Learn About Our European Partnership
+              </Button>
+            </div>
+
+            <div className="grid grid-cols-1 gap-6">
+              <Card className="p-8 hover-elevate" data-testid="card-european-heritage">
+                <div className="flex items-center gap-4 mb-4">
+                  <Euro className="w-10 h-10 text-primary" />
+                  <div>
+                    <h4 className="text-lg font-semibold">European Heritage</h4>
+                    <p className="text-sm text-muted-foreground">Founded in Europe</p>
+                  </div>
+                </div>
+                <p className="text-muted-foreground">
+                  Quivo's European roots ensure we understand your regulatory environment, customer expectations, and operational challenges.
+                </p>
+              </Card>
+
+              <Card className="p-8 hover-elevate" data-testid="card-regulatory-expertise">
+                <div className="flex items-center gap-4 mb-4">
+                  <Shield className="w-10 h-10 text-primary" />
+                  <div>
+                    <h4 className="text-lg font-semibold">EU Regulatory Expertise</h4>
+                    <p className="text-sm text-muted-foreground">GDPR & Compliance</p>
+                  </div>
+                </div>
+                <p className="text-muted-foreground">
+                  Navigate complex European data protection and export regulations while expanding to GCC markets seamlessly.
+                </p>
+              </Card>
+
+              <Card className="p-8 hover-elevate" data-testid="card-cross-border-bridge">
+                <div className="flex items-center gap-4 mb-4">
+                  <TrendingUp className="w-10 h-10 text-primary" />
+                  <div>
+                    <h4 className="text-lg font-semibold">Cross-Border Bridge</h4>
+                    <p className="text-sm text-muted-foreground">Europe ↔ GCC</p>
+                  </div>
+                </div>
+                <p className="text-muted-foreground">
+                  Our bi-continental presence creates the perfect bridge between European business practices and GCC market opportunities.
+                </p>
+              </Card>
+            </div>
+          </div>
+
+          <div className="mt-16 text-center">
+            <div className="grid md:grid-cols-4 gap-8">
+              <div className="text-center" data-testid="metric-european-clients">
+                <div className="text-3xl font-bold text-primary mb-2">500+</div>
+                <div className="text-sm text-muted-foreground">European Clients</div>
+              </div>
+              <div className="text-center" data-testid="metric-eu-compliance">
+                <div className="text-3xl font-bold text-primary mb-2">100%</div>
+                <div className="text-sm text-muted-foreground">EU Compliance</div>
+              </div>
+              <div className="text-center" data-testid="metric-languages">
+                <div className="text-3xl font-bold text-primary mb-2">15+</div>
+                <div className="text-sm text-muted-foreground">European Languages</div>
+              </div>
+              <div className="text-center" data-testid="metric-expansion-success">
+                <div className="text-3xl font-bold text-primary mb-2">94%</div>
+                <div className="text-sm text-muted-foreground">Expansion Success Rate</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Pricing Section */}
       <div id="pricing" ref={pricingRef}>
         <PricingSection />
