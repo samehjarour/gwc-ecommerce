@@ -3,6 +3,7 @@ import { HeroSection } from "@/components/HeroSection";
 import { SocialProofSection } from "@/components/SocialProofSection";
 import { StatsSection } from "@/components/StatsSection";
 import { ServicesSection } from "@/components/ServicesSection";
+import { DetailedServicesSection } from "@/components/DetailedServicesSection";
 import { AnalyticsSection } from "@/components/AnalyticsSection";
 import { LocationsSection } from "@/components/LocationsSection";
 import { IntegrationsSection } from "@/components/IntegrationsSection";
@@ -18,6 +19,7 @@ export function HomePage() {
         <SocialProofSection />
         <StatsSection />
         <ServicesSection />
+        <DetailedServicesSection />
         <AnalyticsSection />
         <LocationsSection />
         <IntegrationsSection />
