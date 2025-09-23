@@ -27,10 +27,10 @@ export function IntegrationsSection() {
               Powered by Quivo Integration
             </div>
             <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6" data-testid="text-partnership-title">
-              Simple, Intuitive, and Powerful Platform
+              Global Solutions Powered by Quivo Partnership
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-              Through our integration with <a href="https://quivo.co/us/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-semibold">Quivo</a>, we provide a user-friendly platform that makes it incredibly easy to integrate your online store and start selling across the GCC region. Our priority was to make it as simple as possible for European businesses to expand.
+              Advanced fulfillment technologies and platforms engineered for your business requirements through our strategic alliance with <a href="https://quivo.co/us/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-semibold">Quivo</a>.
             </p>
             <div className="grid md:grid-cols-3 gap-8 mb-16">
               <div className="text-center p-6">
