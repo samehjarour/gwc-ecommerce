@@ -60,23 +60,23 @@ export function StatsSection() {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           <StatItem 
-            number="9" 
-            label="Fulfillment Centers across GCC, Europe and US" 
+            number="10+" 
+            label="E-Comm Fulfillment Centers across GCC, EU & US" 
             delay={0}
           />
           <StatItem 
-            number="99.9%" 
-            label="Order picking accuracy rate" 
+            number="99.5%" 
+            label="Order Processing and Delivery Accuracy" 
             delay={200}
           />
           <StatItem 
-            number="3x" 
-            label="Productivity over manual operation" 
+            number="Same-Day" 
+            label="Same-Day and next day delivery" 
             delay={400}
           />
           <StatItem 
-            number="15k" 
-            label="Order fulfillment capacity per day" 
+            number="24hrs" 
+            label="Returns processed within 24 hours" 
             delay={600}
           />
         </div>
