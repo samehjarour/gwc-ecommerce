@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { CheckCircle, Clock, Shield, Truck, Package, Globe, Star, Zap, Activity, Database, MapPin } from "lucide-react";
 import { useState } from "react";
+import { Link } from "wouter";
 import truckImage from "@assets/GWC Truck - Riyadh_1_1757527184708.jpg";
 
 export function HomePageAlternative() {
@@ -35,9 +36,11 @@ export function HomePageAlternative() {
                 Trusted by 100+ European brands to expand across GCC markets. One platform, instant integration, same-day fulfillment across 6 countries.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <Button size="lg" data-testid="button-get-quote">
-                  Get Instant Quote
-                </Button>
+                <Link href="/quote">
+                  <Button size="lg" data-testid="button-get-quote">
+                    Get Instant Quote
+                  </Button>
+                </Link>
                 <Button variant="outline" size="lg" data-testid="button-watch-demo">
                   <span className="mr-2">▶</span>
                   Watch Demo
