@@ -71,9 +71,10 @@ export function AnalyticsSection() {
               variant="outline" 
               size="lg"
               className="font-semibold hover-elevate"
-              data-testid="button-learn-more-analytics"
+              data-testid="button-see-pricing"
+              onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
             >
-              Learn More
+              See Pricing
             </Button>
           </div>
 

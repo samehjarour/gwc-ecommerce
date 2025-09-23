@@ -5,6 +5,7 @@ import { StatsSection } from "@/components/StatsSection";
 import { ServicesSection } from "@/components/ServicesSection";
 import { DetailedServicesSection } from "@/components/DetailedServicesSection";
 import { AnalyticsSection } from "@/components/AnalyticsSection";
+import { PricingSection } from "@/components/PricingSection";
 import { LocationsSection } from "@/components/LocationsSection";
 import { IntegrationsSection } from "@/components/IntegrationsSection";
 import { CTASection } from "@/components/CTASection";
@@ -21,6 +22,7 @@ export function HomePage() {
         <ServicesSection />
         <DetailedServicesSection />
         <AnalyticsSection />
+        <PricingSection />
         <LocationsSection />
         <IntegrationsSection />
         <CTASection />
