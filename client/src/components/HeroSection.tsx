@@ -83,11 +83,7 @@ export function HeroSection() {
           
           {/* Main Title */}
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight" data-testid="text-hero-title">
-            Expand Your European Business to the GCC's{" "}
-            <span className="text-white bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
-              €25-35 Billion
-            </span>{" "}
-            E-Commerce Market
+            Expand Your European E-commerce Business to the GCC
           </h1>
           
           {/* Subtitle */}
