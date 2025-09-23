@@ -57,7 +57,13 @@ export function HeroSection() {
       <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/50 to-black/70 z-10" />
       
       {/* Animated Logo Dots */}
-      <div className="absolute top-20 right-20 z-20 hidden lg:block" data-testid="logo-dots">
+      <div 
+        className="fixed top-20 right-20 z-20 hidden lg:block" 
+        data-testid="logo-dots"
+        style={{
+          transform: `translateY(${scrollY * 0.3}px)`,
+        }}
+      >
         {[...Array(9)].map((_, i) => (
           <div
             key={i}
