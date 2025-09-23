@@ -1,4 +1,4 @@
-import { type User, type InsertUser, type Quote, type InsertQuote } from "@shared/schema";
+import { type User, type InsertUser, type Quote, type InsertQuote, type AnalyticsEvent, type InsertAnalyticsEvent } from "@shared/schema";
 import { randomUUID } from "crypto";
 
 // modify the interface with any CRUD methods
@@ -12,15 +12,19 @@ export interface IStorage {
   getQuote(id: string): Promise<Quote | undefined>;
   getQuotes(): Promise<Quote[]>;
   updateQuoteStatus(id: string, status: string): Promise<Quote | undefined>;
+  createAnalyticsEvent(event: InsertAnalyticsEvent): Promise<AnalyticsEvent>;
+  getAnalyticsEvents(filters?: { segment?: string; page?: string; variant?: string }): Promise<AnalyticsEvent[]>;
 }
 
 export class MemStorage implements IStorage {
   private users: Map<string, User>;
   private quotes: Map<string, Quote>;
+  private analyticsEvents: Map<string, AnalyticsEvent>;
 
   constructor() {
     this.users = new Map();
     this.quotes = new Map();
+    this.analyticsEvents = new Map();
   }
 
   async getUser(id: string): Promise<User | undefined> {
@@ -73,6 +77,37 @@ export class MemStorage implements IStorage {
       return updatedQuote;
     }
     return undefined;
+  }
+
+  async createAnalyticsEvent(insertEvent: InsertAnalyticsEvent): Promise<AnalyticsEvent> {
+    const id = randomUUID();
+    const event: AnalyticsEvent = { 
+      ...insertEvent, 
+      id, 
+      timestamp: new Date(),
+      userId: insertEvent.userId || null,
+      meta: insertEvent.meta || null
+    };
+    this.analyticsEvents.set(id, event);
+    return event;
+  }
+
+  async getAnalyticsEvents(filters?: { segment?: string; page?: string; variant?: string }): Promise<AnalyticsEvent[]> {
+    let events = Array.from(this.analyticsEvents.values());
+    
+    if (filters) {
+      if (filters.segment) {
+        events = events.filter(e => e.segment === filters.segment);
+      }
+      if (filters.page) {
+        events = events.filter(e => e.page === filters.page);
+      }
+      if (filters.variant) {
+        events = events.filter(e => e.variant === filters.variant);
+      }
+    }
+
+    return events.sort((a, b) => b.timestamp.getTime() - a.timestamp.getTime());
   }
 }
 

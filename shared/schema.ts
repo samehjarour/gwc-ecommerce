@@ -26,6 +26,18 @@ export const quotes = pgTable("quotes", {
   updatedAt: timestamp("updated_at").defaultNow().notNull(),
 });
 
+export const analyticsEvents = pgTable("analytics_events", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  sessionId: text("session_id").notNull(),
+  userId: text("user_id"), // Optional user ID for logged-in users
+  page: text("page").notNull(), // /eu-sme-gcc, /tech, etc.
+  segment: text("segment").notNull(), // eu-sme, tech, uae-regional
+  variant: text("variant").notNull(), // A, B for A/B testing
+  event: text("event").notNull(), // view, cta_click, form_submit, scroll_depth
+  meta: jsonb("meta"), // Additional data like CTA ID, scroll percentage
+  timestamp: timestamp("timestamp").defaultNow().notNull(),
+});
+
 export const insertUserSchema = createInsertSchema(users).pick({
   username: true,
   password: true,
@@ -44,7 +56,21 @@ export const insertQuoteSchema = createInsertSchema(quotes).omit({
   phone: z.string().min(1, "Phone number is required"),
 });
 
+export const insertAnalyticsEventSchema = createInsertSchema(analyticsEvents).omit({
+  id: true,
+  timestamp: true,
+}).extend({
+  sessionId: z.string().min(1, "Session ID is required"),
+  page: z.string().min(1, "Page is required"),
+  segment: z.enum(["eu-sme", "tech", "uae-regional", "gcc-to-eu", "enterprise"]),
+  variant: z.enum(["A", "B"]),
+  event: z.enum(["view", "cta_click", "form_submit", "scroll_depth", "pricing_view"]),
+  meta: z.record(z.any()).optional(),
+});
+
 export type InsertUser = z.infer<typeof insertUserSchema>;
 export type User = typeof users.$inferSelect;
 export type InsertQuote = z.infer<typeof insertQuoteSchema>;
 export type Quote = typeof quotes.$inferSelect;
+export type InsertAnalyticsEvent = z.infer<typeof insertAnalyticsEventSchema>;
+export type AnalyticsEvent = typeof analyticsEvents.$inferSelect;
