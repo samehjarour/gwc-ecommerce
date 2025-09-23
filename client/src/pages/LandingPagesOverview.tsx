@@ -90,6 +90,14 @@ const landingPages = [
     target: "Design Test"
   },
   {
+    path: "/dynamic",
+    name: "Dynamic Parallax Page", 
+    description: "Maximum parallax effects inspired by IQ Fulfillment with dynamic gradients",
+    category: "Home Pages",
+    icon: Zap,
+    target: "Interactive Demo"
+  },
+  {
     path: "/eu-sme-gcc",
     name: "EU SME → GCC Landing",
     description: "European SMEs expanding to GCC markets with Quivo partnership messaging",

@@ -1,43 +1,85 @@
 import { ArrowRight, ChevronDown, Package, Truck, Globe2, Users, BarChart3, Zap, Clock, Shield, Target } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useEffect, useState } from "react";
-import { trackEvent } from "@/lib/analytics";
+import { useEffect, useState, useMemo, useRef, useCallback } from "react";
+import { trackEvent, trackScrollDepth } from "@/lib/analytics";
 
 export default function HomePageDynamic() {
   const [scrollY, setScrollY] = useState(0);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const scrollDepthTracked = useRef(new Set<number>());
+  const scrollYRef = useRef(0);
+  const mouseRef = useRef({ x: 0, y: 0 });
+  const rafId = useRef<number | null>(null);
 
-  // Parallax scroll tracking
-  useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+  // Stable floating elements - only generated once
+  const floatingElements = useMemo(() => 
+    Array.from({ length: 12 }).map((_, i) => ({
+      id: i,
+      size: Math.random() * 100 + 50,
+      delay: Math.random() * 5,
+      duration: Math.random() * 10 + 15,
+      x: Math.random() * 100,
+      y: Math.random() * 100,
+    })), []);
+
+  // Optimized animation loop with rAF
+  const updateParallax = useCallback(() => {
+    setScrollY(scrollYRef.current);
+    setMousePosition(mouseRef.current);
+    rafId.current = requestAnimationFrame(updateParallax);
+  }, []);
+
+  // Optimized scroll tracking with throttling
+  const handleScroll = useCallback(() => {
+    scrollYRef.current = window.scrollY;
+    const scrollPercentage = Math.round(
+      (scrollYRef.current / (document.documentElement.scrollHeight - window.innerHeight)) * 100
+    );
+    
+    // Track scroll depth milestones with page parameter
+    [25, 50, 75, 100].forEach(milestone => {
+      if (scrollPercentage >= milestone && !scrollDepthTracked.current.has(milestone)) {
+        scrollDepthTracked.current.add(milestone);
+        trackEvent({
+          page: window.location.pathname,
+          segment: 'home_dynamic',
+          variant: 'A',
+          event: 'scroll_depth',
+          meta: { depth: milestone }
+        });
+      }
+    });
   }, []);
 
   // Mouse tracking for dynamic elements
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+  const handleMouseMove = useCallback((e: MouseEvent) => {
+    mouseRef.current = { x: e.clientX, y: e.clientY };
   }, []);
 
-  // Floating animation keyframes
-  const floatingElements = Array.from({ length: 12 }).map((_, i) => ({
-    id: i,
-    size: Math.random() * 100 + 50,
-    delay: Math.random() * 5,
-    duration: Math.random() * 10 + 15,
-    x: Math.random() * 100,
-    y: Math.random() * 100,
-  }));
+  // Optimized event listeners with rAF animation loop
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
+    
+    // Start animation loop
+    rafId.current = requestAnimationFrame(updateParallax);
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('mousemove', handleMouseMove);
+      if (rafId.current) {
+        cancelAnimationFrame(rafId.current);
+      }
+    };
+  }, [handleScroll, handleMouseMove, updateParallax]);
 
   const handleCTAClick = (action: string) => {
-    trackEvent('cta_click', {
-      page: 'home_dynamic',
-      action,
-      section: 'hero'
+    trackEvent({
+      page: window.location.pathname,
+      segment: 'home_dynamic',
+      variant: 'A',
+      event: 'cta_click',
+      meta: { action, section: 'hero' }
     });
   };
 
@@ -54,6 +96,14 @@ export default function HomePageDynamic() {
       meta.content = 'Experience next-generation e-commerce fulfillment with GWC\'s dynamic, parallax-powered platform. Delivering logistics innovation across the GCC and MENA regions.';
       document.head.appendChild(meta);
     }
+
+    // Track page view
+    trackEvent({
+      page: window.location.pathname,
+      segment: 'home_dynamic',
+      variant: 'A',
+      event: 'view'
+    });
   }, []);
 
   return (
@@ -111,14 +161,18 @@ export default function HomePageDynamic() {
         >
           {/* Animated Badge */}
           <div 
-            className="inline-flex items-center px-6 py-3 rounded-full bg-white/15 backdrop-blur-xl border border-white/30 text-white/95 text-sm font-semibold mb-8 hover:scale-105 transition-all duration-300"
-            data-testid="text-hero-badge"
+            className="hover:scale-105 transition-transform duration-300"
             style={{
               transform: `translateX(${(mousePosition.x - 960) * 0.02}px)`,
             }}
           >
-            <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse mr-3"></div>
-            رُوّاد الإبداع اللوجستي • Delivering _Logistics_ Innovation
+            <div 
+              className="inline-flex items-center px-6 py-3 rounded-full bg-white/15 backdrop-blur-xl border border-white/30 text-white/95 text-sm font-semibold mb-8 transition-all duration-300"
+              data-testid="text-hero-badge"
+            >
+              <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse mr-3"></div>
+              رُوّاد الإبداع اللوجستي • Delivering _Logistics_ Innovation
+            </div>
           </div>
 
           {/* Main Headline with Parallax Typography */}
@@ -164,26 +218,30 @@ export default function HomePageDynamic() {
               transform: `translateY(${scrollY * 0.03}px)`,
             }}
           >
-            <Button
-              size="lg"
-              className="bg-white text-green-600 hover:bg-white/95 font-semibold px-8 py-6 text-lg group shadow-2xl hover:shadow-green-500/25 hover:scale-105 transition-all duration-300"
-              data-testid="button-get-quote"
-              onClick={() => handleCTAClick('get_quote')}
-            >
-              Get Fulfillment Quote
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
+            <div className="hover:scale-105 transition-transform duration-300">
+              <Button
+                size="lg"
+                className="bg-white text-green-600 hover:bg-white/95 font-semibold px-8 py-6 text-lg group shadow-2xl hover:shadow-green-500/25 transition-all duration-300"
+                data-testid="button-get-quote"
+                onClick={() => handleCTAClick('get_quote')}
+              >
+                Get Fulfillment Quote
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </div>
             
-            <Button
-              variant="outline"
-              size="lg"
-              className="border-white/30 bg-white/10 text-white hover:bg-white/20 backdrop-blur-xl font-semibold px-8 py-6 text-lg hover:scale-105 transition-all duration-300"
-              data-testid="button-watch-demo"
-              onClick={() => handleCTAClick('watch_demo')}
-            >
-              <Package className="mr-2 h-5 w-5" />
-              Watch Process Demo
-            </Button>
+            <div className="hover:scale-105 transition-transform duration-300">
+              <Button
+                variant="outline"
+                size="lg"
+                className="border-white/30 bg-white/10 text-white hover:bg-white/20 backdrop-blur-xl font-semibold px-8 py-6 text-lg transition-all duration-300"
+                data-testid="button-watch-demo"
+                onClick={() => handleCTAClick('watch_demo')}
+              >
+                <Package className="mr-2 h-5 w-5" />
+                Watch Process Demo
+              </Button>
+            </div>
           </div>
 
           {/* Scroll Indicator with Animation */}
@@ -302,23 +360,27 @@ export default function HomePageDynamic() {
                 delay: 200
               }
             ].map((solution, index) => (
-              <div 
+              <div
                 key={index}
-                className="bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-500 border border-gray-100"
-                data-testid={`card-solution-${index}`}
+                className="hover:scale-105 transition-transform duration-500"
                 style={{
                   transform: `translateY(${scrollY * (0.05 + index * 0.02)}px) translateX(${Math.sin((scrollY + solution.delay) / 400) * 5}px)`,
                 }}
               >
+                <div 
+                  className="bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100"
+                  data-testid={`card-solution-${index}`}
+                >
                 <div className="text-green-600 mb-4">
                   {solution.icon}
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">
                   {solution.title}
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  {solution.description}
-                </p>
+                  <p className="text-gray-600 leading-relaxed">
+                    {solution.description}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
@@ -386,7 +448,7 @@ export default function HomePageDynamic() {
       <section className="relative py-32 bg-white overflow-hidden">
         {/* Floating Background Elements */}
         <div className="absolute inset-0">
-          {Array.from({ length: 6 }, (_, i) => (
+          {Array.from({ length: 6 }).map((_, i) => (
             <div
               key={i}
               className="absolute rounded-full bg-gradient-to-r from-green-100 to-cyan-100 opacity-30"
@@ -432,10 +494,10 @@ export default function HomePageDynamic() {
             ].map((step, index) => (
               <div 
                 key={index}
-                className="text-center group hover:scale-105 transition-all duration-500"
+                className="text-center group"
                 data-testid={`step-${index}`}
                 style={{
-                  transform: `translateY(${scrollY * (0.03 + index * 0.01)}px) translateX(${Math.sin((scrollY + index * 300) / 600) * 10}px)`,
+                  transform: `translateY(${scrollY * (0.03 + index * 0.01)}px) translateX(${Math.sin((scrollY + index * 300) / 600) * 10}px) scale(${1 + (mousePosition.x > 0 ? Math.sin((scrollY + index * 200) / 400) * 0.02 : 0)})`,
                 }}
               >
                 <div 
@@ -477,7 +539,7 @@ export default function HomePageDynamic() {
 
         {/* Floating Geometric Shapes */}
         <div className="absolute inset-0">
-          {Array.from({ length: 8 }, (_, i) => (
+          {Array.from({ length: 8 }).map((_, i) => (
             <div
               key={i}
               className="absolute"
@@ -517,18 +579,22 @@ export default function HomePageDynamic() {
             Join 100+ brands that trust GWC for their logistics success. Start your fulfillment transformation now.
           </p>
 
-          <Button
-            size="lg"
-            className="bg-gradient-to-r from-green-500 to-cyan-500 hover:from-green-600 hover:to-cyan-600 text-white font-bold px-12 py-6 text-xl shadow-2xl hover:shadow-green-500/50 hover:scale-110 transition-all duration-500"
-            data-testid="button-final-cta"
+          <div 
+            className="hover:scale-110 transition-transform duration-500"
             style={{
               transform: `translateY(${scrollY * 0.02}px) scale(${1 + Math.sin(scrollY / 400) * 0.02})`,
             }}
-            onClick={() => handleCTAClick('get_started')}
           >
-            Get Fulfillment Rates Now
-            <ArrowRight className="ml-3 h-6 w-6" />
-          </Button>
+            <Button
+              size="lg"
+              className="bg-gradient-to-r from-green-500 to-cyan-500 hover:from-green-600 hover:to-cyan-600 text-white font-bold px-12 py-6 text-xl shadow-2xl hover:shadow-green-500/50 transition-all duration-500"
+              data-testid="button-final-cta"
+              onClick={() => handleCTAClick('get_started')}
+            >
+              Get Fulfillment Rates Now
+              <ArrowRight className="ml-3 h-6 w-6" />
+            </Button>
+          </div>
         </div>
       </section>
     </div>
