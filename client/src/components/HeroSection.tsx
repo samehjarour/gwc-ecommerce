@@ -112,10 +112,10 @@ export function HeroSection() {
               variant="outline" 
               size="lg" 
               className="border-white/30 bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm font-semibold px-8 py-6 text-lg"
-              onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
-              data-testid="button-learn-more"
+              onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
+              data-testid="button-see-pricing"
             >
-              Learn More
+              See Pricing
             </Button>
           </div>
         </div>
