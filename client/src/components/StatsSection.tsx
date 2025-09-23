@@ -70,7 +70,7 @@ export function StatsSection() {
             delay={200}
           />
           <StatItem 
-            number="Same-Day" 
+            number="1" 
             label="Same-Day and next day delivery" 
             delay={400}
           />
