@@ -1,14 +1,19 @@
-import { ShoppingBag, Package, Moon, ShoppingCart, Target, Globe, Smartphone, Settings, DollarSign, Shield, Clock } from "lucide-react";
+import shopifyLogo from "@assets/shopify_1758598346980.png";
+import amazonLogo from "@assets/amazon_1758598346980.png";
+import wooLogo from "@assets/woo (1)_1758598346980.png";
+import wixLogo from "@assets/wix_1758598346981.png";
+import tiktokLogo from "@assets/tiktok_1758598346981.png";
+import billbeeLogo from "@assets/billbee_1758598346981.png";
+import ottoLogo from "@assets/otto_1758598346981.png";
 
 const integrations = [
-  { icon: ShoppingBag, name: "Shopify" },
-  { icon: Package, name: "Amazon FBM" },
-  { icon: Moon, name: "Noon" },
-  { icon: ShoppingCart, name: "WooCommerce" },
-  { icon: Target, name: "Magento" },
-  { icon: Globe, name: "Wix" },
-  { icon: Smartphone, name: "TikTok Shop" },
-  { icon: Settings, name: "PrestaShop" },
+  { logo: shopifyLogo, name: "Shopify" },
+  { logo: amazonLogo, name: "Amazon FBM" },
+  { logo: wooLogo, name: "WooCommerce" },
+  { logo: wixLogo, name: "Wix" },
+  { logo: tiktokLogo, name: "TikTok Shop" },
+  { logo: billbeeLogo, name: "Billbee" },
+  { logo: ottoLogo, name: "Otto" },
 ];
 
 export function IntegrationsSection() {
@@ -22,33 +27,6 @@ export function IntegrationsSection() {
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-12">
             Seamlessly connect with your favorite platforms and start selling today
           </p>
-          
-          {/* European to GCC Benefits */}
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-12">
-            <div className="text-center p-6 bg-card rounded-xl border border-card-border hover-elevate transition-all duration-300" data-testid="benefit-pricing">
-              <div className="w-16 h-16 mx-auto mb-4 bg-green-100 dark:bg-green-900/20 rounded-full flex items-center justify-center">
-                <DollarSign className="w-8 h-8 text-green-600 dark:text-green-400" />
-              </div>
-              <h3 className="text-xl font-semibold text-foreground mb-2">Transparent Pricing</h3>
-              <p className="text-muted-foreground">No hidden fees - see exact costs upfront with our pricing calculator</p>
-            </div>
-            
-            <div className="text-center p-6 bg-card rounded-xl border border-card-border hover-elevate transition-all duration-300" data-testid="benefit-compliance">
-              <div className="w-16 h-16 mx-auto mb-4 bg-blue-100 dark:bg-blue-900/20 rounded-full flex items-center justify-center">
-                <Shield className="w-8 h-8 text-blue-600 dark:text-blue-400" />
-              </div>
-              <h3 className="text-xl font-semibold text-foreground mb-2">Regulatory Compliance</h3>
-              <p className="text-muted-foreground">Automated handling of GCC customs, VAT, and product certifications</p>
-            </div>
-            
-            <div className="text-center p-6 bg-card rounded-xl border border-card-border hover-elevate transition-all duration-300" data-testid="benefit-fast-entry">
-              <div className="w-16 h-16 mx-auto mb-4 bg-orange-100 dark:bg-orange-900/20 rounded-full flex items-center justify-center">
-                <Clock className="w-8 h-8 text-orange-600 dark:text-orange-400" />
-              </div>
-              <h3 className="text-xl font-semibold text-foreground mb-2">Fast Market Entry</h3>
-              <p className="text-muted-foreground">Launch in GCC within 30 days with pre-approved fulfillment centers</p>
-            </div>
-          </div>
         </div>
         
         {/* Integration Cards Carousel */}
@@ -62,8 +40,12 @@ export function IntegrationsSection() {
                 data-testid={`integration-${integration.name.toLowerCase().replace(/\s+/g, '-')}`}
               >
                 <div className="text-center">
-                  <div className="w-12 h-12 mx-auto mb-4 bg-primary/10 rounded-lg flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                    <integration.icon className="w-6 h-6" />
+                  <div className="w-12 h-12 mx-auto mb-4 bg-white rounded-lg flex items-center justify-center p-2">
+                    <img 
+                      src={integration.logo} 
+                      alt={`${integration.name} logo`}
+                      className="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all"
+                    />
                   </div>
                   <span className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">
                     {integration.name}
@@ -78,8 +60,12 @@ export function IntegrationsSection() {
                 className="flex-shrink-0 w-40 p-6 bg-card border border-card-border rounded-xl hover-elevate transition-all duration-300 hover:scale-105 group"
               >
                 <div className="text-center">
-                  <div className="w-12 h-12 mx-auto mb-4 bg-primary/10 rounded-lg flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                    <integration.icon className="w-6 h-6" />
+                  <div className="w-12 h-12 mx-auto mb-4 bg-white rounded-lg flex items-center justify-center p-2">
+                    <img 
+                      src={integration.logo} 
+                      alt={`${integration.name} logo`}
+                      className="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all"
+                    />
                   </div>
                   <span className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">
                     {integration.name}
