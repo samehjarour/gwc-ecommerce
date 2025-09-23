@@ -76,7 +76,7 @@
   --chart-4: 200 85% 35%;
   --chart-5: 240 85% 35%;
 
-  --font-sans: Open Sans, sans-serif;
+  --font-sans: "proxima-nova", sans-serif;
   --font-serif: Georgia, serif;
   --font-mono: Menlo, monospace;
   --radius: .5rem; /* 8px */
