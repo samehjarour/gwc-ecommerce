@@ -49,7 +49,7 @@ export default function TechInnovationPage() {
     backgroundImage: truckImage,
     eyebrow: "Technology Innovation Leaders",
     headline: "Power Next-Gen Commerce with Real-Time APIs, Machine Learning, and Sub-100ms Global Logistics",
-    subheadline: "Developer-first platform with GraphQL APIs, real-time webhooks, ML-powered route optimization, and blockchain transparency. Built for tech leaders who demand cutting-edge logistics infrastructure.",
+    subheadline: "Developer-first platform with GraphQL APIs, real-time webhooks, ML-powered route optimization, and advanced data analytics. Built for tech leaders who demand cutting-edge logistics infrastructure.",
     primaryCTA: {
       text: "Explore Developer APIs",
       onClick: () => {
@@ -70,7 +70,7 @@ export default function TechInnovationPage() {
       heroConfig={heroConfig}
       testIdPrefix="tech-innovation"
       pageTitle="Technology Innovation Leaders | Advanced Logistics APIs & ML Platform"
-      metaDescription="Developer-first logistics platform with GraphQL APIs, real-time webhooks, ML-powered optimization, and blockchain transparency for technology innovation leaders."
+      metaDescription="Developer-first logistics platform with GraphQL APIs, real-time webhooks, ML-powered optimization, and advanced data analytics for technology innovation leaders."
     >
       {/* Social Proof Section */}
       <SocialProofSection />
@@ -122,12 +122,12 @@ export default function TechInnovationPage() {
               </CardContent>
             </Card>
 
-            <Card className="text-center hover-elevate" data-testid="card-blockchain-transparency">
+            <Card className="text-center hover-elevate" data-testid="card-data-transparency">
               <CardContent className="pt-8 pb-8">
                 <Database className="w-12 h-12 text-primary mx-auto mb-4" />
-                <h3 className="text-xl font-semibold mb-3">Blockchain Tracking</h3>
+                <h3 className="text-xl font-semibold mb-3">Data Transparency</h3>
                 <p className="text-muted-foreground">
-                  Immutable shipment records with cryptographic proof for complete supply chain transparency.
+                  Comprehensive audit trails with immutable records for complete supply chain visibility and compliance.
                 </p>
               </CardContent>
             </Card>
