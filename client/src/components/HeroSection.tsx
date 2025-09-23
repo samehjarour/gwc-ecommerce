@@ -62,7 +62,7 @@ export function HeroSection() {
           <div
             key={i}
             className={`absolute w-3 h-3 rounded-full transition-transform duration-500 ease-out ${
-              i % 3 === 0 ? 'bg-blue-400' : i % 3 === 1 ? 'bg-green-400' : 'bg-blue-500'
+              i % 3 === 0 ? 'bg-[#00B6CC]' : i % 3 === 1 ? 'bg-green-400' : 'bg-[#00B6CC]'
             }`}
             style={{
               left: `${(i % 3) * 20 + mousePosition.x * 10}px`,

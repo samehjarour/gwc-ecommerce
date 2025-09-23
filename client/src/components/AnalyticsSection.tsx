@@ -101,7 +101,7 @@ export function AnalyticsSection() {
                   <div className="w-16 h-16 mx-auto relative">
                     <svg className="w-16 h-16 transform -rotate-90" viewBox="0 0 32 32">
                       <circle cx="16" cy="16" r="14" stroke="#374151" strokeWidth="2" fill="none" />
-                      <circle cx="16" cy="16" r="14" stroke="#3B82F6" strokeWidth="2" strokeDasharray="70 30" strokeLinecap="round" fill="none" />
+                      <circle cx="16" cy="16" r="14" stroke="#00B6CC" strokeWidth="2" strokeDasharray="70 30" strokeLinecap="round" fill="none" />
                     </svg>
                   </div>
                 </div>
@@ -110,10 +110,10 @@ export function AnalyticsSection() {
                 <div className="bg-slate-800 rounded-lg p-4">
                   <div className="text-slate-300 text-sm mb-3">Delivery by Country</div>
                   <div className="flex items-end justify-center space-x-1 h-12">
-                    <div className="w-3 h-8 bg-blue-500 rounded-t"></div>
-                    <div className="w-3 h-10 bg-blue-600 rounded-t"></div>
-                    <div className="w-3 h-6 bg-blue-400 rounded-t"></div>
-                    <div className="w-3 h-9 bg-blue-500 rounded-t"></div>
+                    <div className="w-3 h-8 bg-[#00B6CC] rounded-t"></div>
+                    <div className="w-3 h-10 bg-[#00B6CC] rounded-t"></div>
+                    <div className="w-3 h-6 bg-[#00B6CC] rounded-t"></div>
+                    <div className="w-3 h-9 bg-[#00B6CC] rounded-t"></div>
                   </div>
                 </div>
               </div>
