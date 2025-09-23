@@ -6,6 +6,10 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { HomePage } from "@/pages/HomePage";
 import { QuotePage } from "@/pages/QuotePage";
 import EuSmeGccPage from "@/pages/EuSmeGccPage";
+import GccEuMuslimPage from "@/pages/GccEuMuslimPage";
+import EnterpriseCrossBorderPage from "@/pages/EnterpriseCrossBorderPage";
+import TechInnovationPage from "@/pages/TechInnovationPage";
+import UaeRegionalPage from "@/pages/UaeRegionalPage";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -14,6 +18,10 @@ function Router() {
       <Route path="/" component={HomePage} />
       <Route path="/quote" component={QuotePage} />
       <Route path="/eu-sme-gcc" component={EuSmeGccPage} />
+      <Route path="/gcc-eu-muslim" component={GccEuMuslimPage} />
+      <Route path="/enterprise-cross-border" component={EnterpriseCrossBorderPage} />
+      <Route path="/tech-innovation" component={TechInnovationPage} />
+      <Route path="/uae-regional" component={UaeRegionalPage} />
       <Route component={NotFound} />
     </Switch>
   );
