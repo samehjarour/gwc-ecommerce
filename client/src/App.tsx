@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { HomePage } from "@/pages/HomePage";
 import { HomePageEnterprise } from "@/pages/HomePageEnterprise";
+import { HomePageAlternative } from "@/pages/HomePageAlternative";
 import { QuotePage } from "@/pages/QuotePage";
 import EuSmeGccPage from "@/pages/EuSmeGccPage";
 import GccEuMuslimPage from "@/pages/GccEuMuslimPage";
@@ -18,6 +19,7 @@ function Router() {
     <Switch>
       <Route path="/" component={HomePage} />
       <Route path="/enterprise" component={HomePageEnterprise} />
+      <Route path="/alternative" component={HomePageAlternative} />
       <Route path="/quote" component={QuotePage} />
       <Route path="/eu-sme-gcc" component={EuSmeGccPage} />
       <Route path="/gcc-eu-muslim" component={GccEuMuslimPage} />
