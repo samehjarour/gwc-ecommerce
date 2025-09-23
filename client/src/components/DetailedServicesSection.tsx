@@ -10,7 +10,7 @@ import {
   Gift 
 } from "lucide-react";
 import warehouseImage from "@assets/DJI_0432-HDR_1758598111840.jpg";
-import automationImage from "@assets/GWC automation_1758599439347.jpg";
+import technologyImage from "@assets/technology_1758599610299.webp";
 
 interface ServiceItemProps {
   icon: React.ReactNode;
@@ -224,8 +224,8 @@ export function DetailedServicesSection() {
       
       <ServiceSection
         services={secondGroupServices}
-        image={automationImage}
-        imageAlt="GWC Automation Technology"
+        image={technologyImage}
+        imageAlt="GWC Technology Professional"
         title="Advanced Technology Solutions"
         subtitle="Cutting-edge automation and intelligent systems for maximum efficiency"
         imageLeft={false}
