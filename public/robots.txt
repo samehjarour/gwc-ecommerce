@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://gwc-samehjarour.replit.app/sitemap.xml
+
+# Important pages
+Allow: /landing-pages
+Allow: /quote
+Allow: /eu-sme-gcc
+Allow: /gcc-eu-muslim
+Allow: /enterprise-cross-border
+Allow: /tech-innovation
+Allow: /uae-regional
+Allow: /enterprise
+Allow: /alternative
+Allow: /lead
