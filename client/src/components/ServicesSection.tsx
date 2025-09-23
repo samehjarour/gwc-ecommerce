@@ -7,9 +7,10 @@ interface ServiceCardProps {
   title: string;
   description: string;
   delay?: number;
+  gradient?: boolean;
 }
 
-function ServiceCard({ icon, title, description, delay = 0 }: ServiceCardProps) {
+function ServiceCard({ icon, title, description, delay = 0, gradient = false }: ServiceCardProps) {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -37,7 +38,7 @@ function ServiceCard({ icon, title, description, delay = 0 }: ServiceCardProps) 
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
       }`}
     >
-      <Card className="h-full hover-elevate transition-all duration-300 hover:scale-[1.02]" data-testid={`card-service-${title.toLowerCase().replace(/\s+/g, '-')}`}>
+      <Card className={`h-full hover-elevate transition-all duration-300 hover:scale-[1.02] ${gradient ? 'bg-gradient-to-br from-primary/10 to-[#40AE49]/20 border-[#40AE49]/30' : ''}`} data-testid={`card-service-${title.toLowerCase().replace(/\s+/g, '-')}`}>
         <CardContent className="p-8 text-center">
           <div className="w-16 h-16 mx-auto mb-6 bg-primary/10 rounded-lg flex items-center justify-center text-primary">
             {icon}
@@ -70,9 +71,10 @@ export function ServicesSection() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           <ServiceCard
             icon={<Bot className="w-8 h-8" />}
-            title="E-commerce Fulfillment powered by robotics and automation"
-            description="IQ is a MENA based robotic fulfillment solution trusted by 300+ brands to ship orders from anywhere to their customers."
+            title="E-commerce Fulfillment powered by technology solutions"
+            description="GWC is a MENA based technology solution trusted by 300+ brands to ship orders from anywhere to their customers."
             delay={0}
+            gradient={true}
           />
           <ServiceCard
             icon={<BarChart3 className="w-8 h-8" />}
