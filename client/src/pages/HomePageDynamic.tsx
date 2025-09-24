@@ -2,6 +2,7 @@ import { ArrowRight, ChevronDown, Package, Truck, Globe2, Users, BarChart3, Zap,
 import { Button } from "@/components/ui/button";
 import { useEffect, useState, useMemo, useRef, useCallback } from "react";
 import { trackEvent, trackScrollDepth } from "@/lib/analytics";
+import { TestimonialsSection } from "@/components/TestimonialsSection";
 
 export default function HomePageDynamic() {
   const [scrollY, setScrollY] = useState(0);
@@ -519,6 +520,9 @@ export default function HomePageDynamic() {
           </div>
         </div>
       </section>
+
+      {/* Testimonials Section - Concept B */}
+      <TestimonialsSection variant="B" />
 
       {/* Final CTA with Mega Parallax */}
       <section className="relative py-32 overflow-hidden">
