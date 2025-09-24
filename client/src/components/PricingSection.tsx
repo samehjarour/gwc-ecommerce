@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Check } from "lucide-react";
+import { Link } from "wouter";
 
 interface PricingTierProps {
   name: string;
@@ -72,14 +73,16 @@ function PricingTier({ name, price, period, description, features, popular = fal
             ))}
           </ul>
           
-          <Button 
-            className={`w-full ${popular ? 'bg-primary hover:bg-primary/90' : 'variant-outline'}`}
-            variant={popular ? "default" : "outline"}
-            size="lg"
-            data-testid={`button-get-started-${name.toLowerCase().replace(/\s+/g, '-')}`}
-          >
-            Get Started
-          </Button>
+          <Link href="/quote">
+            <Button 
+              className={`w-full ${popular ? 'bg-primary hover:bg-primary/90' : 'variant-outline'}`}
+              variant={popular ? "default" : "outline"}
+              size="lg"
+              data-testid={`button-get-started-${name.toLowerCase().replace(/\s+/g, '-')}`}
+            >
+              Get Started
+            </Button>
+          </Link>
         </CardContent>
       </Card>
     </div>
@@ -198,9 +201,11 @@ export function PricingSection() {
           <p className="text-muted-foreground mb-4">
             Need a custom solution? Our team can create a tailored package for your specific requirements.
           </p>
-          <Button variant="outline" size="lg" data-testid="button-contact-sales">
-            Contact Sales
-          </Button>
+          <Link href="/quote">
+            <Button variant="outline" size="lg" data-testid="button-contact-sales">
+              Contact Sales
+            </Button>
+          </Link>
         </div>
       </div>
     </section>
