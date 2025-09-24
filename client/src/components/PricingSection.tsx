@@ -73,7 +73,7 @@ function PricingTier({ name, price, period, description, features, popular = fal
             ))}
           </ul>
           
-          <Link href="/quote">
+          <Link href="/quote#quote-form">
             <Button 
               className={`w-full ${popular ? 'bg-primary hover:bg-primary/90' : 'variant-outline'}`}
               variant={popular ? "default" : "outline"}
@@ -201,7 +201,7 @@ export function PricingSection() {
           <p className="text-muted-foreground mb-4">
             Need a custom solution? Our team can create a tailored package for your specific requirements.
           </p>
-          <Link href="/quote">
+          <Link href="/quote#quote-form">
             <Button variant="outline" size="lg" data-testid="button-contact-sales">
               Contact Sales
             </Button>

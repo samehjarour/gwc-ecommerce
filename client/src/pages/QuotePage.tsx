@@ -158,7 +158,7 @@ export function QuotePage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             {/* Header */}
-            <div className="text-center mb-12">
+            <div id="quote-form" className="text-center mb-12">
               <h1 className="text-4xl font-bold mb-4" data-testid="text-quote-title">
                 Get Your Custom Quote
               </h1>
