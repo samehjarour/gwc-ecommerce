@@ -14,7 +14,7 @@ import { Footer } from "@/components/Footer";
 
 export function HomePage() {
   // A/B test variant - you can change this to 'A', 'B', or 'C' to test different concepts
-  const testimonialVariant = 'A';
+  const testimonialVariant = 'B';
 
   return (
     <div className="min-h-screen">
