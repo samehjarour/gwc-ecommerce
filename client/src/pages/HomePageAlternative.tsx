@@ -356,6 +356,9 @@ export function HomePageAlternative() {
           </div>
         </section>
 
+        {/* Integrations */}
+        <IntegrationsSection />
+
         {/* Stats Section */}
         <section className="py-20 bg-gradient-to-b from-background to-muted/20">
           <div className="container mx-auto px-4">
@@ -454,9 +457,6 @@ export function HomePageAlternative() {
             </div>
           </div>
         </section>
-
-        {/* Integrations */}
-        <IntegrationsSection />
 
         {/* CTA Section */}
         <CTASection />
