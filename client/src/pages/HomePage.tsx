@@ -1,6 +1,7 @@
 import { Header } from "@/components/Header";
 import { HeroSection } from "@/components/HeroSection";
 import { SocialProofSection } from "@/components/SocialProofSection";
+import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { StatsSection } from "@/components/StatsSection";
 import { ServicesSection } from "@/components/ServicesSection";
 import { DetailedServicesSection } from "@/components/DetailedServicesSection";
@@ -12,12 +13,16 @@ import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 
 export function HomePage() {
+  // A/B test variant - you can change this to 'A', 'B', or 'C' to test different concepts
+  const testimonialVariant = 'A';
+
   return (
     <div className="min-h-screen">
       <Header />
       <main>
         <HeroSection />
         <SocialProofSection />
+        <TestimonialsSection variant={testimonialVariant} />
         <StatsSection />
         <ServicesSection />
         <DetailedServicesSection />

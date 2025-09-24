@@ -4,7 +4,7 @@ export interface AnalyticsEvent {
   sessionId: string;
   page: string;
   segment: string;
-  variant: "A" | "B";
+  variant: "A" | "B" | "C";
   event: "view" | "cta_click" | "form_submit" | "scroll_depth" | "pricing_view";
   meta?: Record<string, any>;
 }
@@ -35,29 +35,30 @@ export async function trackEvent(event: Omit<AnalyticsEvent, 'sessionId'>) {
   }
 }
 
-// Get or assign A/B testing variant for a segment
-export function getVariant(segment: string): "A" | "B" {
+// Get or assign A/B/C testing variant for a segment
+export function getVariant(segment: string): "A" | "B" | "C" {
   const urlParams = new URLSearchParams(window.location.search);
   const urlVariant = urlParams.get('v');
   
-  if (urlVariant === 'A' || urlVariant === 'B') {
+  if (urlVariant === 'A' || urlVariant === 'B' || urlVariant === 'C') {
     localStorage.setItem(`gwc-variant-${segment}`, urlVariant);
     return urlVariant;
   }
   
   const savedVariant = localStorage.getItem(`gwc-variant-${segment}`);
-  if (savedVariant === 'A' || savedVariant === 'B') {
+  if (savedVariant === 'A' || savedVariant === 'B' || savedVariant === 'C') {
     return savedVariant;
   }
   
-  // Random assignment
-  const randomVariant = Math.random() < 0.5 ? 'A' : 'B';
+  // Random assignment between A, B, C
+  const variants = ['A', 'B', 'C'] as const;
+  const randomVariant = variants[Math.floor(Math.random() * variants.length)];
   localStorage.setItem(`gwc-variant-${segment}`, randomVariant);
   return randomVariant;
 }
 
 // Track scroll depth (with deduplication)
-export function trackScrollDepth(segment: string, variant: "A" | "B", depth: number) {
+export function trackScrollDepth(segment: string, variant: "A" | "B" | "C", depth: number) {
   const key = `scroll-${depth}-${segment}-${variant}`;
   if (!sessionStorage.getItem(key)) {
     sessionStorage.setItem(key, 'tracked');
@@ -75,7 +76,7 @@ export function trackScrollDepth(segment: string, variant: "A" | "B", depth: num
 // Track CTA click
 export function trackCTAClick(
   segment: string, 
-  variant: "A" | "B", 
+  variant: "A" | "B" | "C", 
   ctaText: string, 
   ctaType: 'primary' | 'secondary',
   ctaId: string
@@ -94,7 +95,7 @@ export function trackCTAClick(
 }
 
 // Track page view
-export function trackPageView(segment: string, variant: "A" | "B") {
+export function trackPageView(segment: string, variant: "A" | "B" | "C") {
   trackEvent({
     page: window.location.pathname,
     segment,
@@ -109,7 +110,7 @@ export function trackPageView(segment: string, variant: "A" | "B") {
 }
 
 // Track pricing section view
-export function trackPricingView(segment: string, variant: "A" | "B") {
+export function trackPricingView(segment: string, variant: "A" | "B" | "C") {
   trackEvent({
     page: window.location.pathname,
     segment,
