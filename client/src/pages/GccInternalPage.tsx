@@ -34,7 +34,7 @@ export function GccInternalPage() {
                 Scale Your <em className="italic text-primary not-italic">GCC E-commerce</em> Effortlessly
               </h1>
               <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto" data-testid="text-hero-description">
-                Connect your store in minutes. Transparent pricing. Strategic warehouses in UAE, Saudi, and Qatar. Same-day delivery across all GCC markets.
+                Connect your store in minutes. Transparent pricing. No long-term contracts for maximum flexibility. Strategic warehouses in UAE, Saudi, and Qatar.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <Link href="/quote">
@@ -77,7 +77,7 @@ export function GccInternalPage() {
                 <em className="italic text-primary">Transparent</em> Pricing. No Hidden Fees.
               </h2>
               <p className="text-xl text-muted-foreground" data-testid="text-pricing-subtitle">
-                Simple, predictable costs that scale with your business
+                Simple, predictable costs that scale with your business. No long-term contracts - start or stop anytime.
               </p>
             </div>
 
@@ -291,9 +291,9 @@ export function GccInternalPage() {
                   <div className="flex items-start gap-4" data-testid="feature-transparent-costs">
                     <DollarSign className="w-8 h-8 text-primary mt-1" />
                     <div>
-                      <h3 className="text-xl font-semibold mb-2">No Hidden Fees</h3>
+                      <h3 className="text-xl font-semibold mb-2">Maximum Flexibility</h3>
                       <p className="text-muted-foreground">
-                        What you see is what you pay. Transparent pricing with no setup fees, no minimums, and no long-term contracts.
+                        What you see is what you pay. Transparent pricing with no setup fees, no minimums, and no long-term contracts. Scale up or down as needed.
                       </p>
                     </div>
                   </div>
