@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { trackEvent } from '@/lib/analytics';
+import { trackEvent, getVariant } from '@/lib/analytics';
 
 interface TestimonialData {
   quote: string;
@@ -29,28 +29,30 @@ const testimonials: TestimonialData[] = [
 ];
 
 interface TestimonialsSectionProps {
+  segment: string;
   variant?: 'A' | 'B' | 'C';
 }
 
-export function TestimonialsSection({ variant = 'A' }: TestimonialsSectionProps) {
+export function TestimonialsSection({ segment, variant }: TestimonialsSectionProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const actualVariant = variant || getVariant(segment);
 
   useEffect(() => {
     // Track testimonial section view
     trackEvent({
       page: window.location.pathname,
-      segment: 'homepage',
-      variant: variant,
+      segment: segment,
+      variant: actualVariant,
       event: 'view',
       meta: { section: 'testimonials' }
     });
-  }, [variant]);
+  }, [segment, actualVariant]);
 
   const handleTestimonialInteraction = (action: string, index?: number) => {
     trackEvent({
       page: window.location.pathname,
-      segment: 'homepage',
-      variant: variant,
+      segment: segment,
+      variant: actualVariant,
       event: 'cta_click',
       meta: { action, index, section: 'testimonials' }
     });
@@ -58,16 +60,16 @@ export function TestimonialsSection({ variant = 'A' }: TestimonialsSectionProps)
 
   // Auto-rotate testimonials for carousel variant
   useEffect(() => {
-    if (variant === 'B') {
+    if (actualVariant === 'B') {
       const interval = setInterval(() => {
         setCurrentIndex((prev) => (prev + 1) % testimonials.length);
       }, 5000);
       return () => clearInterval(interval);
     }
-  }, [variant]);
+  }, [actualVariant]);
 
   // Concept A: Card-based testimonials
-  if (variant === 'A') {
+  if (actualVariant === 'A') {
     return (
       <section className="py-20 bg-gradient-to-br from-gray-50 to-white" data-testid="testimonials-section-a">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -111,7 +113,7 @@ export function TestimonialsSection({ variant = 'A' }: TestimonialsSectionProps)
   }
 
   // Concept B: Carousel with large quotes
-  if (variant === 'B') {
+  if (actualVariant === 'B') {
     const currentTestimonial = testimonials[currentIndex];
     
     return (
@@ -200,7 +202,7 @@ export function TestimonialsSection({ variant = 'A' }: TestimonialsSectionProps)
   }
 
   // Concept C: Minimalist grid with prominent logos
-  if (variant === 'C') {
+  if (actualVariant === 'C') {
     return (
       <section className="py-20 bg-white" data-testid="testimonials-section-c">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

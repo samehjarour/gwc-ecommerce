@@ -1,5 +1,6 @@
 import { Header } from "@/components/Header";
 import { SocialProofSection } from "@/components/SocialProofSection";
+import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { IntegrationsSection } from "@/components/IntegrationsSection";
 import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
@@ -64,6 +65,9 @@ export function HomePageAlt3() {
 
         {/* Logo Carousel */}
         <SocialProofSection />
+
+        {/* Testimonials Section - Concept A */}
+        <TestimonialsSection segment="homepage" />
 
         {/* Process Flow Section - Quivo Inspired */}
         <section className="py-24 bg-gradient-to-b from-muted/10 to-background">

@@ -522,7 +522,7 @@ export default function HomePageDynamic() {
       </section>
 
       {/* Testimonials Section - Concept B */}
-      <TestimonialsSection variant="B" />
+      <TestimonialsSection segment="home_dynamic" variant="B" />
 
       {/* Final CTA with Mega Parallax */}
       <section className="relative py-32 overflow-hidden">

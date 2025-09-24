@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Header } from "@/components/Header";
 import { HeroSectionLead } from "@/components/HeroSectionLead";
 import { SocialProofSection } from "@/components/SocialProofSection";
+import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { StatsSection } from "@/components/StatsSection";
 import { ServicesSection } from "@/components/ServicesSection";
 import { DetailedServicesSection } from "@/components/DetailedServicesSection";
@@ -35,6 +36,7 @@ export function HomePageLead() {
       <main>
         <HeroSectionLead />
         <SocialProofSection />
+        <TestimonialsSection segment="homepage" />
         <StatsSection />
         <ServicesSection />
         <DetailedServicesSection />

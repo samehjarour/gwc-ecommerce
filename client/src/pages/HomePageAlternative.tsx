@@ -1,5 +1,6 @@
 import { Header } from "@/components/Header";
 import { SocialProofSection } from "@/components/SocialProofSection";
+import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { IntegrationsSection } from "@/components/IntegrationsSection";
 import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
@@ -52,6 +53,9 @@ export function HomePageAlternative() {
 
         {/* Logo Carousel */}
         <SocialProofSection />
+
+        {/* Testimonials Section - Concept A */}
+        <TestimonialsSection segment="homepage" />
 
         {/* Solutions Section - IQ Style 3 Cards */}
         <section className="py-20 bg-gradient-to-b from-muted/20 to-background">

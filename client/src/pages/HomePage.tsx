@@ -22,7 +22,7 @@ export function HomePage() {
       <main>
         <HeroSection />
         <SocialProofSection />
-        <TestimonialsSection variant={testimonialVariant} />
+        <TestimonialsSection segment="homepage" variant={testimonialVariant} />
         <StatsSection />
         <ServicesSection />
         <DetailedServicesSection />

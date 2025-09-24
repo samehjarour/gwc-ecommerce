@@ -21,7 +21,7 @@ interface FlexibleHeroProps {
   secondaryCTA?: CTA;
   testIdPrefix: string;
   segment: string;
-  variant: "A" | "B";
+  variant: "A" | "B" | "C";
   onView?: () => void;
 }
 

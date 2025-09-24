@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { PricingSection } from "@/components/PricingSection";
 import { IntegrationsSection } from "@/components/IntegrationsSection";
 import { SocialProofSection } from "@/components/SocialProofSection";
+import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { CheckCircle, MapPin, Building, Users, Truck, Star, Globe, Award } from "lucide-react";
 import { trackPricingView, getVariant } from "@/lib/analytics";
 import { useEffect, useRef } from "react";
@@ -284,6 +285,9 @@ export default function UaeRegionalPage() {
           </div>
         </div>
       </section>
+
+      {/* Testimonials Section - Concept A */}
+      <TestimonialsSection segment="uae-regional" />
 
       {/* Pricing Section */}
       <div id="pricing" ref={pricingRef}>

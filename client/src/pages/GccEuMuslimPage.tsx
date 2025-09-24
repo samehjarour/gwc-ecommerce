@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { PricingSection } from "@/components/PricingSection";
 import { IntegrationsSection } from "@/components/IntegrationsSection";
 import { SocialProofSection } from "@/components/SocialProofSection";
+import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { CheckCircle, Heart, Shield, Users, Zap, Globe, Star, Award } from "lucide-react";
 import { trackPricingView, getVariant } from "@/lib/analytics";
 import { useEffect, useRef } from "react";
@@ -235,6 +236,9 @@ export default function GccEuMuslimPage() {
           </div>
         </div>
       </section>
+
+      {/* Testimonials Section - Concept A */}
+      <TestimonialsSection segment="gcc-to-eu" />
 
       {/* Pricing Section */}
       <div id="pricing" ref={pricingRef}>

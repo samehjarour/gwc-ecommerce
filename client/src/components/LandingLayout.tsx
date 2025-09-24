@@ -36,7 +36,7 @@ export function LandingLayout({
   pageTitle,
   metaDescription
 }: LandingLayoutProps) {
-  const [variant] = useState<"A" | "B">(() => getVariant(segment));
+  const [variant] = useState<"A" | "B" | "C">(() => getVariant(segment));
 
   useEffect(() => {
     // Set page title and meta description

@@ -282,7 +282,7 @@ export default function TechInnovationPage() {
       </section>
 
       {/* Testimonials Section - Concept B */}
-      <TestimonialsSection variant="B" />
+      <TestimonialsSection segment="tech" variant="B" />
 
       {/* Pricing Section */}
       <div id="pricing" ref={pricingRef}>

@@ -1,6 +1,7 @@
 import { Header } from "@/components/Header";
 import { HeroSection } from "@/components/HeroSection";
 import { SocialProofSection } from "@/components/SocialProofSection";
+import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { StatsSection } from "@/components/StatsSection";
 import { ServicesSection } from "@/components/ServicesSection";
 import { DetailedServicesSection } from "@/components/DetailedServicesSection";
@@ -17,6 +18,7 @@ export function HomePageEnterprise() {
       <main>
         <HeroSection />
         <SocialProofSection />
+        <TestimonialsSection segment="homepage" />
         <StatsSection />
         <ServicesSection />
         <DetailedServicesSection />
