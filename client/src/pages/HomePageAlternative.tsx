@@ -31,7 +31,7 @@ export function HomePageAlternative() {
                 MENA's #1 Cross-Border Fulfillment Solution
               </Badge>
               <h1 className="text-4xl md:text-6xl font-bold mb-6" data-testid="heading-hero">
-                European Brands Meet <em className="italic text-primary not-italic">Middle East</em> Markets Simplified
+                Expand your European Brands to the <em className="italic text-primary not-italic">Middle East</em>
               </h1>
               <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto" data-testid="text-hero-description">
                 Trusted by 100+ European brands to expand across GCC markets. One platform, instant integration, same-day fulfillment across 6 countries.
@@ -105,6 +105,35 @@ export function HomePageAlternative() {
                     Grow as you go with flexible delivery solutions, nationwide with same day and next day delivery across GCC.
                   </p>
                   <Button variant="outline" data-testid="button-learn-delivery">
+                    Learn More
+                  </Button>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Additional Services Row */}
+            <div className="grid md:grid-cols-2 gap-8 mt-12">
+              <Card className="text-center hover-elevate" data-testid="card-company-establishment">
+                <CardContent className="pt-8 pb-8">
+                  <Globe className="w-16 h-16 text-primary mx-auto mb-6" />
+                  <h3 className="text-2xl font-semibold mb-4">Company Establishment in the Middle East</h3>
+                  <p className="text-muted-foreground mb-6">
+                    We help European brands establish their legal presence in Middle East markets with comprehensive business setup services and local expertise.
+                  </p>
+                  <Button variant="outline" data-testid="button-learn-establishment">
+                    Learn More
+                  </Button>
+                </CardContent>
+              </Card>
+
+              <Card className="text-center hover-elevate" data-testid="card-accounting-legal">
+                <CardContent className="pt-8 pb-8">
+                  <Shield className="w-16 h-16 text-primary mx-auto mb-6" />
+                  <h3 className="text-2xl font-semibold mb-4">Accounting & Legal Services</h3>
+                  <p className="text-muted-foreground mb-6">
+                    Complete accounting and legal support tailored for European businesses expanding into GCC markets, ensuring compliance and smooth operations.
+                  </p>
+                  <Button variant="outline" data-testid="button-learn-accounting">
                     Learn More
                   </Button>
                 </CardContent>
