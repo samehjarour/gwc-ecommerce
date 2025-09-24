@@ -18,7 +18,7 @@ export function HomePageEnterprise() {
       <main>
         <HeroSection />
         <SocialProofSection />
-        <TestimonialsSection segment="homepage" />
+        <TestimonialsSection segment="enterprise" />
         <StatsSection />
         <ServicesSection />
         <DetailedServicesSection />
