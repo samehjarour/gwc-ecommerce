@@ -62,8 +62,8 @@ export const insertAnalyticsEventSchema = createInsertSchema(analyticsEvents).om
 }).extend({
   sessionId: z.string().min(1, "Session ID is required"),
   page: z.string().min(1, "Page is required"),
-  segment: z.enum(["eu-sme", "tech", "uae-regional", "gcc-to-eu", "enterprise"]),
-  variant: z.enum(["A", "B"]),
+  segment: z.enum(["eu-sme", "tech", "uae-regional", "gcc-to-eu", "enterprise", "homepage", "home_dynamic"]),
+  variant: z.enum(["A", "B", "C"]),
   event: z.enum(["view", "cta_click", "form_submit", "scroll_depth", "pricing_view"]),
   meta: z.record(z.any()).optional(),
 });
