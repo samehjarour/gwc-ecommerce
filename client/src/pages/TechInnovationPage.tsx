@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { PricingSection } from "@/components/PricingSection";
 import { IntegrationsSection } from "@/components/IntegrationsSection";
 import { SocialProofSection } from "@/components/SocialProofSection";
+import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { CheckCircle, Code, Cpu, Zap, Activity, Database, Globe, Webhook } from "lucide-react";
 import { trackPricingView, getVariant } from "@/lib/analytics";
 import { useEffect, useRef } from "react";
@@ -279,6 +280,9 @@ export default function TechInnovationPage() {
           </div>
         </div>
       </section>
+
+      {/* Testimonials Section - Concept B */}
+      <TestimonialsSection variant="B" />
 
       {/* Pricing Section */}
       <div id="pricing" ref={pricingRef}>
