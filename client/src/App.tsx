@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { HomePage } from "@/pages/HomePage";
 import { HomePageEnterprise } from "@/pages/HomePageEnterprise";
 import { HomePageAlternative } from "@/pages/HomePageAlternative";
+import { HomePageAlternativeIntegrations } from "@/pages/HomePageAlternativeIntegrations";
 import { HomePageLead } from "@/pages/HomePageLead";
 import { HomePageAlt3 } from "@/pages/HomePageAlt3";
 import HomePageDynamic from "@/pages/HomePageDynamic";
@@ -24,6 +25,7 @@ function Router() {
       <Route path="/" component={HomePage} />
       <Route path="/enterprise" component={HomePageEnterprise} />
       <Route path="/alternative" component={HomePageAlternative} />
+      <Route path="/alternative-integrations" component={HomePageAlternativeIntegrations} />
       <Route path="/dynamic" component={HomePageDynamic} />
       <Route path="/lead" component={HomePageLead} />
       <Route path="/alt3" component={HomePageAlt3} />
