@@ -8,13 +8,28 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { CheckCircle, Clock, Shield, Truck, Package, Globe, Star, Zap, Activity, Database, MapPin } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "wouter";
 import truckImage from "@assets/GWC Truck - Riyadh_1_1757527184708.jpg";
 import videoSrc from "@assets/GWC-website_1758777706579.mp4";
 
 export function HomePageAlternative() {
   const [activeTab, setActiveTab] = useState("signup");
+
+  useEffect(() => {
+    // Load Storylane script
+    const script = document.createElement('script');
+    script.src = 'https://js.storylane.io/js/v2/storylane.js';
+    script.async = true;
+    document.head.appendChild(script);
+
+    return () => {
+      // Cleanup script on unmount
+      if (document.head.contains(script)) {
+        document.head.removeChild(script);
+      }
+    };
+  }, []);
 
   return (
     <div className="min-h-screen">
@@ -175,18 +190,38 @@ export function HomePageAlternative() {
                 </Button>
               </div>
               <div className="relative">
-                <div className="aspect-video bg-black rounded-lg overflow-hidden shadow-lg">
-                  <video 
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    className="w-full h-full object-cover"
-                    data-testid="platform-demo-video"
+                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
+                  <div 
+                    className="sl-embed" 
+                    style={{
+                      position: 'relative', 
+                      paddingBottom: 'calc(40.36%)', 
+                      width: '75%', 
+                      height: '75%', 
+                      transform: 'scale(1)'
+                    }}
+                    data-testid="platform-demo-storylane"
                   >
-                    <source src={videoSrc} type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </video>
+                    <iframe 
+                      loading="lazy" 
+                      className="sl-demo" 
+                      src="https://app.storylane.io/demo/wltg0p1jahiz?embed=inline" 
+                      name="sl-embed" 
+                      allow="fullscreen" 
+                      allowFullScreen 
+                      style={{
+                        position: 'absolute', 
+                        top: 0, 
+                        left: 0, 
+                        width: '100%', 
+                        height: '100%', 
+                        border: '1px solid rgba(63,95,172,0.35)', 
+                        boxShadow: '0px 0px 18px rgba(26, 19, 72, 0.15)', 
+                        borderRadius: '10px', 
+                        boxSizing: 'border-box'
+                      }}
+                    />
+                  </div>
                 </div>
               </div>
             </div>
