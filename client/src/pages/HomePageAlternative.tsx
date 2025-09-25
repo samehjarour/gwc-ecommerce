@@ -177,7 +177,10 @@ export function HomePageAlternative() {
               <div className="relative">
                 <div className="aspect-video bg-black rounded-lg overflow-hidden shadow-lg">
                   <video 
-                    controls 
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
                     className="w-full h-full object-cover"
                     data-testid="platform-demo-video"
                   >

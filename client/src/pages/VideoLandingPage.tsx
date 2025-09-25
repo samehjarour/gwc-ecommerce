@@ -46,9 +46,11 @@ export function VideoLandingPage() {
               <div className="relative">
                 <div className="relative aspect-video bg-black rounded-lg overflow-hidden shadow-2xl">
                   <video 
-                    controls 
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
                     className="w-full h-full object-cover"
-                    poster=""
                     data-testid="hero-video"
                   >
                     <source src={videoSrc} type="video/mp4" />
