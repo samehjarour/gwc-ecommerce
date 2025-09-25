@@ -3,6 +3,7 @@ import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { useEffect } from "react";
 import { HomePage } from "@/pages/HomePage";
 import { HomePageEnterprise } from "@/pages/HomePageEnterprise";
 import { HomePageAlternative } from "@/pages/HomePageAlternative";
@@ -46,6 +47,25 @@ function Router() {
 }
 
 function App() {
+  useEffect(() => {
+    // Add HubSpot tracking script
+    const script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.id = 'hs-script-loader';
+    script.async = true;
+    script.defer = true;
+    script.src = '//js-eu1.hs-scripts.com/146936524.js';
+    document.head.appendChild(script);
+
+    return () => {
+      // Cleanup on unmount
+      const existingScript = document.getElementById('hs-script-loader');
+      if (existingScript && document.head.contains(existingScript)) {
+        document.head.removeChild(existingScript);
+      }
+    };
+  }, []);
+
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
