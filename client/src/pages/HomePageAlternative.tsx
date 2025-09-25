@@ -195,9 +195,9 @@ export function HomePageAlternative() {
                     className="sl-embed" 
                     style={{
                       position: 'relative', 
-                      paddingBottom: 'calc(40.36%)', 
-                      width: '75%', 
-                      height: '75%', 
+                      paddingBottom: 'calc(56.25%)', 
+                      width: '95%', 
+                      height: '95%', 
                       transform: 'scale(1)'
                     }}
                     data-testid="platform-demo-storylane"
