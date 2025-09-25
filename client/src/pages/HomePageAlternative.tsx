@@ -17,6 +17,12 @@ export function HomePageAlternative() {
   const [activeTab, setActiveTab] = useState("signup");
 
   useEffect(() => {
+    // Add noindex meta tag for testing
+    const metaRobots = document.createElement('meta');
+    metaRobots.name = 'robots';
+    metaRobots.content = 'noindex, nofollow';
+    document.head.appendChild(metaRobots);
+
     // Load Storylane script
     const script = document.createElement('script');
     script.src = 'https://js.storylane.io/js/v2/storylane.js';
@@ -24,7 +30,10 @@ export function HomePageAlternative() {
     document.head.appendChild(script);
 
     return () => {
-      // Cleanup script on unmount
+      // Cleanup on unmount
+      if (document.head.contains(metaRobots)) {
+        document.head.removeChild(metaRobots);
+      }
       if (document.head.contains(script)) {
         document.head.removeChild(script);
       }

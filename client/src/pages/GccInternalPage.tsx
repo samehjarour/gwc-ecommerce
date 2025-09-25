@@ -8,12 +8,27 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { CheckCircle, Clock, Shield, Truck, Package, Globe, Star, Zap, Activity, Database, MapPin, DollarSign } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "wouter";
 import truckImage from "@assets/GWC Truck - Riyadh_1_1757527184708.jpg";
 
 export function GccInternalPage() {
   const [activeTab, setActiveTab] = useState("signup");
+
+  useEffect(() => {
+    // Add noindex meta tag for testing
+    const metaRobots = document.createElement('meta');
+    metaRobots.name = 'robots';
+    metaRobots.content = 'noindex, nofollow';
+    document.head.appendChild(metaRobots);
+
+    return () => {
+      // Cleanup on unmount
+      if (document.head.contains(metaRobots)) {
+        document.head.removeChild(metaRobots);
+      }
+    };
+  }, []);
 
   return (
     <div className="min-h-screen">
