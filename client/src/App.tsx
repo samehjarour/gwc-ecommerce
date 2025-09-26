@@ -49,19 +49,49 @@ function Router() {
 function App() {
   useEffect(() => {
     // Add HubSpot tracking script
-    const script = document.createElement('script');
-    script.type = 'text/javascript';
-    script.id = 'hs-script-loader';
-    script.async = true;
-    script.defer = true;
-    script.src = '//js-eu1.hs-scripts.com/146936524.js';
-    document.head.appendChild(script);
+    const hubspotScript = document.createElement('script');
+    hubspotScript.type = 'text/javascript';
+    hubspotScript.id = 'hs-script-loader';
+    hubspotScript.async = true;
+    hubspotScript.defer = true;
+    hubspotScript.src = '//js-eu1.hs-scripts.com/146936524.js';
+    document.head.appendChild(hubspotScript);
+
+    // Add MindPal chatbot configuration
+    const chatbotConfigScript = document.createElement('script');
+    chatbotConfigScript.id = 'e-commerce-fulfillment-onboarding-agent-4p3-setup';
+    chatbotConfigScript.innerHTML = `
+      window.mindpalConfig = {
+        chatbotId: "e-commerce-fulfillment-onboarding-agent-4p3",
+        behavior: {
+          showInitialMessageBubbleWhenMinimized: true,
+          minimizedByDefault: true
+        }
+      };
+    `;
+    document.head.appendChild(chatbotConfigScript);
+
+    // Add MindPal chatbot script
+    const chatbotScript = document.createElement('script');
+    chatbotScript.id = 'e-commerce-fulfillment-onboarding-agent-4p3-run';
+    chatbotScript.src = 'https://chatbot.getmindpal.com/embed.min.js';
+    document.head.appendChild(chatbotScript);
 
     return () => {
       // Cleanup on unmount
-      const existingScript = document.getElementById('hs-script-loader');
-      if (existingScript && document.head.contains(existingScript)) {
-        document.head.removeChild(existingScript);
+      const hubspotExisting = document.getElementById('hs-script-loader');
+      if (hubspotExisting && document.head.contains(hubspotExisting)) {
+        document.head.removeChild(hubspotExisting);
+      }
+      
+      const configExisting = document.getElementById('e-commerce-fulfillment-onboarding-agent-4p3-setup');
+      if (configExisting && document.head.contains(configExisting)) {
+        document.head.removeChild(configExisting);
+      }
+      
+      const chatbotExisting = document.getElementById('e-commerce-fulfillment-onboarding-agent-4p3-run');
+      if (chatbotExisting && document.head.contains(chatbotExisting)) {
+        document.head.removeChild(chatbotExisting);
       }
     };
   }, []);
