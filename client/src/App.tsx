@@ -20,6 +20,7 @@ import GccEuMuslimPage from "@/pages/GccEuMuslimPage";
 import EnterpriseCrossBorderPage from "@/pages/EnterpriseCrossBorderPage";
 import TechInnovationPage from "@/pages/TechInnovationPage";
 import UaeRegionalPage from "@/pages/UaeRegionalPage";
+import { LocalGccExpansionPage } from "@/pages/LocalGccExpansionPage";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -41,6 +42,7 @@ function Router() {
       <Route path="/enterprise-cross-border" component={EnterpriseCrossBorderPage} />
       <Route path="/tech-innovation" component={TechInnovationPage} />
       <Route path="/uae-regional" component={UaeRegionalPage} />
+      <Route path="/local-gcc-expansion" component={LocalGccExpansionPage} />
       <Route component={NotFound} />
     </Switch>
   );
