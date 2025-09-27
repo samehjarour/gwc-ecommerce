@@ -12,7 +12,6 @@ import { GccInternalPage } from "@/pages/GccInternalPage";
 import { VideoLandingPage } from "@/pages/VideoLandingPage";
 import { HomePageLead } from "@/pages/HomePageLead";
 import { HomePageAlt3 } from "@/pages/HomePageAlt3";
-import HomePageDynamic from "@/pages/HomePageDynamic";
 import { LandingPagesOverview } from "@/pages/LandingPagesOverview";
 import { QuotePage } from "@/pages/QuotePage";
 import EuSmeGccPage from "@/pages/EuSmeGccPage";
@@ -32,7 +31,6 @@ function Router() {
       <Route path="/alternative-integrations" component={HomePageAlternativeIntegrations} />
       <Route path="/gcc-internal" component={GccInternalPage} />
       <Route path="/video" component={VideoLandingPage} />
-      <Route path="/dynamic" component={HomePageDynamic} />
       <Route path="/lead" component={HomePageLead} />
       <Route path="/alt3" component={HomePageAlt3} />
       <Route path="/landing-pages" component={LandingPagesOverview} />
