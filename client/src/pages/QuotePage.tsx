@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -6,8 +6,12 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { ArrowLeft, ArrowRight, CheckCircle } from "lucide-react";
+import { ArrowLeft, ArrowRight, CheckCircle, Settings, Moon } from "lucide-react";
 import { Link } from "wouter";
+import { SiMagento } from "react-icons/si";
+import shopifyLogo from "@assets/shopify_1758598346980.png";
+import amazonLogo from "@assets/amazon_1758598346980.png";
+import wooLogo from "@assets/woo (1)_1758598346980.png";
 
 type Step = 1 | 2 | 3;
 
@@ -34,12 +38,12 @@ const shipToCountries = [
 ];
 
 const platforms = [
-  { code: "shopify", icon: "🛍️", name: "Shopify" },
-  { code: "amazon", icon: "📦", name: "Amazon" },
-  { code: "noon", icon: "🌙", name: "Noon" },
-  { code: "magento", icon: "🎯", name: "Magento" },
-  { code: "woocommerce", icon: "🔧", name: "WooCommerce" },
-  { code: "custom", icon: "⚙️", name: "Custom Platform" },
+  { code: "shopify", icon: shopifyLogo, iconType: "image", name: "Shopify" },
+  { code: "amazon", icon: amazonLogo, iconType: "image", name: "Amazon" },
+  { code: "noon", icon: Moon, iconType: "lucide", name: "Noon" },
+  { code: "magento", icon: SiMagento, iconType: "react-icon", name: "Magento" },
+  { code: "woocommerce", icon: wooLogo, iconType: "image", name: "WooCommerce" },
+  { code: "custom", icon: Settings, iconType: "lucide", name: "Custom Platform" },
 ];
 
 const productCategories = [
@@ -272,7 +276,21 @@ export function QuotePage() {
                               }`}
                               data-testid={`button-platform-${platform.code}`}
                             >
-                              <div className="text-2xl mb-2">{platform.icon}</div>
+                              <div className="text-2xl mb-2 flex justify-center">
+                                {platform.iconType === 'image' ? (
+                                  <img 
+                                    src={platform.icon as string} 
+                                    alt={`${platform.name} logo`}
+                                    className="w-8 h-8 object-contain"
+                                  />
+                                ) : platform.iconType === 'lucide' ? (
+                                  React.createElement(platform.icon as any, { className: "w-8 h-8" })
+                                ) : platform.iconType === 'react-icon' ? (
+                                  React.createElement(platform.icon as any, { className: "w-8 h-8" })
+                                ) : (
+                                  <span>{platform.icon as string}</span>
+                                )}
+                              </div>
                               <div className="font-medium">{platform.name}</div>
                             </button>
                           ))}
