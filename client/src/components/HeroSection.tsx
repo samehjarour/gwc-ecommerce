@@ -84,17 +84,17 @@ export function HeroSection() {
         <div className="max-w-4xl mx-auto">
           {/* Eyebrow */}
           <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white/90 text-sm font-semibold mb-6" data-testid="text-eyebrow">
-            European to GCC Market Expansion
+            GCC Market Growth & Expansion
           </div>
           
           {/* Main Title */}
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight" data-testid="text-hero-title">
-            Expand Your European E-commerce Business to the GCC
+            Scale Your E-commerce Business Across the GCC
           </h1>
           
           {/* Subtitle */}
           <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-4xl mx-auto leading-relaxed" data-testid="text-hero-subtitle">
-            Transparent pricing, no hidden fees. Start selling in UAE, Saudi Arabia, and Qatar with our integrated fulfillment network, from smart warehousing to award winning last mile delivery.
+            Transparent pricing, no hidden fees. Expand across UAE, Saudi Arabia, and Qatar with our integrated fulfillment network, from smart warehousing to award winning last mile delivery.
           </p>
           
           
@@ -106,7 +106,7 @@ export function HeroSection() {
                 className="bg-white text-black hover:bg-white/90 font-semibold px-8 py-6 text-lg group"
                 data-testid="button-get-quote-hero"
               >
-                Start Your GCC Expansion
+                Scale Across GCC Markets
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>

@@ -40,6 +40,7 @@ interface PageAnalytics {
   category: string;
   icon: any;
   target: string;
+  targeting: 'Intra-GCC' | 'EU->GCC' | 'GCC->EU';
   views: number;
   sessions: number;
   ctaClicks: number;
@@ -55,7 +56,8 @@ const landingPages = [
     description: "Primary home page with full pricing display for general visitors",
     category: "Home Pages",
     icon: Globe,
-    target: "General Audience"
+    target: "General Audience",
+    targeting: "Intra-GCC"
   },
   {
     path: "/enterprise",
@@ -63,7 +65,8 @@ const landingPages = [
     description: "Enterprise-focused home page without public pricing for B2B prospects",
     category: "Home Pages",
     icon: Building,
-    target: "Enterprise Clients"
+    target: "Enterprise Clients",
+    targeting: "Intra-GCC"
   },
   {
     path: "/alternative", 
@@ -71,7 +74,8 @@ const landingPages = [
     description: "IQ Fulfillment-inspired design with modern layout and interactive elements",
     category: "Home Pages", 
     icon: Zap,
-    target: "Design Test"
+    target: "Design Test",
+    targeting: "Intra-GCC"
   },
   {
     path: "/lead",
@@ -79,7 +83,8 @@ const landingPages = [
     description: "Home page with embedded HubSpot form for direct lead capture",
     category: "Home Pages",
     icon: Target,
-    target: "Lead Generation"
+    target: "Lead Generation",
+    targeting: "Intra-GCC"
   },
   {
     path: "/alt3",
@@ -87,7 +92,8 @@ const landingPages = [
     description: "Quivo-inspired design with process flow, transparency focus, and testimonials",
     category: "Home Pages",
     icon: Building,
-    target: "Design Test"
+    target: "Design Test",
+    targeting: "Intra-GCC"
   },
   {
     path: "/eu-sme-gcc",
@@ -95,7 +101,8 @@ const landingPages = [
     description: "European SMEs expanding to GCC markets with Quivo partnership messaging",
     category: "Segment Pages",
     icon: ShoppingCart,
-    target: "EU SMEs"
+    target: "EU SMEs",
+    targeting: "EU->GCC"
   },
   {
     path: "/gcc-eu-muslim",
@@ -103,7 +110,8 @@ const landingPages = [
     description: "GCC brands targeting European Muslim consumer segments",
     category: "Segment Pages",
     icon: Users,
-    target: "GCC Brands"
+    target: "GCC Brands",
+    targeting: "GCC->EU"
   },
   {
     path: "/enterprise-cross-border",
@@ -111,7 +119,8 @@ const landingPages = [
     description: "Fortune 500 companies seeking enterprise-grade cross-border logistics",
     category: "Segment Pages", 
     icon: Building,
-    target: "Enterprise"
+    target: "Enterprise",
+    targeting: "EU->GCC"
   },
   {
     path: "/tech-innovation",
@@ -119,7 +128,8 @@ const landingPages = [
     description: "Tech companies needing advanced APIs, ML optimization, and data analytics",
     category: "Segment Pages",
     icon: Zap,
-    target: "Tech Leaders"
+    target: "Tech Leaders",
+    targeting: "Intra-GCC"
   },
   {
     path: "/uae-regional",
@@ -127,7 +137,17 @@ const landingPages = [
     description: "Companies using UAE as strategic hub for MENA and regional growth",
     category: "Segment Pages",
     icon: Globe,
-    target: "Regional Expansion"
+    target: "Regional Expansion",
+    targeting: "Intra-GCC"
+  },
+  {
+    path: "/local-gcc-expansion",
+    name: "Local GCC Expansion",
+    description: "Local e-commerce sellers expanding across Qatar, UAE, and Saudi Arabia",
+    category: "Segment Pages",
+    icon: Target,
+    target: "Local Businesses",
+    targeting: "Intra-GCC"
   },
   {
     path: "/quote",
@@ -135,7 +155,8 @@ const landingPages = [
     description: "Multi-step quote request form with shipping, platform, and contact details",
     category: "Conversion Pages",
     icon: MousePointer,
-    target: "All Segments"
+    target: "All Segments",
+    targeting: "Intra-GCC"
   }
 ];
 
@@ -262,6 +283,7 @@ export function LandingPagesOverview() {
     
     return {
       ...page,
+      targeting: page.targeting as 'Intra-GCC' | 'EU->GCC' | 'GCC->EU',
       views,
       sessions,
       ctaClicks,
@@ -378,6 +400,12 @@ export function LandingPagesOverview() {
                               <div className="flex items-center gap-2 mt-2">
                                 <Badge variant="outline">{page.category}</Badge>
                                 <Badge variant="secondary">{page.target}</Badge>
+                                <Badge 
+                                  variant={page.targeting === 'Intra-GCC' ? 'default' : page.targeting === 'EU->GCC' ? 'destructive' : 'outline'}
+                                  className="text-xs"
+                                >
+                                  {page.targeting}
+                                </Badge>
                               </div>
                             </div>
                           </div>
@@ -438,7 +466,15 @@ export function LandingPagesOverview() {
                               <div>
                                 <CardTitle className="text-xl">{page.name}</CardTitle>
                                 <p className="text-muted-foreground mt-1">{page.description}</p>
-                                <Badge variant="secondary" className="mt-2">{page.target}</Badge>
+                                <div className="flex items-center gap-2 mt-2">
+                                  <Badge variant="secondary">{page.target}</Badge>
+                                  <Badge 
+                                    variant={page.targeting === 'Intra-GCC' ? 'default' : page.targeting === 'EU->GCC' ? 'destructive' : 'outline'}
+                                    className="text-xs"
+                                  >
+                                    {page.targeting}
+                                  </Badge>
+                                </div>
                               </div>
                             </div>
                             <Link href={page.path}>
@@ -496,7 +532,15 @@ export function LandingPagesOverview() {
                               <div>
                                 <CardTitle className="text-xl">{page.name}</CardTitle>
                                 <p className="text-muted-foreground mt-1">{page.description}</p>
-                                <Badge variant="secondary" className="mt-2">{page.target}</Badge>
+                                <div className="flex items-center gap-2 mt-2">
+                                  <Badge variant="secondary">{page.target}</Badge>
+                                  <Badge 
+                                    variant={page.targeting === 'Intra-GCC' ? 'default' : page.targeting === 'EU->GCC' ? 'destructive' : 'outline'}
+                                    className="text-xs"
+                                  >
+                                    {page.targeting}
+                                  </Badge>
+                                </div>
                               </div>
                             </div>
                             <Link href={page.path}>
@@ -554,7 +598,15 @@ export function LandingPagesOverview() {
                               <div>
                                 <CardTitle className="text-xl">{page.name}</CardTitle>
                                 <p className="text-muted-foreground mt-1">{page.description}</p>
-                                <Badge variant="secondary" className="mt-2">{page.target}</Badge>
+                                <div className="flex items-center gap-2 mt-2">
+                                  <Badge variant="secondary">{page.target}</Badge>
+                                  <Badge 
+                                    variant={page.targeting === 'Intra-GCC' ? 'default' : page.targeting === 'EU->GCC' ? 'destructive' : 'outline'}
+                                    className="text-xs"
+                                  >
+                                    {page.targeting}
+                                  </Badge>
+                                </div>
                               </div>
                             </div>
                             <Link href={page.path}>

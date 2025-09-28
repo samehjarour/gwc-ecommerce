@@ -53,13 +53,13 @@ export function HomePageAlternative() {
           <div className="container mx-auto px-4 relative z-10">
             <div className="text-center max-w-4xl mx-auto">
               <Badge variant="outline" className="mb-4" data-testid="badge-mena-leader">
-                MENA's #1 Cross-Border Fulfillment Solution
+                GCC's #1 E-commerce Fulfillment Solution
               </Badge>
               <h1 className="text-4xl md:text-6xl font-bold mb-6" data-testid="heading-hero">
-                Expand your European Brands to the <em className="italic text-primary not-italic">Middle East</em>
+                Scale Your Business Across the <em className="italic text-primary not-italic">GCC Markets</em>
               </h1>
               <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto" data-testid="text-hero-description">
-                Trusted by 100+ European brands to expand across GCC markets. One platform, instant integration, same-day fulfillment across 6 countries.
+                Trusted by 100+ brands to scale across GCC markets. One platform, instant integration, same-day fulfillment across Qatar, UAE, Saudi Arabia.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <Link href="/quote">
@@ -87,10 +87,10 @@ export function HomePageAlternative() {
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold mb-4" data-testid="heading-solutions">
-                Solutions <em className="italic text-primary">Designed</em> For European Expansion
+                Solutions <em className="italic text-primary">Designed</em> For GCC Market Growth
               </h2>
               <p className="text-xl text-muted-foreground" data-testid="text-solutions-subtitle">
-                Complete cross-border logistics powered by local expertise and advanced technology
+                Complete GCC fulfillment powered by regional expertise and advanced technology
               </p>
             </div>
 
@@ -98,10 +98,10 @@ export function HomePageAlternative() {
               <Card className="text-center hover-elevate" data-testid="card-fulfillment">
                 <CardContent className="pt-8 pb-8">
                   <Package className="w-16 h-16 text-primary mx-auto mb-6" />
-                  <h3 className="text-2xl font-semibold mb-4">Cross-Border Fulfillment powered by local expertise</h3>
+                  <h3 className="text-2xl font-semibold mb-4">GCC Fulfillment powered by regional expertise</h3>
                   <p className="text-muted-foreground mb-6">
-                    GWC is a MENA-based fulfillment solution <strong>trusted by 100+ European brands</strong> to deliver 
-                    orders from Europe to Middle East customers.
+                    GWC is a MENA-based fulfillment solution <strong>trusted by 100+ brands</strong> to deliver 
+                    orders across GCC markets with same-day delivery.
                   </p>
                   <Button variant="outline" data-testid="button-learn-fulfillment">
                     Learn More
@@ -114,7 +114,7 @@ export function HomePageAlternative() {
                   <Activity className="w-16 h-16 text-primary mx-auto mb-6" />
                   <h3 className="text-2xl font-semibold mb-4">All-in-one platform for visibility and scale</h3>
                   <p className="text-muted-foreground mb-6">
-                    Integrate, monitor, scale and track your Middle East operations seamlessly with real-time visibility.
+                    Integrate, monitor, scale and track your GCC operations seamlessly with real-time visibility.
                   </p>
                   <Button variant="outline" data-testid="button-learn-platform">
                     Learn More
