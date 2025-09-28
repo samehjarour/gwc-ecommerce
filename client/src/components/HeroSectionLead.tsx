@@ -93,7 +93,7 @@ export function HeroSectionLead() {
           
           {/* Subtitle */}
           <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-4xl mx-auto leading-relaxed" data-testid="text-hero-subtitle">
-            Transparent pricing, no hidden fees. Start selling in UAE, Saudi Arabia, and Qatar with our integrated fulfillment network, from smart warehousing to award winning last mile delivery.
+            Transparent pricing, no hidden fees. Start selling in UAE, Saudi Arabia, and Qatar with our integrated fulfillment network, from smart warehousing to efficient last mile delivery.
           </p>
           
           
