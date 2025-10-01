@@ -1,7 +1,5 @@
-import aceImage from "@assets/ACE_1758550429047.png";
 import carrefourImage from "@assets/Carrefour_1758550429048.png";
 import huaweiImage from "@assets/HUAWEI_1758550429079.png";
-import ikeaImage from "@assets/IKEA_1758550429079.png";
 import jumboImage from "@assets/Jumbo_1758550429079.png";
 import mcdonaldsImage from "@assets/McDonalds_1758550429079.png";
 import nestleImage from "@assets/Nestle_1758550429080.png";
@@ -9,13 +7,11 @@ import qatarAirwaysImage from "@assets/QA_1758550429080.png";
 import vodafoneImage from "@assets/Vodafone_1758550429080.png";
 
 const brands = [
-  { name: "IKEA", image: ikeaImage, alt: "IKEA logo" },
   { name: "McDonald's", image: mcdonaldsImage, alt: "McDonald's logo" },
   { name: "Qatar Airways", image: qatarAirwaysImage, alt: "Qatar Airways logo" },
   { name: "Huawei", image: huaweiImage, alt: "Huawei logo" },
   { name: "Carrefour", image: carrefourImage, alt: "Carrefour logo" },
   { name: "Vodafone", image: vodafoneImage, alt: "Vodafone logo" },
-  { name: "ACE", image: aceImage, alt: "ACE logo" },
   { name: "Jumbo", image: jumboImage, alt: "Jumbo logo" },
   { name: "Nestlé", image: nestleImage, alt: "Nestlé logo" },
 ];
