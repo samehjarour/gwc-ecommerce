@@ -59,6 +59,26 @@ export async function createHubSpotContact(formData: {
 }) {
   const client = await getUncachableHubSpotClient();
   
+  // Map platform codes to HubSpot values
+  const platformMapping: Record<string, string> = {
+    'shopify': 'Shopify',
+    'amazon': 'Amazon',
+    'noon': 'Noon',
+    'magento': 'Magento',
+    'woocommerce': 'WooCommerce',
+    'custom': 'Custom Platform'
+  };
+
+  // Map product codes to HubSpot values
+  const productMapping: Record<string, string> = {
+    'fashion': 'Fashion & Apparel',
+    'electronics': 'Electronics',
+    'home': 'Home & Garden',
+    'beauty': 'Beauty & Personal Care',
+    'sports': 'Sports & Outdoors',
+    'other': 'Other'
+  };
+
   // Map form data to HubSpot properties
   const properties: any = {
     firstname: formData.firstName,
@@ -67,8 +87,8 @@ export async function createHubSpotContact(formData: {
     phone: formData.phone,
     origin_country_multi: formData.shipFrom.join(';'),
     destination_country_multi: formData.shipTo.join(';'),
-    shop_system: formData.platforms.join(', '),
-    product: formData.products.join(', '),
+    shop_system: formData.platforms.map(p => platformMapping[p] || p).join(';'),
+    product: formData.products.map(p => productMapping[p] || p).join(';'),
   };
 
   // Add optional fields if they exist
