@@ -103,21 +103,41 @@ export async function createHubSpotContact(formData: {
   try {
     console.log('Sending to HubSpot with properties:', JSON.stringify(properties, null, 2));
     
-    // Create contact in HubSpot
+    // Try to create contact in HubSpot
     const response = await client.crm.contacts.basicApi.create({
       properties,
       associations: []
     });
     
-    console.log('HubSpot response:', JSON.stringify(response, null, 2));
+    console.log('HubSpot contact created successfully:', response.id);
     return response;
   } catch (error: any) {
+    // If contact already exists (409 error), update it instead
+    if (error.code === 409 && error.body?.message?.includes('Contact already exists')) {
+      const existingIdMatch = error.body.message.match(/Existing ID: (\d+)/);
+      const existingId = existingIdMatch ? existingIdMatch[1] : null;
+      
+      if (existingId) {
+        console.log(`Contact already exists with ID ${existingId}, updating instead...`);
+        
+        try {
+          const updateResponse = await client.crm.contacts.basicApi.update(existingId, {
+            properties
+          });
+          
+          console.log('HubSpot contact updated successfully:', existingId);
+          return updateResponse;
+        } catch (updateError: any) {
+          console.error('Failed to update existing contact:', updateError.message);
+          throw updateError;
+        }
+      }
+    }
+    
+    // For other errors, log and rethrow
     console.error('HubSpot API Error:', error.message);
     if (error.body) {
       console.error('Error details:', JSON.stringify(error.body, null, 2));
-    }
-    if (error.response) {
-      console.error('Error response:', JSON.stringify(error.response, null, 2));
     }
     throw error;
   }
