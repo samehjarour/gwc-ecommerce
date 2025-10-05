@@ -3,6 +3,7 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertQuoteSchema, insertAnalyticsEventSchema } from "@shared/schema";
 import { fromZodError } from "zod-validation-error";
+import { createHubSpotContact } from "./hubspot";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Quote submission endpoint
@@ -22,7 +23,15 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Create the quote
       const quote = await storage.createQuote(validationResult.data);
       
-      // TODO: Send email notification to sales team
+      // Send to HubSpot
+      try {
+        const hubspotContact = await createHubSpotContact(validationResult.data);
+        console.log("HubSpot contact created:", hubspotContact.id);
+      } catch (hubspotError) {
+        // Log error but don't fail the quote submission
+        console.error("Failed to create HubSpot contact:", hubspotError);
+      }
+      
       console.log("New quote submitted:", {
         id: quote.id,
         company: quote.company,
