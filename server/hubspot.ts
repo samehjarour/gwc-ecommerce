@@ -81,17 +81,23 @@ export async function createHubSpotContact(formData: {
   }
 
   try {
+    console.log('Sending to HubSpot with properties:', JSON.stringify(properties, null, 2));
+    
     // Create contact in HubSpot
     const response = await client.crm.contacts.basicApi.create({
       properties,
       associations: []
     });
     
+    console.log('HubSpot response:', JSON.stringify(response, null, 2));
     return response;
   } catch (error: any) {
     console.error('HubSpot API Error:', error.message);
     if (error.body) {
       console.error('Error details:', JSON.stringify(error.body, null, 2));
+    }
+    if (error.response) {
+      console.error('Error response:', JSON.stringify(error.response, null, 2));
     }
     throw error;
   }
