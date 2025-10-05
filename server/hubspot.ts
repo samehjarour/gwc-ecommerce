@@ -65,8 +65,8 @@ export async function createHubSpotContact(formData: {
     lastname: formData.lastName,
     email: formData.email,
     phone: formData.phone,
-    origin_country_ecommerce: formData.shipFrom,
-    destination_country_ecommerce: formData.shipTo.join(', '),
+    origin_country_multi: formData.shipFrom,
+    destination_country_multi: formData.shipTo.join(';'),
     shop_system: formData.platforms.join(', '),
     product: formData.products.join(', '),
   };

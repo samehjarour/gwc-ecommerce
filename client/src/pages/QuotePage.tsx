@@ -205,14 +205,7 @@ export function QuotePage() {
                             className="mt-2"
                             data-testid="select-ship-from"
                           >
-                            <SelectValue placeholder="Select origin country">
-                              {formData.shipFrom && (
-                                <span className="flex items-center gap-2">
-                                  <span>{countries.find(c => c.value === formData.shipFrom)?.flag}</span>
-                                  <span>{formData.shipFrom}</span>
-                                </span>
-                              )}
-                            </SelectValue>
+                            <SelectValue placeholder="Select origin country" />
                           </SelectTrigger>
                           <SelectContent className="max-h-[300px]">
                             {countries.map((country) => (
