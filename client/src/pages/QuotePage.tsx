@@ -6,36 +6,16 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { ArrowLeft, ArrowRight, CheckCircle, Settings, Moon } from "lucide-react";
 import { Link } from "wouter";
 import { SiMagento } from "react-icons/si";
 import shopifyLogo from "@assets/shopify_1758598346980.png";
 import amazonLogo from "@assets/amazon_1758598346980.png";
 import wooLogo from "@assets/woo (1)_1758598346980.png";
+import { countries } from "@/data/countries";
 
 type Step = 1 | 2 | 3;
-
-const countries = [
-  { code: "china", flag: "🇨🇳", name: "China" },
-  { code: "usa", flag: "🇺🇸", name: "USA" },
-  { code: "europe", flag: "🇪🇺", name: "Europe" },
-  { code: "india", flag: "🇮🇳", name: "India" },
-  { code: "turkey", flag: "🇹🇷", name: "Turkey" },
-  { code: "other", flag: "🌍", name: "Other" },
-];
-
-const shipToCountries = [
-  { code: "saudi", flag: "🇸🇦", name: "Saudi Arabia" },
-  { code: "uae", flag: "🇦🇪", name: "UAE" },
-  { code: "kuwait", flag: "🇰🇼", name: "Kuwait" },
-  { code: "qatar", flag: "🇶🇦", name: "Qatar" },
-  { code: "bahrain", flag: "🇧🇭", name: "Bahrain" },
-  { code: "oman", flag: "🇴🇲", name: "Oman" },
-  { code: "usa", flag: "🇺🇸", name: "United States" },
-  { code: "uk", flag: "🇬🇧", name: "United Kingdom" },
-  { code: "germany", flag: "🇩🇪", name: "Germany" },
-  { code: "austria", flag: "🇦🇹", name: "Austria" },
-];
 
 const platforms = [
   { code: "shopify", icon: shopifyLogo, iconType: "image", name: "Shopify" },
@@ -213,47 +193,74 @@ export function QuotePage() {
                   {currentStep === 1 && (
                     <div className="space-y-8" data-testid="step-shipping">
                       <div>
-                        <h3 className="text-lg font-semibold mb-4">Where do you want to ship from?</h3>
-                        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                          {countries.map((country) => (
-                            <button
-                              key={country.code}
-                              type="button"
-                              onClick={() => setFormData(prev => ({ ...prev, shipFrom: country.code }))}
-                              className={`p-4 border rounded-lg text-center hover-elevate transition-all ${
-                                formData.shipFrom === country.code
-                                  ? 'border-primary bg-primary/10'
-                                  : 'border-border'
-                              }`}
-                              data-testid={`button-ship-from-${country.code}`}
-                            >
-                              <div className="text-2xl mb-2">{country.flag}</div>
-                              <div className="font-medium">{country.name}</div>
-                            </button>
-                          ))}
-                        </div>
+                        <Label htmlFor="shipFrom" className="text-lg font-semibold">
+                          Where do you want to ship from? *
+                        </Label>
+                        <Select
+                          value={formData.shipFrom}
+                          onValueChange={(value) => setFormData(prev => ({ ...prev, shipFrom: value }))}
+                        >
+                          <SelectTrigger 
+                            id="shipFrom" 
+                            className="mt-2"
+                            data-testid="select-ship-from"
+                          >
+                            <SelectValue placeholder="Select origin country">
+                              {formData.shipFrom && (
+                                <span className="flex items-center gap-2">
+                                  <span>{countries.find(c => c.value === formData.shipFrom)?.flag}</span>
+                                  <span>{formData.shipFrom}</span>
+                                </span>
+                              )}
+                            </SelectValue>
+                          </SelectTrigger>
+                          <SelectContent className="max-h-[300px]">
+                            {countries.map((country) => (
+                              <SelectItem 
+                                key={country.value} 
+                                value={country.value}
+                                data-testid={`option-ship-from-${country.value}`}
+                              >
+                                <span className="flex items-center gap-2">
+                                  <span>{country.flag}</span>
+                                  <span>{country.label}</span>
+                                </span>
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
                       </div>
 
                       <div>
-                        <h3 className="text-lg font-semibold mb-4">Where do you want to ship/expand to?</h3>
+                        <Label className="text-lg font-semibold mb-2 block">
+                          Where do you want to ship/expand to? *
+                        </Label>
+                        <p className="text-sm text-muted-foreground mb-4">
+                          Select one or multiple destination countries
+                        </p>
                         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                          {shipToCountries.map((country) => (
+                          {countries.slice(0, 20).map((country) => (
                             <button
-                              key={country.code}
+                              key={country.value}
                               type="button"
-                              onClick={() => toggleSelection('shipTo', country.code)}
+                              onClick={() => toggleSelection('shipTo', country.value)}
                               className={`p-4 border rounded-lg text-center hover-elevate transition-all ${
-                                formData.shipTo.includes(country.code)
+                                formData.shipTo.includes(country.value)
                                   ? 'border-primary bg-primary/10'
                                   : 'border-border'
                               }`}
-                              data-testid={`button-ship-to-${country.code}`}
+                              data-testid={`button-ship-to-${country.value}`}
                             >
                               <div className="text-2xl mb-2">{country.flag}</div>
-                              <div className="font-medium">{country.name}</div>
+                              <div className="font-medium text-sm">{country.label}</div>
                             </button>
                           ))}
                         </div>
+                        {formData.shipTo.length > 0 && (
+                          <div className="mt-4 p-3 bg-muted rounded-md">
+                            <p className="text-sm font-medium">Selected: {formData.shipTo.join(', ')}</p>
+                          </div>
+                        )}
                       </div>
                     </div>
                   )}
