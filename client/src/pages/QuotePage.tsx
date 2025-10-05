@@ -236,29 +236,70 @@ export function QuotePage() {
                           Where do you want to ship/expand to? *
                         </Label>
                         <p className="text-sm text-muted-foreground mb-4">
-                          Select one or multiple destination countries
+                          Type to search and select multiple destination countries
                         </p>
-                        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                          {countries.slice(0, 20).map((country) => (
-                            <button
-                              key={country.value}
-                              type="button"
-                              onClick={() => toggleSelection('shipTo', country.value)}
-                              className={`p-4 border rounded-lg text-center hover-elevate transition-all ${
-                                formData.shipTo.includes(country.value)
-                                  ? 'border-primary bg-primary/10'
-                                  : 'border-border'
-                              }`}
-                              data-testid={`button-ship-to-${country.value}`}
-                            >
-                              <div className="text-2xl mb-2">{country.flag}</div>
-                              <div className="font-medium text-sm">{country.label}</div>
-                            </button>
-                          ))}
-                        </div>
+                        <Select
+                          value=""
+                          onValueChange={(value) => {
+                            if (value && !formData.shipTo.includes(value)) {
+                              setFormData(prev => ({ ...prev, shipTo: [...prev.shipTo, value] }));
+                            }
+                          }}
+                        >
+                          <SelectTrigger 
+                            className="mt-2"
+                            data-testid="select-ship-to"
+                          >
+                            <SelectValue placeholder="Select destination countries" />
+                          </SelectTrigger>
+                          <SelectContent className="max-h-[300px]">
+                            {countries.map((country) => (
+                              <SelectItem 
+                                key={country.value} 
+                                value={country.value}
+                                disabled={formData.shipTo.includes(country.value)}
+                                data-testid={`option-ship-to-${country.value}`}
+                              >
+                                <span className="flex items-center gap-2">
+                                  <span>{country.flag}</span>
+                                  <span>{country.label}</span>
+                                  {formData.shipTo.includes(country.value) && (
+                                    <span className="ml-2 text-xs text-muted-foreground">(Selected)</span>
+                                  )}
+                                </span>
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                        
                         {formData.shipTo.length > 0 && (
-                          <div className="mt-4 p-3 bg-muted rounded-md">
-                            <p className="text-sm font-medium">Selected: {formData.shipTo.join(', ')}</p>
+                          <div className="mt-4 space-y-2">
+                            <p className="text-sm font-medium">Selected destinations:</p>
+                            <div className="flex flex-wrap gap-2">
+                              {formData.shipTo.map((country) => {
+                                const countryData = countries.find(c => c.value === country);
+                                return (
+                                  <div
+                                    key={country}
+                                    className="inline-flex items-center gap-2 px-3 py-1 bg-primary/10 border border-primary/20 rounded-md text-sm"
+                                  >
+                                    <span>{countryData?.flag}</span>
+                                    <span>{country}</span>
+                                    <button
+                                      type="button"
+                                      onClick={() => setFormData(prev => ({
+                                        ...prev,
+                                        shipTo: prev.shipTo.filter(c => c !== country)
+                                      }))}
+                                      className="ml-1 hover:text-destructive"
+                                      data-testid={`remove-${country}`}
+                                    >
+                                      ×
+                                    </button>
+                                  </div>
+                                );
+                              })}
+                            </div>
                           </div>
                         )}
                       </div>
