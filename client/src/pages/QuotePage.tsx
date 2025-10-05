@@ -38,7 +38,7 @@ const productCategories = [
 export function QuotePage() {
   const [currentStep, setCurrentStep] = useState<Step>(1);
   const [formData, setFormData] = useState({
-    shipFrom: "",
+    shipFrom: [] as string[],
     shipTo: [] as string[],
     platforms: [] as string[],
     products: [] as string[],
@@ -193,35 +193,76 @@ export function QuotePage() {
                   {currentStep === 1 && (
                     <div className="space-y-8" data-testid="step-shipping">
                       <div>
-                        <Label htmlFor="shipFrom" className="text-lg font-semibold">
+                        <Label className="text-lg font-semibold mb-2 block">
                           Where do you want to ship from? *
                         </Label>
+                        <p className="text-sm text-muted-foreground mb-4">
+                          Type to search and select origin countries
+                        </p>
                         <Select
-                          value={formData.shipFrom}
-                          onValueChange={(value) => setFormData(prev => ({ ...prev, shipFrom: value }))}
+                          value=""
+                          onValueChange={(value) => {
+                            if (value && !formData.shipFrom.includes(value)) {
+                              setFormData(prev => ({ ...prev, shipFrom: [...prev.shipFrom, value] }));
+                            }
+                          }}
                         >
                           <SelectTrigger 
-                            id="shipFrom" 
                             className="mt-2"
                             data-testid="select-ship-from"
                           >
-                            <SelectValue placeholder="Select origin country" />
+                            <SelectValue placeholder="Select origin countries" />
                           </SelectTrigger>
                           <SelectContent className="max-h-[300px]">
                             {countries.map((country) => (
                               <SelectItem 
                                 key={country.value} 
                                 value={country.value}
+                                disabled={formData.shipFrom.includes(country.value)}
                                 data-testid={`option-ship-from-${country.value}`}
                               >
                                 <span className="flex items-center gap-2">
                                   <span>{country.flag}</span>
                                   <span>{country.label}</span>
+                                  {formData.shipFrom.includes(country.value) && (
+                                    <span className="ml-2 text-xs text-muted-foreground">(Selected)</span>
+                                  )}
                                 </span>
                               </SelectItem>
                             ))}
                           </SelectContent>
                         </Select>
+                        
+                        {formData.shipFrom.length > 0 && (
+                          <div className="mt-4 space-y-2">
+                            <p className="text-sm font-medium">Selected origins:</p>
+                            <div className="flex flex-wrap gap-2">
+                              {formData.shipFrom.map((country) => {
+                                const countryData = countries.find(c => c.value === country);
+                                return (
+                                  <div
+                                    key={country}
+                                    className="inline-flex items-center gap-2 px-3 py-1 bg-primary/10 border border-primary/20 rounded-md text-sm"
+                                  >
+                                    <span>{countryData?.flag}</span>
+                                    <span>{country}</span>
+                                    <button
+                                      type="button"
+                                      onClick={() => setFormData(prev => ({
+                                        ...prev,
+                                        shipFrom: prev.shipFrom.filter(c => c !== country)
+                                      }))}
+                                      className="ml-1 hover:text-destructive"
+                                      data-testid={`remove-origin-${country}`}
+                                    >
+                                      ×
+                                    </button>
+                                  </div>
+                                );
+                              })}
+                            </div>
+                          </div>
+                        )}
                       </div>
 
                       <div>

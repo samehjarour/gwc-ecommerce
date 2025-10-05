@@ -50,7 +50,7 @@ export async function createHubSpotContact(formData: {
   lastName: string;
   email: string;
   phone: string;
-  shipFrom: string;
+  shipFrom: string[];
   shipTo: string[];
   platforms: string[];
   products: string[];
@@ -65,7 +65,7 @@ export async function createHubSpotContact(formData: {
     lastname: formData.lastName,
     email: formData.email,
     phone: formData.phone,
-    origin_country_multi: formData.shipFrom,
+    origin_country_multi: formData.shipFrom.join(';'),
     destination_country_multi: formData.shipTo.join(';'),
     shop_system: formData.platforms.join(', '),
     product: formData.products.join(', '),

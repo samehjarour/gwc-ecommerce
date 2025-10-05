@@ -16,7 +16,7 @@ export const quotes = pgTable("quotes", {
   email: text("email").notNull(),
   phone: text("phone").notNull(),
   company: text("company").notNull(),
-  shipFrom: text("ship_from").notNull(),
+  shipFrom: jsonb("ship_from").notNull(), // Array of origin countries
   shipTo: jsonb("ship_to").notNull(), // Array of destination countries
   platforms: jsonb("platforms").notNull(), // Array of platform integrations
   products: jsonb("products").notNull(), // Array of product categories
@@ -49,6 +49,7 @@ export const insertQuoteSchema = createInsertSchema(quotes).omit({
   createdAt: true,
   updatedAt: true,
 }).extend({
+  shipFrom: z.array(z.string()).min(1, "Please select at least one origin country"),
   shipTo: z.array(z.string()).min(1, "Please select at least one destination"),
   platforms: z.array(z.string()).min(1, "Please select at least one platform"),
   products: z.array(z.string()).min(1, "Please select at least one product category"),
