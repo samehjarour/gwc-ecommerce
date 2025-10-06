@@ -23,6 +23,7 @@ app.use(helmet({
       styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
       fontSrc: ["'self'", "https://fonts.gstatic.com"],
       imgSrc: ["'self'", "data:", "https:"],
+      mediaSrc: ["'self'"], // Allow videos from same origin
       connectSrc: isDevelopment
         ? ["'self'", "ws:", "wss:"] // Required for Vite HMR websocket
         : ["'self'"],
