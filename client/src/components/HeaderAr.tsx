@@ -52,7 +52,7 @@ export function HeaderAr() {
             >
               اتصل بنا
             </button>
-            <Link href="/quote2">
+            <Link href="/quote2-ar">
               <Button data-testid="button-get-quote">احصل على عرض أسعار</Button>
             </Link>
           </nav>
@@ -94,7 +94,7 @@ export function HeaderAr() {
               >
                 اتصل بنا
               </button>
-              <Link href="/quote2">
+              <Link href="/quote2-ar">
                 <Button className="w-full" data-testid="button-mobile-quote">احصل على عرض أسعار</Button>
               </Link>
             </nav>
