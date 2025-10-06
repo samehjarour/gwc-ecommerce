@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button";
-import { Link } from "wouter";
 
 export function CTASectionAr() {
   return (
@@ -12,7 +11,7 @@ export function CTASectionAr() {
           انضم إلى أكثر من 100 علامة تجارية تثق في جي دبليو سي لخدمات التنفيذ الموثوقة للتجارة الإلكترونية في قطر
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link href="/quote2">
+          <a href="https://gwcecommerce.com/quote2-ar">
             <Button 
               size="lg" 
               variant="secondary"
@@ -21,7 +20,7 @@ export function CTASectionAr() {
             >
               احصل على عرض أسعار مجاني
             </Button>
-          </Link>
+          </a>
         </div>
       </div>
     </section>
