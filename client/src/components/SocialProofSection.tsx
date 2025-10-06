@@ -18,7 +18,7 @@ export function SocialProofSection() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-2xl md:text-3xl font-semibold text-white mb-2" data-testid="text-social-proof-title">
-            Trusted by Global Businesses
+            Trusted by the best E-commerce brands
           </h2>
           <p className="text-slate-300" data-testid="text-social-proof-subtitle">
             From retail giants to tech leaders, GWC powers fulfillment across industries

@@ -54,6 +54,26 @@ interface PageAnalytics {
 // Landing page definitions - sorted by most recent first
 const landingPages = [
   {
+    path: "/uae-video",
+    name: "UAE Video Landing Page",
+    description: "Video-based landing page for UAE market with reliable service messaging and dynamic map stats",
+    category: "Video Pages",
+    icon: Eye,
+    target: "UAE Businesses",
+    targeting: "Intra-GCC" as const,
+    status: "product" as const
+  },
+  {
+    path: "/qatar-video",
+    name: "Qatar Video Landing Page",
+    description: "Video-based landing page for Qatar market with reliable service messaging and dynamic map stats",
+    category: "Video Pages",
+    icon: Eye,
+    target: "Qatar Businesses",
+    targeting: "Intra-GCC" as const,
+    status: "product" as const
+  },
+  {
     path: "/qatar-reliable-service",
     name: "Qatar Reliable Service",
     description: "Dependable Qatar delivery (98% on-time) with local support team (90-min avg response)",

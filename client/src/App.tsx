@@ -24,6 +24,9 @@ import { UaeTransparentPricing } from "@/pages/UaeTransparentPricing";
 import { UaeReliableService } from "@/pages/UaeReliableService";
 import { QatarTransparentPricing } from "@/pages/QatarTransparentPricing";
 import { QatarReliableService } from "@/pages/QatarReliableService";
+import { Quote2Page } from "@/pages/Quote2Page";
+import { QatarVideoPage } from "@/pages/QatarVideoPage";
+import { UaeVideoPage } from "@/pages/UaeVideoPage";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -49,6 +52,9 @@ function Router() {
       <Route path="/uae-reliable-service" component={UaeReliableService} />
       <Route path="/qatar-transparent-pricing" component={QatarTransparentPricing} />
       <Route path="/qatar-reliable-service" component={QatarReliableService} />
+      <Route path="/quote2" component={Quote2Page} />
+      <Route path="/qatar-video" component={QatarVideoPage} />
+      <Route path="/uae-video" component={UaeVideoPage} />
       <Route component={NotFound} />
     </Switch>
   );
