@@ -52,7 +52,7 @@ export function QatarVideoPageAr() {
                   استمتع بخدمة توصيل موثوقة بنسبة 98% في الوقت المحدد وفريق دعم سريع الاستجابة بمتوسط وقت استجابة 90 دقيقة.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Link href="/quote2">
+                  <Link href="/quote2-ar">
                     <Button size="lg" data-testid="button-get-quote">
                       ابدأ اليوم
                     </Button>
