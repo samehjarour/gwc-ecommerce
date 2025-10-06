@@ -54,6 +54,16 @@ interface PageAnalytics {
 // Landing page definitions - sorted by most recent first
 const landingPages = [
   {
+    path: "/qatar-video-ar",
+    name: "Qatar Video Landing Page (Arabic)",
+    description: "Arabic RTL version of Qatar video landing page with full Arabic translation",
+    category: "Video Pages",
+    icon: Eye,
+    target: "Qatar Businesses (Arabic)",
+    targeting: "Intra-GCC" as const,
+    status: "product" as const
+  },
+  {
     path: "/uae-video",
     name: "UAE Video Landing Page",
     description: "Video-based landing page for UAE market with reliable service messaging and dynamic map stats",
