@@ -57,15 +57,14 @@ export function VideoLandingPage() {
               </div>
               
               <div className="relative">
-                <div className="relative aspect-video bg-black rounded-lg overflow-hidden shadow-2xl">
+                <div className="relative rounded-lg overflow-hidden shadow-2xl" style={{ padding: '56.25% 0 0 0' }}>
                   <iframe 
-                    src="https://player.vimeo.com/video/1124864507?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;loop=1&amp;muted=1" 
-                    className="w-full h-full absolute inset-0"
+                    src="https://player.vimeo.com/video/1124864507?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&amp;controls=0" 
+                    className="absolute top-0 left-0 w-full h-full"
                     frameBorder="0"
-                    allowFullScreen
                     allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
                     referrerPolicy="strict-origin-when-cross-origin" 
-                    title="GWC Logistics Video"
+                    title="Video-GWC"
                     data-testid="hero-video"
                   ></iframe>
                 </div>
@@ -230,11 +229,15 @@ export function VideoLandingPage() {
               </div>
 
               <div className="relative">
-                <div className="aspect-video bg-muted rounded-lg flex items-center justify-center">
-                  <div className="text-center">
-                    <Play className="w-16 h-16 text-primary mx-auto mb-4" />
-                    <span className="text-lg text-muted-foreground">Process Walkthrough Video</span>
-                  </div>
+                <div className="relative rounded-lg overflow-hidden" style={{ padding: '56.25% 0 0 0' }}>
+                  <iframe 
+                    src="https://player.vimeo.com/video/1124864507?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&amp;controls=0" 
+                    className="absolute top-0 left-0 w-full h-full"
+                    frameBorder="0"
+                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
+                    referrerPolicy="strict-origin-when-cross-origin" 
+                    title="Video-GWC"
+                  ></iframe>
                 </div>
               </div>
             </div>
