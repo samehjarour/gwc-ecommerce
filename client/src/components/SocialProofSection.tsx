@@ -1,19 +1,15 @@
-import carrefourImage from "@assets/Carrefour_1758550429048.png";
-import huaweiImage from "@assets/HUAWEI_1758550429079.png";
-import jumboImage from "@assets/Jumbo_1758550429079.png";
-import mcdonaldsImage from "@assets/McDonalds_1758550429079.png";
-import nestleImage from "@assets/Nestle_1758550429080.png";
-import qatarAirwaysImage from "@assets/QA_1758550429080.png";
-import vodafoneImage from "@assets/Vodafone_1758550429080.png";
+import logotipo25Image from "@assets/Logotipo-25_1759739220112.png";
+import spyraImage from "@assets/logo-spyra-w1000_1759739220113.png";
+import neohImage from "@assets/neoh_logo_ohneclaim copy_1759739220113.png";
+import tractiveImage from "@assets/tractive-logo-white copy_1759739220113.png";
+import clientLogo5Image from "@assets/0x0_1759739220114.png";
 
 const brands = [
-  { name: "McDonald's", image: mcdonaldsImage, alt: "McDonald's logo" },
-  { name: "Qatar Airways", image: qatarAirwaysImage, alt: "Qatar Airways logo" },
-  { name: "Huawei", image: huaweiImage, alt: "Huawei logo" },
-  { name: "Carrefour", image: carrefourImage, alt: "Carrefour logo" },
-  { name: "Vodafone", image: vodafoneImage, alt: "Vodafone logo" },
-  { name: "Jumbo", image: jumboImage, alt: "Jumbo logo" },
-  { name: "Nestlé", image: nestleImage, alt: "Nestlé logo" },
+  { name: "Logotipo", image: logotipo25Image, alt: "Client logo" },
+  { name: "Spyra", image: spyraImage, alt: "Spyra logo" },
+  { name: "NEOH", image: neohImage, alt: "NEOH logo" },
+  { name: "Tractive", image: tractiveImage, alt: "Tractive logo" },
+  { name: "Client", image: clientLogo5Image, alt: "Client logo" },
 ];
 
 export function SocialProofSection() {
