@@ -134,3 +134,42 @@ Created four location-specific landing pages addressing key customer pain points
 - Data-driven trust signals (on-time rates, response times)
 - Direct quote form integration for instant pricing
 - Client logos featuring Logotipo, Spyra, NEOH, Tractive brands
+
+## Arabic Localization (October 2025)
+
+### Typography and Font System
+- **Primary Arabic Font**: Cairo (matching https://www.gwclogistics.com/ar/home-ar/ standards)
+- **Font Stack**: "Cairo", "Tajawal", "Amiri", "IBM Plex Sans Arabic", "Noto Sans Arabic", sans-serif
+- **CSS Implementation**: Custom `.arabic-font` utility class for Arabic content
+- **Font Loading**: Google Fonts CDN integration in index.html
+
+### RTL (Right-to-Left) Support
+- **Document-level RTL**: Applied via `document.documentElement.dir = 'rtl'` in useEffect
+- **Page-level RTL**: Additional `dir="rtl"` attribute on page root container
+- **Layout Adaptation**: All components designed to work correctly in RTL mode
+
+### Arabic Component Architecture
+Created dedicated Arabic component versions for complete localization:
+
+#### Core Layout Components
+- **HeaderAr**: Fully translated navigation, CTA buttons, and menu items
+- **FooterAr**: Arabic footer with contact information, links, and legal text
+- **CTASectionAr**: Localized call-to-action sections with Arabic copy
+
+#### Content Sections
+- **SocialProofSectionAr**: Arabic headings for client logos and trust indicators
+- **TestimonialsSectionAr**: Professionally translated testimonials from Huawei, Carrefour, IKEA
+- **IntegrationsSectionAr**: Arabic descriptions of Quivo partnership and platform integrations
+- **MapStatsSectionAr**: Translated statistics labels (clients, warehouses, employees)
+
+### Arabic Landing Pages
+- **/qatar-video-ar**: Complete Arabic version of Qatar video landing page with professional translations
+  - All marketing copy, headings, and CTAs in Arabic
+  - Maintains analytics tracking and A/B testing functionality
+  - Preserves brand names (Shopify, Amazon, etc.) while localizing descriptions
+
+### Translation Standards
+- **Professional Quality**: Native-level Arabic translations for all marketing content
+- **Brand Preservation**: International brand names kept in English (Huawei, IKEA, Shopify)
+- **SEO Optimization**: Arabic meta tags, titles, and descriptions for search visibility
+- **Cultural Adaptation**: Messaging adapted for Arabic-speaking MENA market
