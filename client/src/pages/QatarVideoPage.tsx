@@ -11,7 +11,6 @@ import { Badge } from "@/components/ui/badge";
 import { CheckCircle, Headphones, Clock, Award, Package, Activity } from "lucide-react";
 import { useEffect } from "react";
 import { Link } from "wouter";
-import videoSrc from "@assets/GWC-website_1758777706579.mp4";
 
 export function QatarVideoPage() {
   useEffect(() => {
@@ -60,7 +59,7 @@ export function QatarVideoPage() {
                     className="w-full h-full object-cover"
                     data-testid="hero-video"
                   >
-                    <source src={videoSrc} type="video/mp4" />
+                    <source src="/gwc-video.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
                   <div className="absolute inset-0 bg-black/20 pointer-events-none"></div>
@@ -191,7 +190,7 @@ export function QatarVideoPage() {
                     playsInline
                     className="w-full h-full object-cover"
                   >
-                    <source src={videoSrc} type="video/mp4" />
+                    <source src="/gwc-video.mp4" type="video/mp4" />
                   </video>
                 </div>
               </div>

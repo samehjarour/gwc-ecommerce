@@ -11,7 +11,6 @@ import { CheckCircle, Clock, Shield, Truck, Package, Globe, Star, Zap, Activity,
 import { useState, useEffect } from "react";
 import { Link } from "wouter";
 import truckImage from "@assets/GWC Truck - Riyadh_1_1757527184708.jpg";
-import videoSrc from "@assets/GWC-website_1758777706579.mp4";
 
 export function HomePageAlternative() {
   const [activeTab, setActiveTab] = useState("signup");
