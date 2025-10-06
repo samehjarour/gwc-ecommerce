@@ -20,6 +20,10 @@ import EnterpriseCrossBorderPage from "@/pages/EnterpriseCrossBorderPage";
 import TechInnovationPage from "@/pages/TechInnovationPage";
 import UaeRegionalPage from "@/pages/UaeRegionalPage";
 import { LocalGccExpansionPage } from "@/pages/LocalGccExpansionPage";
+import { UaeTransparentPricing } from "@/pages/UaeTransparentPricing";
+import { UaeReliableService } from "@/pages/UaeReliableService";
+import { QatarTransparentPricing } from "@/pages/QatarTransparentPricing";
+import { QatarReliableService } from "@/pages/QatarReliableService";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -41,6 +45,10 @@ function Router() {
       <Route path="/tech-innovation" component={TechInnovationPage} />
       <Route path="/uae-regional" component={UaeRegionalPage} />
       <Route path="/local-gcc-expansion" component={LocalGccExpansionPage} />
+      <Route path="/uae-transparent-pricing" component={UaeTransparentPricing} />
+      <Route path="/uae-reliable-service" component={UaeReliableService} />
+      <Route path="/qatar-transparent-pricing" component={QatarTransparentPricing} />
+      <Route path="/qatar-reliable-service" component={QatarReliableService} />
       <Route component={NotFound} />
     </Switch>
   );

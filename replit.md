@@ -68,6 +68,32 @@ Preferred communication style: Simple, everyday language.
 - **TanStack Query**: Server state management with caching and synchronization
 
 ### Assets and Media
-- **Static Assets**: Professional truck/van imagery, brand logos (Sony, IKEA, Zara, Adidas, H&M)
+- **Static Assets**: Professional truck/van imagery, client logos (Logotipo, Spyra, NEOH, Tractive, and partner brands)
 - **Font Integration**: Google Fonts integration for typography consistency
 - **Image Optimization**: Responsive image handling with proper alt text and loading strategies
+
+## Landing Pages Strategy
+
+### Pain Point-Focused Pages (October 2025)
+Created four location-specific landing pages addressing key customer pain points identified from competitor analysis:
+
+#### UAE Market Pages
+- **/uae-transparent-pricing** - Addresses opaque pricing structures, hidden fees, and lengthy sales processes common in the market
+- **/uae-reliable-service** - Focuses on reliable delivery (99% on-time) and responsive customer support (vs. 7% competitor response rates)
+
+#### Qatar Market Pages
+- **/qatar-transparent-pricing** - Qatar-specific transparent pricing with instant quotes and all-inclusive rates
+- **/qatar-reliable-service** - Dependable Qatar delivery (98% on-time) with local support team (90-min avg response)
+
+#### Key Pain Points Addressed
+1. **Opaque Pricing Structures** - Competitors use "solution-based proposals" making budgeting difficult, hidden fees, unclear contracts
+2. **Lack of Customer Service** - Industry has extremely low complaint response rates (Quiqup: 7%), no visible resolution
+3. **Broken Technology Promises** - Buggy tracking systems, unreliable automation claims that don't deliver value
+4. **Unreliable Deliveries** - Chronic delays and failed deliveries despite "speed" promises, unmet customer expectations
+
+#### Design Features
+- Location-specific messaging (UAE/Qatar)
+- Comparison cards showing competitor problems vs. GWC solutions
+- Data-driven trust signals (on-time rates, response times)
+- Direct quote form integration for instant pricing
+- Client logos featuring Logotipo, Spyra, NEOH, Tractive brands
