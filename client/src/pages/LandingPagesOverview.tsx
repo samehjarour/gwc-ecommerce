@@ -54,6 +54,16 @@ interface PageAnalytics {
 // Landing page definitions - sorted by most recent first
 const landingPages = [
   {
+    path: "/quote2-ar",
+    name: "Quote Request Form (Arabic)",
+    description: "Arabic RTL version of quote request form with platform selection and contact details",
+    category: "Conversion Pages",
+    icon: MousePointer,
+    target: "Arabic Speakers",
+    targeting: "Intra-GCC" as const,
+    status: "product" as const
+  },
+  {
     path: "/qatar-video-ar",
     name: "Qatar Video Landing Page (Arabic)",
     description: "Arabic RTL version of Qatar video landing page with full Arabic translation",
