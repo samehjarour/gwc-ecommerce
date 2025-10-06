@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -79,6 +81,7 @@
   --font-sans: "proxima-nova", sans-serif;
   --font-serif: Georgia, serif;
   --font-mono: Menlo, monospace;
+  --font-arabic: "Cairo", "Tajawal", "Amiri", "IBM Plex Sans Arabic", "Noto Sans Arabic", sans-serif;
   --radius: .5rem; /* 8px */
   --shadow-2xs: 0px 2px 0px 0px hsl(220 10% 50% / 0.00);
   --shadow-xs: 0px 2px 0px 0px hsl(220 10% 50% / 0.00);
@@ -211,6 +214,11 @@
 
   body {
     @apply font-sans antialiased bg-background text-foreground;
+  }
+
+  .arabic-font,
+  .arabic-font * {
+    font-family: var(--font-arabic) !important;
   }
 }
 

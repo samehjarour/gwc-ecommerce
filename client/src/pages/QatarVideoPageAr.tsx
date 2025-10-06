@@ -1,10 +1,10 @@
-import { Header } from "@/components/Header";
-import { SocialProofSection } from "@/components/SocialProofSection";
-import { TestimonialsSection } from "@/components/TestimonialsSection";
-import { IntegrationsSection } from "@/components/IntegrationsSection";
-import { CTASection } from "@/components/CTASection";
-import { Footer } from "@/components/Footer";
-import { MapStatsSection } from "@/components/MapStatsSection";
+import { HeaderAr } from "@/components/HeaderAr";
+import { SocialProofSectionAr } from "@/components/SocialProofSectionAr";
+import { TestimonialsSectionAr } from "@/components/TestimonialsSectionAr";
+import { IntegrationsSectionAr } from "@/components/IntegrationsSectionAr";
+import { CTASectionAr } from "@/components/CTASectionAr";
+import { FooterAr } from "@/components/FooterAr";
+import { MapStatsSectionAr } from "@/components/MapStatsSectionAr";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -34,8 +34,8 @@ export function QatarVideoPageAr() {
   }, []);
 
   return (
-    <div className="min-h-screen" dir="rtl">
-      <Header />
+    <div className="min-h-screen arabic-font" dir="rtl">
+      <HeaderAr />
       <main>
         {/* Hero Section with Video */}
         <section className="relative py-20 bg-gradient-to-b from-background to-muted/20 overflow-hidden">
@@ -81,7 +81,7 @@ export function QatarVideoPageAr() {
         </section>
 
         {/* Logo Carousel */}
-        <SocialProofSection />
+        <SocialProofSectionAr />
 
         {/* Benefits Section - Positive Only */}
         <section className="py-20 bg-gradient-to-b from-muted/20 to-background">
@@ -130,13 +130,13 @@ export function QatarVideoPageAr() {
         </section>
 
         {/* Map Stats Section */}
-        <MapStatsSection />
+        <MapStatsSectionAr />
 
         {/* Testimonials */}
-        <TestimonialsSection segment="qatar-video" />
+        <TestimonialsSectionAr segment="qatar-video" />
 
         {/* Platform Integrations */}
-        <IntegrationsSection />
+        <IntegrationsSectionAr />
 
         {/* How It Works */}
         <section className="py-20 bg-gradient-to-b from-muted/20 to-background">
@@ -210,9 +210,9 @@ export function QatarVideoPageAr() {
         </section>
 
         {/* CTA Section */}
-        <CTASection />
+        <CTASectionAr />
       </main>
-      <Footer />
+      <FooterAr />
     </div>
   );
 }
