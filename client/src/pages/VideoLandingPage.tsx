@@ -10,6 +10,7 @@ import { Badge } from "@/components/ui/badge";
 import { CheckCircle, Clock, Shield, Truck, Package, Globe, Star, Zap, Activity, Database, MapPin, Play } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Link } from "wouter";
+import videoSrc from "@assets/GWC-website_1758777706579.mp4";
 
 export function VideoLandingPage() {
   useEffect(() => {
@@ -66,7 +67,7 @@ export function VideoLandingPage() {
                     className="w-full h-full object-cover"
                     data-testid="hero-video"
                   >
-                    <source src="/gwc-video.mp4" type="video/mp4" />
+                    <source src={videoSrc} type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
                   <div className="absolute inset-0 bg-black/20 pointer-events-none"></div>
