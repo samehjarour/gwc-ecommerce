@@ -25,6 +25,37 @@ Preferred communication style: Simple, everyday language.
 - **Storage Interface**: Abstracted storage layer supporting both in-memory and database implementations
 - **Development Setup**: Hot reload with Vite integration for seamless development experience
 
+### Security Architecture (October 2025)
+Comprehensive security hardening implemented to meet production security standards and pass penetration testing:
+
+#### HTTP Security Headers (Helmet)
+- **Content Security Policy (CSP)**: Strict in production (no unsafe-inline/unsafe-eval), relaxed only in development for Vite HMR
+- **HSTS**: 1-year max-age with includeSubDomains and preload
+- **X-Frame-Options**: DENY to prevent clickjacking
+- **X-Content-Type-Options**: nosniff to prevent MIME sniffing
+- **XSS Protection**: Enabled for legacy browsers
+
+#### CORS Configuration
+- **Development**: Permissive for Vite HMR and local development
+- **Production**: Restricted to allowed origins with proper subdomain matching (prevents suffix spoofing)
+- **Origin Validation**: Exact match or dot-delimited subdomain check, supports ALLOWED_ORIGINS and REPLIT_DOMAINS env vars
+
+#### Rate Limiting
+- **Quote Submissions**: 5 requests per 15 minutes per IP
+- **Analytics Events**: 100 requests per minute per IP
+- **Trust Proxy**: Enabled for accurate IP detection behind Replit proxy
+
+#### Input Sanitization
+- **XSS Prevention**: DOMPurify sanitizes all user text inputs (quotes, analytics data)
+- **Array Sanitization**: Applied to platforms, products, origins, destinations
+- **Nullish Coalescing**: Uses ?? instead of || to prevent malicious payload fallback
+
+#### Error Handling & Logging
+- **Production Error Messages**: Generic messages, no stack trace exposure
+- **Development Debugging**: Full error details for debugging
+- **PII Protection**: Logs contain no personally identifiable information or sensitive data
+- **HubSpot Integration**: Minimal logging (IDs only, no contact details)
+
 ### Data Storage
 - **ORM**: Drizzle ORM configured for PostgreSQL with type-safe database operations
 - **Database**: PostgreSQL (configured via Neon Database serverless)
@@ -61,6 +92,12 @@ Preferred communication style: Simple, everyday language.
 - **Neon Database**: Serverless PostgreSQL database hosting
 - **Connect PG Simple**: PostgreSQL session store for Express
 - **Date-fns**: Date manipulation and formatting utilities
+
+### Security Packages
+- **Helmet**: HTTP security headers middleware (CSP, HSTS, X-Frame-Options, etc.)
+- **express-rate-limit**: Rate limiting middleware for API endpoints
+- **isomorphic-dompurify**: XSS prevention via HTML sanitization
+- **CORS**: Cross-Origin Resource Sharing configuration
 
 ### Form and Data Management
 - **React Hook Form**: Performant form library with minimal re-renders
