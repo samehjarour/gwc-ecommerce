@@ -17,7 +17,9 @@ import {
   Target,
   Zap,
   Building,
-  ShoppingCart
+  ShoppingCart,
+  Shield,
+  DollarSign
 } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 
@@ -41,6 +43,7 @@ interface PageAnalytics {
   icon: any;
   target: string;
   targeting: 'Intra-GCC' | 'EU->GCC' | 'GCC->EU';
+  status: 'product' | 'draft';
   views: number;
   sessions: number;
   ctaClicks: number;
@@ -48,97 +51,47 @@ interface PageAnalytics {
   avgScrollDepth: number;
 }
 
-// Landing page definitions
+// Landing page definitions - sorted by most recent first
 const landingPages = [
   {
-    path: "/",
-    name: "Main Home Page",
-    description: "Primary home page with full pricing display for general visitors",
-    category: "Home Pages",
-    icon: Globe,
-    target: "General Audience",
-    targeting: "Intra-GCC"
+    path: "/qatar-reliable-service",
+    name: "Qatar Reliable Service",
+    description: "Dependable Qatar delivery (98% on-time) with local support team (90-min avg response)",
+    category: "Pain Point Pages",
+    icon: Shield,
+    target: "Qatar Businesses",
+    targeting: "Intra-GCC" as const,
+    status: "product" as const
   },
   {
-    path: "/enterprise",
-    name: "Enterprise Home Page", 
-    description: "Enterprise-focused home page without public pricing for B2B prospects",
-    category: "Home Pages",
-    icon: Building,
-    target: "Enterprise Clients",
-    targeting: "Intra-GCC"
+    path: "/qatar-transparent-pricing",
+    name: "Qatar Transparent Pricing",
+    description: "Qatar-specific transparent pricing with instant quotes and all-inclusive rates",
+    category: "Pain Point Pages",
+    icon: DollarSign,
+    target: "Qatar Businesses",
+    targeting: "Intra-GCC" as const,
+    status: "product" as const
   },
   {
-    path: "/alternative", 
-    name: "Alternative Home Design",
-    description: "IQ Fulfillment-inspired design with modern layout and interactive elements",
-    category: "Home Pages", 
-    icon: Zap,
-    target: "Design Test",
-    targeting: "Intra-GCC"
+    path: "/uae-reliable-service",
+    name: "UAE Reliable Service",
+    description: "Reliable delivery (99% on-time) and responsive customer support (vs. 7% competitor response)",
+    category: "Pain Point Pages",
+    icon: Shield,
+    target: "UAE Businesses",
+    targeting: "Intra-GCC" as const,
+    status: "product" as const
   },
   {
-    path: "/lead",
-    name: "Lead Generation Page",
-    description: "Home page with embedded HubSpot form for direct lead capture",
-    category: "Home Pages",
-    icon: Target,
-    target: "Lead Generation",
-    targeting: "Intra-GCC"
-  },
-  {
-    path: "/alt3",
-    name: "Alternative Design #3",
-    description: "Quivo-inspired design with process flow, transparency focus, and testimonials",
-    category: "Home Pages",
-    icon: Building,
-    target: "Design Test",
-    targeting: "Intra-GCC"
-  },
-  {
-    path: "/eu-sme-gcc",
-    name: "EU SME → GCC Landing",
-    description: "European SMEs expanding to GCC markets with Quivo partnership messaging",
-    category: "Segment Pages",
-    icon: ShoppingCart,
-    target: "EU SMEs",
-    targeting: "EU->GCC"
-  },
-  {
-    path: "/gcc-eu-muslim",
-    name: "GCC → EU Muslim Markets", 
-    description: "GCC brands targeting European Muslim consumer segments",
-    category: "Segment Pages",
-    icon: Users,
-    target: "GCC Brands",
-    targeting: "GCC->EU"
-  },
-  {
-    path: "/enterprise-cross-border",
-    name: "Enterprise Cross-Border",
-    description: "Fortune 500 companies seeking enterprise-grade cross-border logistics",
-    category: "Segment Pages", 
-    icon: Building,
-    target: "Enterprise",
-    targeting: "EU->GCC"
-  },
-  {
-    path: "/tech-innovation",
-    name: "Technology Innovation Leaders",
-    description: "Tech companies needing advanced APIs, ML optimization, and data analytics",
-    category: "Segment Pages",
-    icon: Zap,
-    target: "Tech Leaders",
-    targeting: "Intra-GCC"
-  },
-  {
-    path: "/uae-regional",
-    name: "UAE Regional Expansion",
-    description: "Companies using UAE as strategic hub for MENA and regional growth",
-    category: "Segment Pages",
-    icon: Globe,
-    target: "Regional Expansion",
-    targeting: "Intra-GCC"
+    path: "/uae-transparent-pricing",
+    name: "UAE Transparent Pricing",
+    description: "Addresses opaque pricing structures, hidden fees, and lengthy sales processes",
+    category: "Pain Point Pages",
+    icon: DollarSign,
+    target: "UAE Businesses",
+    targeting: "Intra-GCC" as const,
+    status: "product" as const
   },
   {
     path: "/local-gcc-expansion",
@@ -147,7 +100,138 @@ const landingPages = [
     category: "Segment Pages",
     icon: Target,
     target: "Local Businesses",
-    targeting: "Intra-GCC"
+    targeting: "Intra-GCC" as const,
+    status: "draft" as const
+  },
+  {
+    path: "/uae-regional",
+    name: "UAE Regional Expansion",
+    description: "Companies using UAE as strategic hub for MENA and regional growth",
+    category: "Segment Pages",
+    icon: Globe,
+    target: "Regional Expansion",
+    targeting: "Intra-GCC" as const,
+    status: "draft" as const
+  },
+  {
+    path: "/tech-innovation",
+    name: "Technology Innovation Leaders",
+    description: "Tech companies needing advanced APIs, ML optimization, and data analytics",
+    category: "Segment Pages",
+    icon: Zap,
+    target: "Tech Leaders",
+    targeting: "Intra-GCC" as const,
+    status: "draft" as const
+  },
+  {
+    path: "/enterprise-cross-border",
+    name: "Enterprise Cross-Border",
+    description: "Fortune 500 companies seeking enterprise-grade cross-border logistics",
+    category: "Segment Pages", 
+    icon: Building,
+    target: "Enterprise",
+    targeting: "EU->GCC" as const,
+    status: "draft" as const
+  },
+  {
+    path: "/gcc-eu-muslim",
+    name: "GCC → EU Muslim Markets", 
+    description: "GCC brands targeting European Muslim consumer segments",
+    category: "Segment Pages",
+    icon: Users,
+    target: "GCC Brands",
+    targeting: "GCC->EU" as const,
+    status: "draft" as const
+  },
+  {
+    path: "/eu-sme-gcc",
+    name: "EU SME → GCC Landing",
+    description: "European SMEs expanding to GCC markets with Quivo partnership messaging",
+    category: "Segment Pages",
+    icon: ShoppingCart,
+    target: "EU SMEs",
+    targeting: "EU->GCC" as const,
+    status: "draft" as const
+  },
+  {
+    path: "/video",
+    name: "Video Landing Page",
+    description: "Landing page with hero video showcasing GWC fulfillment process",
+    category: "Home Pages",
+    icon: Eye,
+    target: "Visual Learners",
+    targeting: "Intra-GCC" as const,
+    status: "draft" as const
+  },
+  {
+    path: "/gcc-internal",
+    name: "GCC Internal Markets",
+    description: "Focus on GCC internal market expansion and regional growth",
+    category: "Segment Pages",
+    icon: Globe,
+    target: "GCC Businesses",
+    targeting: "Intra-GCC" as const,
+    status: "draft" as const
+  },
+  {
+    path: "/alternative-integrations",
+    name: "Alternative Integrations Page",
+    description: "Alternative design with focus on platform integrations and connections",
+    category: "Home Pages",
+    icon: Zap,
+    target: "Integration Focus",
+    targeting: "Intra-GCC" as const,
+    status: "draft" as const
+  },
+  {
+    path: "/alt3",
+    name: "Alternative Design #3",
+    description: "Quivo-inspired design with process flow, transparency focus, and testimonials",
+    category: "Home Pages",
+    icon: Building,
+    target: "Design Test",
+    targeting: "Intra-GCC" as const,
+    status: "draft" as const
+  },
+  {
+    path: "/lead",
+    name: "Lead Generation Page",
+    description: "Home page with embedded HubSpot form for direct lead capture",
+    category: "Home Pages",
+    icon: Target,
+    target: "Lead Generation",
+    targeting: "Intra-GCC" as const,
+    status: "draft" as const
+  },
+  {
+    path: "/alternative", 
+    name: "Alternative Home Design",
+    description: "IQ Fulfillment-inspired design with modern layout and interactive elements",
+    category: "Home Pages", 
+    icon: Zap,
+    target: "Design Test",
+    targeting: "Intra-GCC" as const,
+    status: "draft" as const
+  },
+  {
+    path: "/enterprise",
+    name: "Enterprise Home Page", 
+    description: "Enterprise-focused home page without public pricing for B2B prospects",
+    category: "Home Pages",
+    icon: Building,
+    target: "Enterprise Clients",
+    targeting: "Intra-GCC" as const,
+    status: "draft" as const
+  },
+  {
+    path: "/",
+    name: "Main Home Page",
+    description: "Primary home page with full pricing display for general visitors",
+    category: "Home Pages",
+    icon: Globe,
+    target: "General Audience",
+    targeting: "Intra-GCC" as const,
+    status: "draft" as const
   },
   {
     path: "/quote",
@@ -156,7 +240,8 @@ const landingPages = [
     category: "Conversion Pages",
     icon: MousePointer,
     target: "All Segments",
-    targeting: "Intra-GCC"
+    targeting: "Intra-GCC" as const,
+    status: "draft" as const
   }
 ];
 
@@ -398,6 +483,9 @@ export function LandingPagesOverview() {
                               <CardTitle className="text-xl">{page.name}</CardTitle>
                               <p className="text-muted-foreground mt-1">{page.description}</p>
                               <div className="flex items-center gap-2 mt-2">
+                                <Badge variant={page.status === 'product' ? 'default' : 'secondary'}>
+                                  {page.status}
+                                </Badge>
                                 <Badge variant="outline">{page.category}</Badge>
                                 <Badge variant="secondary">{page.target}</Badge>
                                 <Badge 
@@ -467,6 +555,9 @@ export function LandingPagesOverview() {
                                 <CardTitle className="text-xl">{page.name}</CardTitle>
                                 <p className="text-muted-foreground mt-1">{page.description}</p>
                                 <div className="flex items-center gap-2 mt-2">
+                                  <Badge variant={page.status === 'product' ? 'default' : 'secondary'}>
+                                    {page.status}
+                                  </Badge>
                                   <Badge variant="secondary">{page.target}</Badge>
                                   <Badge 
                                     variant={page.targeting === 'Intra-GCC' ? 'default' : page.targeting === 'EU->GCC' ? 'destructive' : 'outline'}
@@ -533,6 +624,9 @@ export function LandingPagesOverview() {
                                 <CardTitle className="text-xl">{page.name}</CardTitle>
                                 <p className="text-muted-foreground mt-1">{page.description}</p>
                                 <div className="flex items-center gap-2 mt-2">
+                                  <Badge variant={page.status === 'product' ? 'default' : 'secondary'}>
+                                    {page.status}
+                                  </Badge>
                                   <Badge variant="secondary">{page.target}</Badge>
                                   <Badge 
                                     variant={page.targeting === 'Intra-GCC' ? 'default' : page.targeting === 'EU->GCC' ? 'destructive' : 'outline'}
@@ -599,6 +693,9 @@ export function LandingPagesOverview() {
                                 <CardTitle className="text-xl">{page.name}</CardTitle>
                                 <p className="text-muted-foreground mt-1">{page.description}</p>
                                 <div className="flex items-center gap-2 mt-2">
+                                  <Badge variant={page.status === 'product' ? 'default' : 'secondary'}>
+                                    {page.status}
+                                  </Badge>
                                   <Badge variant="secondary">{page.target}</Badge>
                                   <Badge 
                                     variant={page.targeting === 'Intra-GCC' ? 'default' : page.targeting === 'EU->GCC' ? 'destructive' : 'outline'}
