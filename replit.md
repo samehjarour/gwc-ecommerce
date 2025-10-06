@@ -180,9 +180,9 @@ Created dedicated Arabic component versions for complete localization:
 - **Cultural Adaptation**: Messaging adapted for Arabic-speaking MENA market
 
 ### Arabic Navigation and URLs
-- **External Quote Links**: All Arabic landing pages (HeaderAr, CTASectionAr) link to https://gwcecommerce.com/quote2-ar (external URL)
-- **Design Pattern**: Arabic components use `<a href="https://...">` instead of wouter `<Link>` for external navigation
-- **Consistency**: Ensures all Arabic CTAs direct to the same external Arabic quote form
+- **Internal Quote Links**: All Arabic landing pages (HeaderAr, CTASectionAr) link to /quote2-ar (internal route)
+- **Design Pattern**: Arabic components use wouter `<Link>` for SPA navigation to Arabic quote form
+- **Consistency**: Ensures all Arabic CTAs direct to the internal Arabic quote form (Quote2PageAr)
 
 ## Landing Pages Management (October 2025)
 
@@ -195,6 +195,6 @@ Created dedicated Arabic component versions for complete localization:
 - **/quote2**: Simplified 2-step quote form (Platform & Products → Contact Information)
   - Skips origin/destination step for faster conversions
   - HubSpot integration for lead capture
-- **/quote2-ar**: Arabic version of 2-step quote form
+- **/quote2-ar**: Arabic version of 2-step quote form (Quote2PageAr component)
   - Platform names in English, form labels in Arabic
-  - External URL: https://gwcecommerce.com/quote2-ar
+  - Internal SPA route for Arabic users
