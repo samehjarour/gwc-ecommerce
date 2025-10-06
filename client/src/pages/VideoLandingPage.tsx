@@ -10,7 +10,6 @@ import { Badge } from "@/components/ui/badge";
 import { CheckCircle, Clock, Shield, Truck, Package, Globe, Star, Zap, Activity, Database, MapPin, Play } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Link } from "wouter";
-import videoSrc from "@assets/GWC-website_1758777706579.mp4";
 
 export function VideoLandingPage() {
   useEffect(() => {
@@ -59,18 +58,15 @@ export function VideoLandingPage() {
               
               <div className="relative">
                 <div className="relative aspect-video bg-black rounded-lg overflow-hidden shadow-2xl">
-                  <video 
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    className="w-full h-full object-cover"
+                  <iframe 
+                    src="https://player.vimeo.com/video/1124864507?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;loop=1&amp;muted=1" 
+                    className="w-full h-full absolute inset-0"
+                    frameBorder="0" 
+                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
+                    referrerPolicy="strict-origin-when-cross-origin" 
+                    title="GWC Logistics Video"
                     data-testid="hero-video"
-                  >
-                    <source src={videoSrc} type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </video>
-                  <div className="absolute inset-0 bg-black/20 pointer-events-none"></div>
+                  ></iframe>
                 </div>
               </div>
             </div>

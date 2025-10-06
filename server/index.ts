@@ -27,7 +27,7 @@ app.use(helmet({
       connectSrc: isDevelopment
         ? ["'self'", "ws:", "wss:"] // Required for Vite HMR websocket
         : ["'self'"],
-      frameSrc: ["'none'"],
+      frameSrc: ["'self'", "https://player.vimeo.com"],
     },
   },
   hsts: {
