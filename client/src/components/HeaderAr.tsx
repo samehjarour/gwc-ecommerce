@@ -52,9 +52,9 @@ export function HeaderAr() {
             >
               اتصل بنا
             </button>
-            <a href="https://gwcecommerce.com/quote2-ar">
+            <Link href="/quote2-ar">
               <Button data-testid="button-get-quote">احصل على عرض أسعار</Button>
-            </a>
+            </Link>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -94,9 +94,9 @@ export function HeaderAr() {
               >
                 اتصل بنا
               </button>
-              <a href="https://gwcecommerce.com/quote2-ar" className="w-full">
+              <Link href="/quote2-ar" className="w-full">
                 <Button className="w-full" data-testid="button-mobile-quote">احصل على عرض أسعار</Button>
-              </a>
+              </Link>
             </nav>
           </div>
         )}
