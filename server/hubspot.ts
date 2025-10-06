@@ -101,7 +101,8 @@ export async function createHubSpotContact(formData: {
   }
 
   try {
-    console.log('Sending to HubSpot with properties:', JSON.stringify(properties, null, 2));
+    // Security: Don't log sensitive contact properties
+    console.log('Syncing contact to HubSpot...');
     
     // Try to create contact in HubSpot
     const response = await client.crm.contacts.basicApi.create({
@@ -109,7 +110,7 @@ export async function createHubSpotContact(formData: {
       associations: []
     });
     
-    console.log('HubSpot contact created successfully:', response.id);
+    console.log('HubSpot contact created:', response.id);
     return response;
   } catch (error: any) {
     // If contact already exists (409 error), update it instead
@@ -118,27 +119,24 @@ export async function createHubSpotContact(formData: {
       const existingId = existingIdMatch ? existingIdMatch[1] : null;
       
       if (existingId) {
-        console.log(`Contact already exists with ID ${existingId}, updating instead...`);
+        console.log(`Updating existing contact: ${existingId}`);
         
         try {
           const updateResponse = await client.crm.contacts.basicApi.update(existingId, {
             properties
           });
           
-          console.log('HubSpot contact updated successfully:', existingId);
+          console.log('HubSpot contact updated:', existingId);
           return updateResponse;
         } catch (updateError: any) {
-          console.error('Failed to update existing contact:', updateError.message);
+          console.error('Failed to update contact');
           throw updateError;
         }
       }
     }
     
-    // For other errors, log and rethrow
-    console.error('HubSpot API Error:', error.message);
-    if (error.body) {
-      console.error('Error details:', JSON.stringify(error.body, null, 2));
-    }
+    // For other errors, log without exposing sensitive data
+    console.error('HubSpot API Error:', error.code || 'Unknown error');
     throw error;
   }
 }
