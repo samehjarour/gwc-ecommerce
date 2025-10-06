@@ -30,6 +30,7 @@ Comprehensive security hardening implemented to meet production security standar
 
 #### HTTP Security Headers (Helmet)
 - **Content Security Policy (CSP)**: Strict in production (no unsafe-inline/unsafe-eval), relaxed only in development for Vite HMR
+  - **mediaSrc**: Configured to allow video playback from same origin ('self') for landing page videos
 - **HSTS**: 1-year max-age with includeSubDomains and preload
 - **X-Frame-Options**: DENY to prevent clickjacking
 - **X-Content-Type-Options**: nosniff to prevent MIME sniffing
@@ -167,9 +168,33 @@ Created dedicated Arabic component versions for complete localization:
   - All marketing copy, headings, and CTAs in Arabic
   - Maintains analytics tracking and A/B testing functionality
   - Preserves brand names (Shopify, Amazon, etc.) while localizing descriptions
+- **/quote2-ar**: Arabic version of 2-step quote form
+  - Platform names kept in English (Amazon, Shopify, WooCommerce, Zid, Salla)
+  - Form labels and instructions in Arabic
+  - Direct HubSpot CRM integration with Arabic data
 
 ### Translation Standards
 - **Professional Quality**: Native-level Arabic translations for all marketing content
 - **Brand Preservation**: International brand names kept in English (Huawei, IKEA, Shopify)
 - **SEO Optimization**: Arabic meta tags, titles, and descriptions for search visibility
 - **Cultural Adaptation**: Messaging adapted for Arabic-speaking MENA market
+
+### Arabic Navigation and URLs
+- **External Quote Links**: All Arabic landing pages (HeaderAr, CTASectionAr) link to https://gwcecommerce.com/quote2-ar (external URL)
+- **Design Pattern**: Arabic components use `<a href="https://...">` instead of wouter `<Link>` for external navigation
+- **Consistency**: Ensures all Arabic CTAs direct to the same external Arabic quote form
+
+## Landing Pages Management (October 2025)
+
+### Overview Dashboard
+- **/landing-pages**: Central overview page displaying all landing pages with links, descriptions, and testing status
+- **Automatic Registration**: All new landing pages must be added to LandingPagesOverview.tsx by default
+- **Total Pages**: 26 registered pages including English and Arabic versions
+
+### Quote Form Variants
+- **/quote2**: Simplified 2-step quote form (Platform & Products → Contact Information)
+  - Skips origin/destination step for faster conversions
+  - HubSpot integration for lead capture
+- **/quote2-ar**: Arabic version of 2-step quote form
+  - Platform names in English, form labels in Arabic
+  - External URL: https://gwcecommerce.com/quote2-ar
