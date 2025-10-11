@@ -56,11 +56,11 @@ export function StartupsCalculatorPage() {
   
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Calculate Your Fulfillment Costs - E-commerce Fulfillment for Startups | GWC with Quivo";
+    document.title = "Transparent Pricing Calculator - See Your Fulfillment Costs Upfront | GWC with Quivo";
     
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute('content', 'Start your e-commerce business with zero Capital Costs. No minimums. Scale from 1 product to 1000+. Pay only for what you use. Perfect for online startups and small sellers.');
+      metaDescription.setAttribute('content', 'Complete price visibility for your e-commerce fulfillment. Calculate your exact costs upfront with no hidden fees. Transparent pricing from 1 product to 1000+. Know what you pay before you commit.');
     }
   }, []);
 
@@ -150,10 +150,10 @@ export function StartupsCalculatorPage() {
                   Built for Online Startups & Small Sellers
                 </Badge>
                 <h1 className="text-4xl md:text-5xl font-bold mb-6" data-testid="heading-hero">
-                  Launch Your E-commerce Business with <span className="text-primary">Zero Capital Costs</span>
+                  <span className="text-primary">Complete Price Visibility</span> for Your E-commerce Business
                 </h1>
                 <p className="text-xl text-muted-foreground mb-8">
-                  Start with 1 product or scale to 1000+. No minimums. No setup fees. Pay only for what you use. Professional fulfillment from day one.
+                  Know exactly what you'll pay before you commit. Transparent pricing, no hidden fees. Start with 1 product or scale to 1000+. Pay only for what you use.
                 </p>
                 
                 <div className="space-y-4 mb-8">
