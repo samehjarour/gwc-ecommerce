@@ -12,7 +12,7 @@ import {
   DollarSign, 
   TrendingUp, 
   Package, 
-  CheckCircle,
+  CheckCircle, 
   CheckCircle2, 
   Clock,
   Users,
@@ -33,6 +33,9 @@ import {
 import { useEffect, useState } from "react";
 import { Link } from "wouter";
 import { motion, useScroll, useTransform } from "framer-motion";
+import warehouseImage from "@assets/DJI_0432-HDR_1758598111840.jpg";
+import technologyImage from "@assets/technology_1758599610299.webp";
+import vanImage from "@assets/GWC Truck - Dubai_1757565747938.jpg";
 
 export function StartupsPage() {
   const [activeTab, setActiveTab] = useState("signup");
@@ -158,22 +161,6 @@ export function StartupsPage() {
                     className="flex items-start gap-3 bg-background/80 p-4 rounded-lg border border-border"
                     initial={{ opacity: 0, x: -30 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5, delay: 0.4 }}
-                    whileHover={{ scale: 1.02, boxShadow: "0 10px 30px rgba(0,0,0,0.1)" }}
-                  >
-                    <DollarSign className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                    <div>
-                      <h4 className="font-semibold mb-1">Save 60% on Capital Costs</h4>
-                      <p className="text-sm text-muted-foreground">
-                        No warehouse lease, no staff, no equipment. Start for free.
-                      </p>
-                  </div>
-                  </motion.div>
-
-                  <motion.div 
-                    className="flex items-start gap-3 bg-background/80 p-4 rounded-lg border border-border"
-                    initial={{ opacity: 0, x: -30 }}
-                    animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5, delay: 0.6 }}
                     whileHover={{ scale: 1.02, boxShadow: "0 10px 30px rgba(0,0,0,0.1)" }}
                   >
@@ -209,7 +196,7 @@ export function StartupsPage() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 1 }}
                 >
-                  <Link href="/quote2">
+                  <Link href="/rate-calculator">
                     <Button size="lg" data-testid="button-get-quote">
                       Calculate Your Costs
                       <ArrowRight className="ml-2 h-5 w-5" />
@@ -249,6 +236,70 @@ export function StartupsPage() {
 
         {/* Logo Carousel */}
         <SocialProofSection />
+
+        {/* Facility & Technology Showcase */}
+        <section className="py-16 bg-background">
+          <div className="container mx-auto px-4">
+            <motion.div 
+              className="grid md:grid-cols-3 gap-6"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              {/* Warehouse Image */}
+              <motion.div
+                className="relative group overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500"
+                whileHover={{ scale: 1.02, y: -5 }}
+              >
+                <img 
+                  src={warehouseImage} 
+                  alt="GWC Warehouse Facility"
+                  className="w-full h-64 object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                  <h3 className="text-lg font-semibold mb-1">State-of-the-Art Facility</h3>
+                  <p className="text-sm opacity-90">Modern warehouses equipped for your growth</p>
+              </div>
+              </motion.div>
+
+              {/* Technology Image */}
+              <motion.div
+                className="relative group overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500"
+                whileHover={{ scale: 1.02, y: -5 }}
+              >
+                <img 
+                  src={technologyImage} 
+                  alt="Advanced Technology Systems"
+                  className="w-full h-64 object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                  <h3 className="text-lg font-semibold mb-1">Advanced Technology</h3>
+                  <p className="text-sm opacity-90">Real-time tracking and inventory management</p>
+            </div>
+              </motion.div>
+
+              {/* Fleet Image */}
+              <motion.div
+                className="relative group overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500"
+                whileHover={{ scale: 1.02, y: -5 }}
+              >
+                <img 
+                  src={vanImage} 
+                  alt="GWC Fleet in Dubai"
+                  className="w-full h-64 object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                  <h3 className="text-lg font-semibold mb-1">Reliable Fleet</h3>
+                  <p className="text-sm opacity-90">Fast and secure delivery across the GCC</p>
+                    </div>
+              </motion.div>
+            </motion.div>
+          </div>
+        </section>
 
         {/* Platform Integrations - Global Solutions Powered by Quivo */}
         <IntegrationsSection />
@@ -419,7 +470,7 @@ export function StartupsPage() {
                         <CheckCircle2 className="w-4 h-4 text-primary" />
                         <span>Instant Results</span>
                       </div>
-                    </div>
+            </div>
                   </CardContent>
                 </Card>
               </Link>
@@ -866,7 +917,7 @@ export function StartupsPage() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <CTASection />
+        <CTASection />
         </motion.div>
       </main>
       <Footer />
