@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -48,6 +48,11 @@ export function Quote2Page() {
     additionalInfo: "",
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const handleNext = () => {
     if (currentStep < 2) {

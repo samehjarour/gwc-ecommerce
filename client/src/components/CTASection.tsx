@@ -16,7 +16,7 @@ export function CTASection() {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link href="/quote">
+            <Link href="/quote2">
               <Button 
                 size="lg" 
                 variant="secondary"

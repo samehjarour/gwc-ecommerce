@@ -252,7 +252,7 @@ export function TestimonialsSection({ segment, variant }: TestimonialsSectionPro
             <Button 
               size="lg" 
               className="bg-gradient-to-r from-green-600 to-cyan-600 hover:from-green-700 hover:to-cyan-700 text-white px-8 py-3"
-              onClick={() => handleTestimonialInteraction('cta_click')}
+              onClick={() => { handleTestimonialInteraction('cta_click'); window.location.href = '/quote2'; }}
               data-testid="testimonials-cta"
             >
               Get Your Quote Today

@@ -29,12 +29,17 @@ import { Quote2PageAr } from "@/pages/Quote2PageAr";
 import { QatarVideoPage } from "@/pages/QatarVideoPage";
 import { QatarVideoPageAr } from "@/pages/QatarVideoPageAr";
 import { UaeVideoPage } from "@/pages/UaeVideoPage";
+import { SwitchPage } from "@/pages/SwitchPage";
+import { StartupsPage } from "@/pages/StartupsPage";
+import { StartupsCalculatorPage } from "@/pages/StartupsCalculatorPage";
+import { StartupsPageAr } from "@/pages/StartupsPageAr";
+import { RateCalculatorPage } from "@/pages/RateCalculatorPage";
 import NotFound from "@/pages/not-found";
 
 function Router() {
   return (
     <Switch>
-      <Route path="/" component={HomePage} />
+      <Route path="/" component={QatarVideoPage} />
       <Route path="/enterprise" component={HomePageEnterprise} />
       <Route path="/alternative" component={HomePageAlternative} />
       <Route path="/alternative-integrations" component={HomePageAlternativeIntegrations} />
@@ -59,6 +64,11 @@ function Router() {
       <Route path="/qatar-video" component={QatarVideoPage} />
       <Route path="/qatar-video-ar" component={QatarVideoPageAr} />
       <Route path="/uae-video" component={UaeVideoPage} />
+      <Route path="/switch" component={SwitchPage} />
+      <Route path="/startups" component={StartupsPage} />
+      <Route path="/startups-calculator" component={StartupsCalculatorPage} />
+      <Route path="/startups-ar" component={StartupsPageAr} />
+      <Route path="/rate-calculator" component={RateCalculatorPage} />
       <Route component={NotFound} />
     </Switch>
   );

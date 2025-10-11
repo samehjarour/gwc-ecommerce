@@ -50,6 +50,7 @@ export function Quote2PageAr() {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     document.documentElement.dir = 'rtl';
     return () => {
       document.documentElement.dir = 'ltr';

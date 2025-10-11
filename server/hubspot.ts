@@ -3,6 +3,13 @@ import { Client } from '@hubspot/api-client';
 let connectionSettings: any;
 
 async function getAccessToken() {
+  // Option 1: Check for direct access token (Netlify, Vercel, etc.)
+  if (process.env.HUBSPOT_ACCESS_TOKEN) {
+    console.log('Using HUBSPOT_ACCESS_TOKEN from environment');
+    return process.env.HUBSPOT_ACCESS_TOKEN;
+  }
+
+  // Option 2: Replit Connector (legacy)
   if (connectionSettings && connectionSettings.settings.expires_at && new Date(connectionSettings.settings.expires_at).getTime() > Date.now()) {
     return connectionSettings.settings.access_token;
   }
@@ -15,25 +22,29 @@ async function getAccessToken() {
     : null;
 
   if (!xReplitToken) {
-    throw new Error('X_REPLIT_TOKEN not found for repl/depl');
+    throw new Error('HubSpot not configured: Set HUBSPOT_ACCESS_TOKEN environment variable');
   }
 
-  connectionSettings = await fetch(
-    'https://' + hostname + '/api/v2/connection?include_secrets=true&connector_names=hubspot',
-    {
-      headers: {
-        'Accept': 'application/json',
-        'X_REPLIT_TOKEN': xReplitToken
+  try {
+    connectionSettings = await fetch(
+      'https://' + hostname + '/api/v2/connection?include_secrets=true&connector_names=hubspot',
+      {
+        headers: {
+          'Accept': 'application/json',
+          'X_REPLIT_TOKEN': xReplitToken
+        }
       }
+    ).then(res => res.json()).then(data => data.items?.[0]);
+
+    const accessToken = connectionSettings?.settings?.access_token || connectionSettings.settings?.oauth?.credentials?.access_token;
+
+    if (!connectionSettings || !accessToken) {
+      throw new Error('HubSpot not connected via Replit Connector');
     }
-  ).then(res => res.json()).then(data => data.items?.[0]);
-
-  const accessToken = connectionSettings?.settings?.access_token || connectionSettings.settings?.oauth?.credentials?.access_token;
-
-  if (!connectionSettings || !accessToken) {
-    throw new Error('HubSpot not connected');
+    return accessToken;
+  } catch (error) {
+    throw new Error('HubSpot not configured: Set HUBSPOT_ACCESS_TOKEN environment variable or reconnect Replit integration');
   }
-  return accessToken;
 }
 
 // WARNING: Never cache this client.
@@ -135,8 +146,12 @@ export async function createHubSpotContact(formData: {
       }
     }
     
-    // For other errors, log without exposing sensitive data
+    // For other errors, log detailed information for debugging
     console.error('HubSpot API Error:', error.code || 'Unknown error');
+    console.error('Error details:', error.body?.message || error.message);
+    if (error.body?.errors) {
+      console.error('Field errors:', JSON.stringify(error.body.errors, null, 2));
+    }
     throw error;
   }
 }

@@ -73,51 +73,32 @@ export function IntegrationsSection() {
           </p>
         </div>
         
-        {/* Integration Cards Carousel */}
-        <div className="relative">
-          <div className="flex animate-integration-slide space-x-6" data-testid="carousel-integrations">
-            {/* First set */}
-            {integrations.map((integration, index) => (
-              <div 
-                key={`first-${index}`}
-                className="flex-shrink-0 w-40 p-6 bg-card border border-card-border rounded-xl hover-elevate transition-all duration-300 hover:scale-105 group"
-                data-testid={`integration-${integration.name.toLowerCase().replace(/\s+/g, '-')}`}
-              >
-                <div className="text-center">
-                  <div className="w-12 h-12 mx-auto mb-4 bg-white rounded-lg flex items-center justify-center p-2">
-                    <img 
-                      src={integration.logo} 
-                      alt={`${integration.name} logo`}
-                      className="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all"
-                    />
-                  </div>
-                  <span className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">
-                    {integration.name}
-                  </span>
+        {/* Integration Cards Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-6 max-w-6xl mx-auto" data-testid="grid-integrations">
+          {integrations.map((integration, index) => (
+            <div 
+              key={index}
+              className="group relative p-6 bg-gradient-to-br from-card to-card/80 border border-border/50 rounded-2xl hover:border-primary/50 transition-all duration-500 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-2"
+              data-testid={`integration-${integration.name.toLowerCase().replace(/\s+/g, '-')}`}
+              style={{
+                animation: `fadeInUp 0.6s ease-out ${index * 0.1}s both`
+              }}
+            >
+              <div className="text-center">
+                <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-white to-slate-50 rounded-xl flex items-center justify-center p-3 shadow-md group-hover:shadow-lg transition-all duration-300 group-hover:scale-110">
+                  <img 
+                    src={integration.logo} 
+                    alt={`${integration.name} logo`}
+                    className="w-full h-full object-contain filter grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                  />
                 </div>
+                <span className="text-sm font-semibold text-muted-foreground group-hover:text-primary transition-colors duration-300 block">
+                  {integration.name}
+                </span>
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
               </div>
-            ))}
-            {/* Duplicate set for seamless loop */}
-            {integrations.map((integration, index) => (
-              <div 
-                key={`second-${index}`}
-                className="flex-shrink-0 w-40 p-6 bg-card border border-card-border rounded-xl hover-elevate transition-all duration-300 hover:scale-105 group"
-              >
-                <div className="text-center">
-                  <div className="w-12 h-12 mx-auto mb-4 bg-white rounded-lg flex items-center justify-center p-2">
-                    <img 
-                      src={integration.logo} 
-                      alt={`${integration.name} logo`}
-                      className="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all"
-                    />
-                  </div>
-                  <span className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">
-                    {integration.name}
-                  </span>
-                </div>
-              </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

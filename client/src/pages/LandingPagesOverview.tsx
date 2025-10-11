@@ -19,7 +19,10 @@ import {
   Building,
   ShoppingCart,
   Shield,
-  DollarSign
+  DollarSign,
+  Calculator,
+  RotateCcw,
+  Sparkles
 } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 
@@ -54,12 +57,62 @@ interface PageAnalytics {
 // Landing page definitions - sorted by most recent first
 const landingPages = [
   {
+    path: "/rate-calculator",
+    name: "UAE Fulfillment Cost Calculator",
+    description: "Interactive rate calculator with transparent pricing for warehousing, fulfillment, shipping, and returns based on official GWC rate card",
+    category: "Tools & Calculators",
+    icon: Calculator,
+    target: "All Segments",
+    targeting: "Intra-GCC" as const,
+    status: "product" as const
+  },
+  {
+    path: "/startups-ar",
+    name: "Startups Landing Page (Arabic)",
+    description: "Arabic version for online startups and small sellers (1-100 SKUs) - Zero CAPEX, no minimums, pay-as-you-grow model",
+    category: "Segment Pages",
+    icon: Sparkles,
+    target: "Arabic-Speaking Startups",
+    targeting: "Intra-GCC" as const,
+    status: "product" as const
+  },
+  {
+    path: "/startups",
+    name: "Startups & Small Sellers",
+    description: "For online startups (1-100 SKUs) - Start with 1 product, zero CAPEX, no minimums, pay only for what you use",
+    category: "Segment Pages",
+    icon: Sparkles,
+    target: "Startups & Small Sellers",
+    targeting: "Intra-GCC" as const,
+    status: "product" as const
+  },
+  {
+    path: "/switch",
+    name: "Switch from Current 3PL",
+    description: "For dissatisfied customers (1-500 SKUs) - Addresses hidden fees, poor support, unreliable delivery with transparent pricing and 90-min response",
+    category: "Segment Pages",
+    icon: RotateCcw,
+    target: "Dissatisfied Customers",
+    targeting: "Intra-GCC" as const,
+    status: "product" as const
+  },
+  {
     path: "/quote2-ar",
     name: "Quote Request Form (Arabic)",
     description: "Arabic RTL version of quote request form with platform selection and contact details",
     category: "Conversion Pages",
     icon: MousePointer,
     target: "Arabic Speakers",
+    targeting: "Intra-GCC" as const,
+    status: "product" as const
+  },
+  {
+    path: "/quote2",
+    name: "Quote Request Form (2-Step)",
+    description: "Simplified 2-step quote form with business details and contact information",
+    category: "Conversion Pages",
+    icon: MousePointer,
+    target: "All Segments",
     targeting: "Intra-GCC" as const,
     status: "product" as const
   },
@@ -500,11 +553,12 @@ export function LandingPagesOverview() {
 
           {/* Landing Pages Tabs */}
           <Tabs defaultValue="all" className="space-y-6">
-            <TabsList className="grid w-full grid-cols-4">
+            <TabsList className="grid w-full grid-cols-5">
               <TabsTrigger value="all" data-testid="tab-all-pages">All Pages</TabsTrigger>
-              <TabsTrigger value="home" data-testid="tab-home-pages">Home Pages</TabsTrigger>
-              <TabsTrigger value="segment" data-testid="tab-segment-pages">Segment Pages</TabsTrigger>
+              <TabsTrigger value="tools" data-testid="tab-tools-pages">Tools</TabsTrigger>
+              <TabsTrigger value="segment" data-testid="tab-segment-pages">Segments</TabsTrigger>
               <TabsTrigger value="conversion" data-testid="tab-conversion-pages">Conversion</TabsTrigger>
+              <TabsTrigger value="home" data-testid="tab-home-pages">Home</TabsTrigger>
             </TabsList>
 
             <TabsContent value="all" className="space-y-6">
@@ -538,12 +592,15 @@ export function LandingPagesOverview() {
                             </div>
                           </div>
                           <div className="flex items-center gap-2">
-                            <Link href={page.path}>
-                              <Button variant="outline" size="sm" data-testid={`button-visit-${index}`}>
-                                <ExternalLink className="w-4 h-4 mr-2" />
-                                Visit Page
-                              </Button>
-                            </Link>
+                            <Button 
+                              variant="outline" 
+                              size="sm" 
+                              data-testid={`button-visit-${index}`}
+                              onClick={() => window.open(page.path, '_blank', 'noopener,noreferrer')}
+                            >
+                              <ExternalLink className="w-4 h-4 mr-2" />
+                              Visit Page
+                            </Button>
                           </div>
                         </div>
                       </CardHeader>
@@ -574,6 +631,77 @@ export function LandingPagesOverview() {
                     </Card>
                   );
                 })}
+              </div>
+            </TabsContent>
+
+            <TabsContent value="tools" className="space-y-6">
+              <div className="grid gap-6">
+                {pageAnalytics
+                  .filter(page => page.category === "Tools & Calculators")
+                  .map((page, index) => {
+                    const IconComponent = page.icon;
+                    return (
+                      <Card key={page.path} className="hover-elevate" data-testid={`tools-page-card-${index}`}>
+                        <CardHeader>
+                          <div className="flex items-start justify-between">
+                            <div className="flex items-center gap-3">
+                              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                                <IconComponent className="w-6 h-6 text-primary" />
+                              </div>
+                              <div>
+                                <CardTitle className="text-xl">{page.name}</CardTitle>
+                                <p className="text-muted-foreground mt-1">{page.description}</p>
+                                <div className="flex items-center gap-2 mt-2">
+                                  <Badge variant={page.status === 'product' ? 'default' : 'secondary'}>
+                                    {page.status}
+                                  </Badge>
+                                  <Badge variant="secondary">{page.target}</Badge>
+                                  <Badge 
+                                    variant={page.targeting === 'Intra-GCC' ? 'default' : page.targeting === 'EU->GCC' ? 'destructive' : 'outline'}
+                                    className="text-xs"
+                                  >
+                                    {page.targeting}
+                                  </Badge>
+                                </div>
+                              </div>
+                            </div>
+                            <Button 
+                              variant="outline" 
+                              size="sm"
+                              onClick={() => window.open(page.path, '_blank', 'noopener,noreferrer')}
+                            >
+                              <ExternalLink className="w-4 h-4 mr-2" />
+                              Visit Page
+                            </Button>
+                          </div>
+                        </CardHeader>
+                        <CardContent>
+                          <div className="grid md:grid-cols-5 gap-4">
+                            <div className="text-center">
+                              <div className="text-2xl font-bold text-primary">{page.views}</div>
+                              <div className="text-sm text-muted-foreground">Views</div>
+                            </div>
+                            <div className="text-center">
+                              <div className="text-2xl font-bold text-primary">{page.sessions}</div>
+                              <div className="text-sm text-muted-foreground">Sessions</div>
+                            </div>
+                            <div className="text-center">
+                              <div className="text-2xl font-bold text-primary">{page.ctaClicks}</div>
+                              <div className="text-sm text-muted-foreground">CTA Clicks</div>
+                            </div>
+                            <div className="text-center">
+                              <div className="text-2xl font-bold text-primary">{page.conversionRate.toFixed(1)}%</div>
+                              <div className="text-sm text-muted-foreground">Conversion Rate</div>
+                            </div>
+                            <div className="text-center">
+                              <div className="text-2xl font-bold text-primary">{page.avgScrollDepth}%</div>
+                              <div className="text-sm text-muted-foreground">Avg Scroll</div>
+                            </div>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    );
+                  })}
               </div>
             </TabsContent>
 
@@ -608,12 +736,14 @@ export function LandingPagesOverview() {
                                 </div>
                               </div>
                             </div>
-                            <Link href={page.path}>
-                              <Button variant="outline" size="sm">
-                                <ExternalLink className="w-4 h-4 mr-2" />
-                                Visit Page
-                              </Button>
-                            </Link>
+                            <Button 
+                              variant="outline" 
+                              size="sm"
+                              onClick={() => window.open(page.path, '_blank', 'noopener,noreferrer')}
+                            >
+                              <ExternalLink className="w-4 h-4 mr-2" />
+                              Visit Page
+                            </Button>
                           </div>
                         </CardHeader>
                         <CardContent>
@@ -677,12 +807,14 @@ export function LandingPagesOverview() {
                                 </div>
                               </div>
                             </div>
-                            <Link href={page.path}>
-                              <Button variant="outline" size="sm">
-                                <ExternalLink className="w-4 h-4 mr-2" />
-                                Visit Page
-                              </Button>
-                            </Link>
+                            <Button 
+                              variant="outline" 
+                              size="sm"
+                              onClick={() => window.open(page.path, '_blank', 'noopener,noreferrer')}
+                            >
+                              <ExternalLink className="w-4 h-4 mr-2" />
+                              Visit Page
+                            </Button>
                           </div>
                         </CardHeader>
                         <CardContent>
@@ -746,12 +878,14 @@ export function LandingPagesOverview() {
                                 </div>
                               </div>
                             </div>
-                            <Link href={page.path}>
-                              <Button variant="outline" size="sm">
-                                <ExternalLink className="w-4 h-4 mr-2" />
-                                Visit Page
-                              </Button>
-                            </Link>
+                            <Button 
+                              variant="outline" 
+                              size="sm"
+                              onClick={() => window.open(page.path, '_blank', 'noopener,noreferrer')}
+                            >
+                              <ExternalLink className="w-4 h-4 mr-2" />
+                              Visit Page
+                            </Button>
                           </div>
                         </CardHeader>
                         <CardContent>
