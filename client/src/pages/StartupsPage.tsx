@@ -240,6 +240,21 @@ export function StartupsPage() {
         {/* Facility & Technology Showcase */}
         <section className="py-16 bg-background">
           <div className="container mx-auto px-4">
+            <motion.div
+              className="text-center mb-12"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                GWC is Your E-commerce Fulfillment Partner in the UAE
+              </h2>
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+                From modern warehouses to advanced technology and reliable delivery fleet—we've got everything you need to succeed
+              </p>
+            </motion.div>
+
             <motion.div 
               className="grid md:grid-cols-3 gap-6"
               initial={{ opacity: 0, y: 40 }}
