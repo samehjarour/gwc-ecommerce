@@ -22,8 +22,11 @@ import {
   Sparkles,
   Box,
   PackageOpen,
-  Send
+  Send,
+  Download,
+  FileText
 } from "lucide-react";
+import { Link } from "wouter";
 import {
   Tooltip,
   TooltipContent,
@@ -599,10 +602,19 @@ export function GWCRateCalculatorV2() {
 
               {/* CTA */}
               <div className="flex gap-3">
-                <Button className="flex-1" size="lg">
-                  Get Custom Quote
-                </Button>
-                <Button variant="outline" className="flex-1" size="lg">
+                <Link href="/quote2">
+                  <Button className="flex-1" size="lg">
+                    <FileText className="w-4 h-4 mr-2" />
+                    Get Custom Quote
+                  </Button>
+                </Link>
+                <Button 
+                  variant="outline" 
+                  className="flex-1" 
+                  size="lg"
+                  onClick={() => window.print()}
+                >
+                  <Download className="w-4 h-4 mr-2" />
                   Download PDF
                 </Button>
               </div>

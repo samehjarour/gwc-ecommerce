@@ -160,6 +160,18 @@ export function StartupsPage() {
                   One platform. One logistics network. Multiple markets and marketplaces.
                 </p>
                 
+                <div className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-950/20 dark:to-blue-900/20 p-6 rounded-lg border border-blue-200 dark:border-blue-900 mb-6">
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center">
+                      <Zap className="w-5 h-5 text-white" />
+                    </div>
+                    <h4 className="text-lg font-bold text-blue-900 dark:text-blue-100">Signup to First Sale in 48 Hours</h4>
+                  </div>
+                  <p className="text-base leading-relaxed text-blue-800 dark:text-blue-200">
+                    Get started today and start fulfilling orders within 48 hours. No lengthy onboarding, no delays.
+                  </p>
+                </div>
+
                 <div className="bg-background/80 p-6 rounded-lg border border-border mb-6">
                   <p className="text-base leading-relaxed mb-4">
                     <strong>Start to Scale by GWC</strong> gives startups and growing brands instant access to new markets and digital marketplaces at the same time.
