@@ -220,21 +220,21 @@ export function StartupsPage() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.4 }}
                 >
-                  <p className="text-sm text-muted-foreground mb-4 text-center">
+                  <p className="text-base text-muted-foreground mb-5 text-center font-medium">
                     Connect instantly to 40+ marketplaces
                   </p>
-                  <div className="flex items-center justify-center gap-4 flex-wrap">
-                    <div className="bg-background/80 px-5 py-4 rounded-lg shadow-sm">
-                      <img src={shopifyLogo} alt="Shopify" className="h-10 object-contain" />
+                  <div className="flex items-center justify-center gap-6 flex-wrap">
+                    <div className="bg-background/90 px-8 py-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+                      <img src={shopifyLogo} alt="Shopify" className="h-16 object-contain" />
                     </div>
-                    <div className="bg-background/80 px-5 py-4 rounded-lg shadow-sm">
-                      <img src={amazonLogo} alt="Amazon FBM" className="h-10 object-contain" />
+                    <div className="bg-background/90 px-8 py-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+                      <img src={amazonLogo} alt="Amazon FBM" className="h-16 object-contain" />
                     </div>
-                    <div className="bg-background/80 px-5 py-4 rounded-lg shadow-sm">
-                      <img src={wooLogo} alt="WooCommerce" className="h-10 object-contain" />
+                    <div className="bg-background/90 px-8 py-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+                      <img src={wooLogo} alt="WooCommerce" className="h-16 object-contain" />
                     </div>
-                    <div className="bg-background/80 px-5 py-4 rounded-lg shadow-sm">
-                      <img src={tiktokLogo} alt="TikTok Shop" className="h-10 object-contain" />
+                    <div className="bg-background/90 px-8 py-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+                      <img src={tiktokLogo} alt="TikTok Shop" className="h-16 object-contain" />
                     </div>
                   </div>
                 </motion.div>
@@ -242,9 +242,6 @@ export function StartupsPage() {
             </div>
           </div>
         </section>
-
-        {/* Platform Integrations - Global Solutions Powered by Quivo */}
-        <IntegrationsSection />
 
         {/* Facility & Technology Showcase */}
         <section className="py-16 bg-background">
@@ -342,6 +339,9 @@ export function StartupsPage() {
             />
           </div>
         </section>
+
+        {/* Platform Integrations - Global Solutions Powered by Quivo */}
+        <IntegrationsSection />
 
         {/* Customer Carousel */}
         <SocialProofSection />
