@@ -220,21 +220,21 @@ export function StartupsPage() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.4 }}
                 >
-                  <p className="text-sm text-muted-foreground mb-3 text-center">
+                  <p className="text-sm text-muted-foreground mb-4 text-center">
                     Connect instantly to 40+ marketplaces
                   </p>
                   <div className="flex items-center justify-center gap-4 flex-wrap">
-                    <div className="bg-background/80 px-4 py-3 rounded-lg shadow-sm">
-                      <img src={shopifyLogo} alt="Shopify" className="h-6 object-contain" />
+                    <div className="bg-background/80 px-5 py-4 rounded-lg shadow-sm">
+                      <img src={shopifyLogo} alt="Shopify" className="h-10 object-contain" />
                     </div>
-                    <div className="bg-background/80 px-4 py-3 rounded-lg shadow-sm">
-                      <img src={amazonLogo} alt="Amazon FBM" className="h-6 object-contain" />
+                    <div className="bg-background/80 px-5 py-4 rounded-lg shadow-sm">
+                      <img src={amazonLogo} alt="Amazon FBM" className="h-10 object-contain" />
                     </div>
-                    <div className="bg-background/80 px-4 py-3 rounded-lg shadow-sm">
-                      <img src={wooLogo} alt="WooCommerce" className="h-6 object-contain" />
+                    <div className="bg-background/80 px-5 py-4 rounded-lg shadow-sm">
+                      <img src={wooLogo} alt="WooCommerce" className="h-10 object-contain" />
                     </div>
-                    <div className="bg-background/80 px-4 py-3 rounded-lg shadow-sm">
-                      <img src={tiktokLogo} alt="TikTok Shop" className="h-6 object-contain" />
+                    <div className="bg-background/80 px-5 py-4 rounded-lg shadow-sm">
+                      <img src={tiktokLogo} alt="TikTok Shop" className="h-10 object-contain" />
                     </div>
                   </div>
                 </motion.div>
