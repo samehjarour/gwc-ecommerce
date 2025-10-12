@@ -15,27 +15,18 @@ export function CTASection() {
             Join 100+ brands who trust GWC for their logistics solutions.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link href="/quote2">
+          <div className="flex justify-center">
+            <Link href="/rate-calculator">
               <Button 
                 size="lg" 
                 variant="secondary"
                 className="font-semibold px-8 py-6 text-lg group hover:scale-105 transition-transform"
-                data-testid="button-start-quote"
+                data-testid="button-get-pricing"
               >
-                Start Your Quote
+                Get Pricing
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
-            <Button 
-              variant="outline" 
-              size="lg" 
-              className="border-primary-foreground/30 bg-transparent text-primary-foreground hover:bg-primary-foreground hover:text-primary font-semibold px-8 py-6 text-lg"
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              data-testid="button-contact-sales"
-            >
-              Contact Sales
-            </Button>
           </div>
         </div>
       </div>
