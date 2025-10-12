@@ -154,6 +154,31 @@ export function RateCalculatorPage() {
             </div>
           </div>
         </section>
+
+        {/* Book a Consultation Section */}
+        <section id="book-consultation" className="py-16 bg-gradient-to-b from-background to-muted/20">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <div className="text-center mb-8">
+                <Badge variant="outline" className="mb-4">
+                  <Calculator className="w-3 h-3 mr-1" />
+                  Get Expert Guidance
+                </Badge>
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                  Book a <span className="text-primary">Consultation</span>
+                </h2>
+                <p className="text-xl text-muted-foreground">
+                  Have questions about pricing or need a custom solution? Schedule a call with our fulfillment experts.
+                </p>
+              </div>
+
+              <div className="bg-background rounded-lg shadow-lg p-8">
+                <div className="meetings-iframe-container" data-src="https://meetings-eu1.hubspot.com/sameh-jarour1?embed=true"></div>
+                <script type="text/javascript" src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js"></script>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
       <Footer />
     </div>

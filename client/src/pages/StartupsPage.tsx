@@ -79,9 +79,9 @@ export function StartupsPage() {
         "Basic analytics dashboard"
       ],
       cta: "Start with 1 Product",
-      ctaLink: "/quote2",
+      ctaLink: "/rate-calculator",
       secondaryCta: "Book Consultation",
-      secondaryCtaLink: "https://meetings.hubspot.com/gwc-logistics"
+      secondaryCtaLink: "/rate-calculator#book-consultation"
     },
     {
       range: "10-50 SKUs",
@@ -98,9 +98,9 @@ export function StartupsPage() {
       ],
       highlight: true,
       cta: "Scale Your Business",
-      ctaLink: "/quote2",
+      ctaLink: "/rate-calculator",
       secondaryCta: "Book Consultation",
-      secondaryCtaLink: "https://meetings.hubspot.com/gwc-logistics"
+      secondaryCtaLink: "/rate-calculator#book-consultation"
     },
     {
       range: "50-100 SKUs",
@@ -147,47 +147,50 @@ export function StartupsPage() {
               >
                 <Badge variant="outline" className="mb-4" data-testid="badge-startups">
                   <Rocket className="w-3 h-3 mr-1" />
-                  Built for Online Startups & Small Sellers
+                  Start to Scale: Built for small startups to scale up companies
                 </Badge>
                 <h1 className="text-4xl md:text-5xl font-bold mb-6" data-testid="heading-hero">
-                  Launch Your E-commerce Business with <span className="text-primary">Zero Capital Costs</span>
+                  <span className="text-primary">Start to Scale</span>
                 </h1>
-                <p className="text-xl text-muted-foreground mb-8">
-                  Start with 1 product or scale to 1000+. No minimums. No setup fees. Pay only for what you use. Professional fulfillment from day one.
+                <p className="text-2xl font-semibold mb-4">
+                  The fastest way to grow across markets and marketplaces.
+                </p>
+                <p className="text-xl text-muted-foreground mb-6">
+                  Expand your e-commerce brand globally with zero CapEx.<br />
+                  One platform. One logistics network. Multiple markets and marketplaces.
                 </p>
                 
-                <div className="space-y-4 mb-8">
-                  <motion.div 
-                    className="flex items-start gap-3 bg-background/80 p-4 rounded-lg border border-border"
-                    initial={{ opacity: 0, x: -30 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5, delay: 0.6 }}
-                    whileHover={{ scale: 1.02, boxShadow: "0 10px 30px rgba(0,0,0,0.1)" }}
-                  >
-                    <Zap className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                    <div>
-                      <h4 className="font-semibold mb-1">Launch in 48 Hours</h4>
-                      <p className="text-sm text-muted-foreground">
-                        Quick integration. Send inventory. Start selling immediately.
-                      </p>
-                  </div>
-                  </motion.div>
+                <div className="bg-background/80 p-6 rounded-lg border border-border mb-6">
+                  <p className="text-base leading-relaxed mb-4">
+                    <strong>Start to Scale by GWC</strong> gives startups and growing brands instant access to new markets and digital marketplaces at the same time.
+                  </p>
+                  <p className="text-base leading-relaxed text-muted-foreground">
+                    With fulfillment, last-mile delivery, and marketplace integration all under one system, your products move faster, reach further, and scale smarter.
+                  </p>
+                </div>
 
-                  <motion.div 
-                    className="flex items-start gap-3 bg-background/80 p-4 rounded-lg border border-border"
-                    initial={{ opacity: 0, x: -30 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5, delay: 0.8 }}
-                    whileHover={{ scale: 1.02, boxShadow: "0 10px 30px rgba(0,0,0,0.1)" }}
-                  >
-                    <TrendingUp className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                    <div>
-                      <h4 className="font-semibold mb-1">Scale Without Limits</h4>
-                      <p className="text-sm text-muted-foreground">
-                        From 1 order to 1000+ per day. We grow with you automatically.
-                      </p>
+                <div className="bg-gradient-to-br from-primary/5 to-primary/10 p-6 rounded-lg border border-primary/20 mb-8">
+                  <h4 className="font-semibold mb-3 flex items-center gap-2">
+                    <Globe className="w-5 h-5 text-primary" />
+                    Quick Integration to Leading Marketplaces
+                  </h4>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    Connect instantly to multiple marketplaces and start selling across borders in days, not months.
+                  </p>
+                  <div className="flex items-center gap-6 flex-wrap">
+                    <div className="flex items-center gap-2 bg-background/80 px-4 py-2 rounded-lg shadow-sm">
+                      <Package className="w-5 h-5 text-primary" />
+                      <span className="font-medium text-sm">Amazon</span>
+                    </div>
+                    <div className="flex items-center gap-2 bg-background/80 px-4 py-2 rounded-lg shadow-sm">
+                      <Package className="w-5 h-5 text-primary" />
+                      <span className="font-medium text-sm">Noon</span>
+                    </div>
+                    <div className="flex items-center gap-2 bg-background/80 px-4 py-2 rounded-lg shadow-sm">
+                      <Package className="w-5 h-5 text-primary" />
+                      <span className="font-medium text-sm">Shopify</span>
+                    </div>
                   </div>
-                  </motion.div>
                 </div>
 
                 <motion.div 
@@ -196,19 +199,20 @@ export function StartupsPage() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 1 }}
                 >
-                  <Link href="/rate-calculator">
+                  <Link href="/quote2">
                     <Button size="lg" data-testid="button-get-quote">
-                      Calculate Your Costs
+                      Get Started
                       <ArrowRight className="ml-2 h-5 w-5" />
                     </Button>
                   </Link>
-                  <Button 
-                    size="lg" 
-                    variant="outline"
-                    onClick={() => document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' })}
-                  >
-                    See How It Works
-                  </Button>
+                  <Link href="/rate-calculator">
+                    <Button 
+                      size="lg" 
+                      variant="outline"
+                    >
+                      Get Pricing
+                    </Button>
+                  </Link>
                 </motion.div>
               </motion.div>
 
@@ -236,6 +240,77 @@ export function StartupsPage() {
 
         {/* Logo Carousel */}
         <SocialProofSection />
+
+        {/* Marketplace Integrations Section */}
+        <section className="py-16 bg-gradient-to-b from-muted/20 to-background">
+          <div className="container mx-auto px-4">
+            <motion.div
+              className="text-center mb-12 max-w-4xl mx-auto"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <Badge variant="outline" className="mb-4">
+                <Globe className="w-3 h-3 mr-1" />
+                Marketplace Integrations
+              </Badge>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                Connect to Leading Marketplaces in Minutes
+              </h2>
+              <p className="text-xl text-muted-foreground">
+                Quick integration to multiple marketplaces means you can start selling across borders faster than ever. No technical expertise required.
+              </p>
+            </motion.div>
+
+            <motion.div
+              className="flex justify-center items-center gap-8 flex-wrap max-w-3xl mx-auto"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <motion.div 
+                className="flex items-center gap-3 bg-background px-8 py-6 rounded-xl shadow-lg border border-border hover:shadow-xl hover:border-primary/50 transition-all"
+                whileHover={{ scale: 1.05, y: -5 }}
+              >
+                <Package className="w-8 h-8 text-primary" />
+                <span className="font-semibold text-lg">Amazon</span>
+              </motion.div>
+              
+              <motion.div 
+                className="flex items-center gap-3 bg-background px-8 py-6 rounded-xl shadow-lg border border-border hover:shadow-xl hover:border-primary/50 transition-all"
+                whileHover={{ scale: 1.05, y: -5 }}
+              >
+                <Package className="w-8 h-8 text-primary" />
+                <span className="font-semibold text-lg">Noon</span>
+              </motion.div>
+              
+              <motion.div 
+                className="flex items-center gap-3 bg-background px-8 py-6 rounded-xl shadow-lg border border-border hover:shadow-xl hover:border-primary/50 transition-all"
+                whileHover={{ scale: 1.05, y: -5 }}
+              >
+                <Package className="w-8 h-8 text-primary" />
+                <span className="font-semibold text-lg">Shopify</span>
+              </motion.div>
+            </motion.div>
+
+            <motion.div 
+              className="text-center mt-8"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+            >
+              <p className="text-muted-foreground">
+                Plus many more platforms and custom integrations available
+              </p>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Platform Integrations - Global Solutions Powered by Quivo */}
+        <IntegrationsSection />
 
         {/* Facility & Technology Showcase */}
         <section className="py-16 bg-background">
@@ -315,9 +390,6 @@ export function StartupsPage() {
             </motion.div>
           </div>
         </section>
-
-        {/* Platform Integrations - Global Solutions Powered by Quivo */}
-        <IntegrationsSection />
 
         {/* SKU Tiers Section */}
         <section className="py-20 bg-gradient-to-b from-muted/20 to-background relative overflow-hidden">
