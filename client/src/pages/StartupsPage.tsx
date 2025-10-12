@@ -224,17 +224,17 @@ export function StartupsPage() {
                     Connect instantly to 40+ marketplaces
                   </p>
                   <div className="flex items-center justify-center gap-6 flex-wrap">
-                    <div className="bg-background/90 px-8 py-6 rounded-xl shadow-md hover:shadow-lg transition-all group">
-                      <img src={shopifyLogo} alt="Shopify" className="h-16 object-contain grayscale hover:grayscale-0 transition-all" />
+                    <div className="bg-background/90 px-8 py-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 group hover:scale-105" style={{ transition: 'all 0.3s ease' }}>
+                      <img src={shopifyLogo} alt="Shopify" className="h-16 object-contain opacity-60 group-hover:opacity-100 transition-all duration-300" />
                     </div>
-                    <div className="bg-background/90 px-8 py-6 rounded-xl shadow-md hover:shadow-lg transition-all group">
-                      <img src={amazonLogo} alt="Amazon FBM" className="h-16 object-contain grayscale hover:grayscale-0 transition-all" />
+                    <div className="bg-background/90 px-8 py-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 group hover:scale-105" style={{ transition: 'all 0.3s ease' }}>
+                      <img src={amazonLogo} alt="Amazon FBM" className="h-16 object-contain opacity-60 group-hover:opacity-100 transition-all duration-300" />
                     </div>
-                    <div className="bg-background/90 px-8 py-6 rounded-xl shadow-md hover:shadow-lg transition-all group">
-                      <img src={wooLogo} alt="WooCommerce" className="h-16 object-contain grayscale hover:grayscale-0 transition-all" />
+                    <div className="bg-background/90 px-8 py-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 group hover:scale-105" style={{ transition: 'all 0.3s ease' }}>
+                      <img src={wooLogo} alt="WooCommerce" className="h-16 object-contain opacity-60 group-hover:opacity-100 transition-all duration-300" />
                     </div>
-                    <div className="bg-background/90 px-8 py-6 rounded-xl shadow-md hover:shadow-lg transition-all group">
-                      <img src={tiktokLogo} alt="TikTok Shop" className="h-16 object-contain grayscale hover:grayscale-0 transition-all" />
+                    <div className="bg-background/90 px-8 py-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 group hover:scale-105" style={{ transition: 'all 0.3s ease' }}>
+                      <img src={tiktokLogo} alt="TikTok Shop" className="h-16 object-contain opacity-60 group-hover:opacity-100 transition-all duration-300" />
                     </div>
                   </div>
                 </motion.div>
