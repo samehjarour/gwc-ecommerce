@@ -128,7 +128,7 @@ export function GWCRateCalculatorV2() {
 
   return (
     <div className="w-full max-w-7xl mx-auto" data-testid="gwc-rate-calculator-v2">
-      <Card className="mb-8">
+      <Card className="mb-8 print:hidden">
         <CardHeader>
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
@@ -419,7 +419,7 @@ export function GWCRateCalculatorV2() {
           {result && (
             <>
               {/* Monthly Invoice Header */}
-              <Card className="bg-gradient-to-br from-primary/10 to-primary/5 border-primary/20">
+              <Card className="bg-gradient-to-br from-primary/10 to-primary/5 border-primary/20 print:hidden">
                 <CardContent className="pt-6">
                   <div className="text-center">
                     <Badge className="mb-2 text-base px-4 py-2">
@@ -437,7 +437,7 @@ export function GWCRateCalculatorV2() {
               </Card>
 
               {/* Cost Breakdown */}
-              <Card>
+              <Card className="print:hidden">
                 <CardHeader>
                   <CardTitle>Monthly Cost Breakdown</CardTitle>
                   <p className="text-sm text-muted-foreground">
@@ -578,7 +578,7 @@ export function GWCRateCalculatorV2() {
               </Card>
 
               {/* Monthly Total */}
-              <Card className="bg-gradient-to-br from-green-50 to-green-100 dark:from-green-950/20 dark:to-green-900/20 border-green-200 dark:border-green-900">
+              <Card className="bg-gradient-to-br from-green-50 to-green-100 dark:from-green-950/20 dark:to-green-900/20 border-green-200 dark:border-green-900 print:hidden">
                 <CardContent className="pt-6 space-y-3">
                   <div className="flex justify-between items-center">
                     <span className="text-xl font-semibold">Monthly Total</span>
@@ -601,7 +601,7 @@ export function GWCRateCalculatorV2() {
               </Card>
 
               {/* CTA */}
-              <div className="flex gap-3">
+              <div className="flex gap-3 print:hidden">
                 <Link href="/quote2">
                   <Button className="flex-1" size="lg">
                     <FileText className="w-4 h-4 mr-2" />
@@ -610,7 +610,7 @@ export function GWCRateCalculatorV2() {
                 </Link>
                 <Button 
                   variant="outline" 
-                  className="flex-1" 
+                  className="flex-1 print:hidden" 
                   size="lg"
                   onClick={() => window.print()}
                 >
@@ -622,6 +622,176 @@ export function GWCRateCalculatorV2() {
           )}
         </div>
       </div>
+
+      {/* Print-Only Quote View */}
+      {result && (
+        <div className="hidden print:block print:p-8 print:max-w-none">
+          <style>{`
+            @media print {
+              body * { visibility: hidden; }
+              .print-quote, .print-quote * { visibility: visible; }
+              .print-quote { position: absolute; left: 0; top: 0; width: 100%; }
+              @page { margin: 1cm; size: A4; }
+            }
+          `}</style>
+          
+          <div className="print-quote">
+            {/* Header */}
+            <div className="mb-8 pb-6 border-b-2 border-gray-300">
+              <div className="flex justify-between items-start">
+                <div>
+                  <h1 className="text-3xl font-bold text-primary mb-2">GWC Logistics</h1>
+                  <p className="text-sm text-gray-600">E-commerce Fulfillment Quote</p>
+                </div>
+                <div className="text-right">
+                  <p className="text-sm text-gray-600">Quote Date</p>
+                  <p className="font-semibold">{new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Product Details */}
+            <div className="mb-6">
+              <h2 className="text-xl font-bold mb-4 text-gray-800">Product Specifications</h2>
+              <div className="grid grid-cols-2 gap-4 bg-gray-50 p-4 rounded">
+                <div>
+                  <p className="text-sm text-gray-600">Size Category</p>
+                  <p className="font-semibold">{selectedSize}</p>
+                </div>
+                <div>
+                  <p className="text-sm text-gray-600">Storage Environment</p>
+                  <p className="font-semibold">{environment} (Climate Controlled)</p>
+                </div>
+                <div>
+                  <p className="text-sm text-gray-600">Dimensions</p>
+                  <p className="font-semibold">
+                    {SIZE_PRESETS[selectedSize].dimensions.length_cm} × {SIZE_PRESETS[selectedSize].dimensions.width_cm} × {SIZE_PRESETS[selectedSize].dimensions.height_cm} cm
+                  </p>
+                </div>
+                <div>
+                  <p className="text-sm text-gray-600">Weight</p>
+                  <p className="font-semibold">{SIZE_PRESETS[selectedSize].dimensions.weight_kg} kg</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Volume Details */}
+            <div className="mb-6">
+              <h2 className="text-xl font-bold mb-4 text-gray-800">Monthly Volume</h2>
+              <div className="grid grid-cols-2 gap-4 bg-gray-50 p-4 rounded">
+                <div>
+                  <p className="text-sm text-gray-600">Units Received (Inbound)</p>
+                  <p className="font-semibold">{inboundUnits} units</p>
+                </div>
+                <div>
+                  <p className="text-sm text-gray-600">Units Stored</p>
+                  <p className="font-semibold">{storageUnits} units</p>
+                </div>
+                <div>
+                  <p className="text-sm text-gray-600">Packages Shipped (Outbound)</p>
+                  <p className="font-semibold">{outboundUnits} packages</p>
+                </div>
+                <div>
+                  <p className="text-sm text-gray-600">Returns Processed</p>
+                  <p className="font-semibold">{returnUnits} units</p>
+                </div>
+                <div>
+                  <p className="text-sm text-gray-600">Delivery Speed</p>
+                  <p className="font-semibold">{deliverySpeed}</p>
+                </div>
+                <div>
+                  <p className="text-sm text-gray-600">Payment Method</p>
+                  <p className="font-semibold">{paymentMethod}</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Cost Breakdown */}
+            <div className="mb-6">
+              <h2 className="text-xl font-bold mb-4 text-gray-800">Monthly Cost Breakdown</h2>
+              <table className="w-full">
+                <thead className="bg-gray-100">
+                  <tr>
+                    <th className="text-left p-3 font-semibold">Service</th>
+                    <th className="text-right p-3 font-semibold">Cost (AED)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b">
+                    <td className="p-3">
+                      <p className="font-medium">Warehousing & Storage</p>
+                      <p className="text-sm text-gray-600">{environment} Storage for {storageUnits} units</p>
+                    </td>
+                    <td className="text-right p-3">{formatCurrency(result.storage.total)}</td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="p-3">
+                      <p className="font-medium">Fulfillment Services</p>
+                      <p className="text-sm text-gray-600">Pick, pack & ship {outboundUnits} packages</p>
+                    </td>
+                    <td className="text-right p-3">{formatCurrency(result.fulfillment.total)}</td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="p-3">
+                      <p className="font-medium">Last-Mile Delivery</p>
+                      <p className="text-sm text-gray-600">{deliverySpeed} - {paymentMethod}</p>
+                    </td>
+                    <td className="text-right p-3">{formatCurrency(result.shipping.total)}</td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="p-3">
+                      <p className="font-medium">Returns Processing</p>
+                      <p className="text-sm text-gray-600">Collection & processing for {returnUnits} units</p>
+                    </td>
+                    <td className="text-right p-3">{formatCurrency(result.returns.total)}</td>
+                  </tr>
+                  {result.integrations && result.integrations.total > 0 && (
+                    <tr className="border-b">
+                      <td className="p-3">
+                        <p className="font-medium">Integration Fees</p>
+                        <p className="text-sm text-gray-600">Platform integration setup</p>
+                      </td>
+                      <td className="text-right p-3">{formatCurrency(result.integrations.total)}</td>
+                    </tr>
+                  )}
+                </tbody>
+                <tfoot className="bg-primary text-white">
+                  <tr>
+                    <td className="p-4 font-bold text-lg">MONTHLY TOTAL</td>
+                    <td className="text-right p-4 font-bold text-lg">{formatCurrency(result.monthly_total)}</td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+
+            {/* Per Unit Metrics */}
+            <div className="mb-6 bg-blue-50 p-4 rounded">
+              <h3 className="font-bold mb-3 text-gray-800">Cost Efficiency Metrics</h3>
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <p className="text-sm text-gray-600">Per Unit Fulfilled</p>
+                  <p className="text-2xl font-bold text-primary">{formatCurrency(result.per_unit_fulfilled)}</p>
+                </div>
+                <div>
+                  <p className="text-sm text-gray-600">Per Package Shipped</p>
+                  <p className="text-2xl font-bold text-primary">{formatCurrency(result.per_package_shipped)}</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Footer */}
+            <div className="mt-8 pt-6 border-t-2 border-gray-300">
+              <p className="text-sm text-gray-600 mb-2">
+                <strong>Note:</strong> This quote is valid for 30 days and based on the specifications provided. 
+                Final pricing may vary based on actual usage and product requirements.
+              </p>
+              <p className="text-sm text-gray-600">
+                For questions or to proceed with this quote, please contact: <strong>info@gwclogistics.com</strong>
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
