@@ -12,19 +12,9 @@ interface TestimonialData {
 
 const testimonials: TestimonialData[] = [
   {
-    quote: "Partnering with GWC has streamlined our regional supply chain. Their scalable warehousing and proactive team ensure smooth operations and on-time deliveries, making them a trusted logistics partner.",
-    company: "Huawei Technologies Co., Ltd.",
-    logo: "H"
-  },
-  {
     quote: "GWC's efficient warehousing and reliable logistics network have been vital in keeping our shelves stocked and our customers satisfied. Their flexibility and commitment to excellence make them an invaluable partner in our growth journey.",
     company: "Carrefour",
     logo: "C"
-  },
-  {
-    quote: "With GWC managing our logistics backbone, we've experienced smoother supply chains and greater operational efficiency. Their expertise allows us to focus on what we do best—creating a better everyday life for our customers.",
-    company: "IKEA",
-    logo: "I"
   }
 ];
 
