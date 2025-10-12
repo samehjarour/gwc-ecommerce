@@ -258,8 +258,11 @@ export function StartupsPage() {
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
                 Connect to Leading Marketplaces in Minutes
               </h2>
-              <p className="text-xl text-muted-foreground">
+              <p className="text-xl text-muted-foreground mb-2">
                 Quick integration to multiple marketplaces means you can start selling across borders faster than ever. No technical expertise required.
+              </p>
+              <p className="text-lg font-medium text-primary">
+                Connect with 40+ supported platforms and marketplaces
               </p>
             </motion.div>
 
@@ -293,18 +296,6 @@ export function StartupsPage() {
                 <Package className="w-8 h-8 text-primary" />
                 <span className="font-semibold text-lg">Shopify</span>
               </motion.div>
-            </motion.div>
-
-            <motion.div 
-              className="text-center mt-8"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-            >
-              <p className="text-muted-foreground">
-                Plus many more platforms and custom integrations available
-              </p>
             </motion.div>
           </div>
         </section>
