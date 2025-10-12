@@ -36,6 +36,10 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import warehouseImage from "@assets/DJI_0432-HDR_1758598111840.jpg";
 import technologyImage from "@assets/technology_1758599610299.webp";
 import vanImage from "@assets/GWC Truck - Dubai_1757565747938.jpg";
+import shopifyLogo from "../../attached_assets/shopify_1758598346980.png";
+import amazonLogo from "../../attached_assets/amazon_1758598346980.png";
+import wooLogo from "../../attached_assets/woo (1)_1758598346980.png";
+import tiktokLogo from "../../attached_assets/tiktok_1758598346981.png";
 
 export function StartupsPage() {
   const [activeTab, setActiveTab] = useState("signup");
@@ -150,14 +154,10 @@ export function StartupsPage() {
                   Start to Scale: Built for small startups to scale up companies
                 </Badge>
                 <h1 className="text-4xl md:text-5xl font-bold mb-6" data-testid="heading-hero">
-                  <span className="text-primary">Start to Scale</span>
+                  Expand your e-commerce brand globally with zero CapEx.
                 </h1>
                 <p className="text-2xl font-semibold mb-4">
-                  The fastest way to grow across markets and marketplaces.
-                </p>
-                <p className="text-xl text-muted-foreground mb-6">
-                  Expand your e-commerce brand globally with zero CapEx.<br />
-                  One platform. One logistics network. Multiple markets and marketplaces.
+                  Start to Scale by GWC: The fastest way to grow across markets and marketplaces.
                 </p>
                 
                 <div className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-950/20 dark:to-blue-900/20 p-6 rounded-lg border border-blue-200 dark:border-blue-900 mb-6">
@@ -187,20 +187,20 @@ export function StartupsPage() {
                     Quick Integration to Leading Marketplaces
                   </h4>
                   <p className="text-sm text-muted-foreground mb-4">
-                    Connect instantly to multiple marketplaces and start selling across borders in days, not months.
+                    Connect instantly to 40+ marketplaces and start selling across borders in days, not months.
                   </p>
-                  <div className="flex items-center gap-6 flex-wrap">
-                    <div className="flex items-center gap-2 bg-background/80 px-4 py-2 rounded-lg shadow-sm">
-                      <Package className="w-5 h-5 text-primary" />
-                      <span className="font-medium text-sm">Amazon</span>
+                  <div className="flex items-center gap-4 flex-wrap">
+                    <div className="bg-background/80 px-4 py-3 rounded-lg shadow-sm">
+                      <img src={shopifyLogo} alt="Shopify" className="h-6 object-contain" />
                     </div>
-                    <div className="flex items-center gap-2 bg-background/80 px-4 py-2 rounded-lg shadow-sm">
-                      <Package className="w-5 h-5 text-primary" />
-                      <span className="font-medium text-sm">Noon</span>
+                    <div className="bg-background/80 px-4 py-3 rounded-lg shadow-sm">
+                      <img src={amazonLogo} alt="Amazon FBM" className="h-6 object-contain" />
                     </div>
-                    <div className="flex items-center gap-2 bg-background/80 px-4 py-2 rounded-lg shadow-sm">
-                      <Package className="w-5 h-5 text-primary" />
-                      <span className="font-medium text-sm">Shopify</span>
+                    <div className="bg-background/80 px-4 py-3 rounded-lg shadow-sm">
+                      <img src={wooLogo} alt="WooCommerce" className="h-6 object-contain" />
+                    </div>
+                    <div className="bg-background/80 px-4 py-3 rounded-lg shadow-sm">
+                      <img src={tiktokLogo} alt="TikTok Shop" className="h-6 object-contain" />
                     </div>
                   </div>
                 </div>
@@ -249,9 +249,6 @@ export function StartupsPage() {
             </div>
           </div>
         </section>
-
-        {/* Logo Carousel */}
-        <SocialProofSection />
 
         {/* Platform Integrations - Global Solutions Powered by Quivo */}
         <IntegrationsSection />
@@ -352,6 +349,9 @@ export function StartupsPage() {
             />
           </div>
         </section>
+
+        {/* Customer Carousel */}
+        <SocialProofSection />
 
         {/* How It Works Section */}
         <section id="how-it-works" className="py-20 relative overflow-hidden">

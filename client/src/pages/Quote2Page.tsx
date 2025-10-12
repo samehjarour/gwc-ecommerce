@@ -359,7 +359,7 @@ export function Quote2Page() {
                         className="ml-auto"
                         data-testid="button-submit"
                       >
-                        Submit Quote Request
+                        Talk to Expert
                       </Button>
                     )}
                   </div>
