@@ -577,24 +577,22 @@ export function GWCRateCalculatorV2() {
                 </CardContent>
               </Card>
 
-              {/* Monthly Total */}
-              <Card className="bg-gradient-to-br from-green-50 to-green-100 dark:from-green-950/20 dark:to-green-900/20 border-green-200 dark:border-green-900 print:hidden">
-                <CardContent className="pt-6 space-y-3">
-                  <div className="flex justify-between items-center">
-                    <span className="text-xl font-semibold">Monthly Total</span>
-                    <span className="text-3xl font-bold text-green-600 dark:text-green-400">
-                      {formatCurrency(result.totals.operational)}
-                    </span>
-                  </div>
-                  <Separator />
-                  <div className="grid grid-cols-2 gap-4 pt-2">
-                    <div className="text-center">
-                      <p className="text-sm text-muted-foreground mb-1">Per Unit Fulfilled</p>
-                      <p className="text-lg font-semibold">{formatCurrency(result.totals.per_item_fulfilled)}</p>
+              {/* Cost Per Package */}
+              <Card className="bg-primary text-primary-foreground border-primary print:hidden">
+                <CardContent className="pt-6 pb-6">
+                  <h3 className="text-2xl font-bold mb-6 text-center text-white">Cost Per Package</h3>
+                  <div className="space-y-4">
+                    <div className="flex justify-between items-center">
+                      <span className="text-lg text-white">Last mile only</span>
+                      <span className="text-2xl font-bold text-white">
+                        {formatCurrency(result.totals.per_package)}
+                      </span>
                     </div>
-                    <div className="text-center">
-                      <p className="text-sm text-muted-foreground mb-1">Per Package Shipped</p>
-                      <p className="text-lg font-semibold">{formatCurrency(result.totals.per_package)}</p>
+                    <div className="flex justify-between items-center">
+                      <span className="text-lg text-white">Fulfilment + last mile</span>
+                      <span className="text-2xl font-bold text-white">
+                        {formatCurrency(result.totals.per_item_fulfilled)}
+                      </span>
                     </div>
                   </div>
                 </CardContent>
