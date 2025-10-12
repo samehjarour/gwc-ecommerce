@@ -18,16 +18,16 @@ app.use(helmet({
     directives: {
       defaultSrc: ["'self'"],
       scriptSrc: isDevelopment 
-        ? ["'self'", "'unsafe-inline'", "'unsafe-eval'"] // Required for Vite HMR in dev
-        : ["'self'"], // Strict in production
+        ? ["'self'", "'unsafe-inline'", "'unsafe-eval'", "https://static.hsappstatic.net"] // Required for Vite HMR in dev + HubSpot
+        : ["'self'", "https://static.hsappstatic.net"], // HubSpot in production
       styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
       fontSrc: ["'self'", "https://fonts.gstatic.com"],
       imgSrc: ["'self'", "data:", "https:"],
       mediaSrc: ["'self'"], // Allow videos from same origin
       connectSrc: isDevelopment
-        ? ["'self'", "ws:", "wss:"] // Required for Vite HMR websocket
-        : ["'self'"],
-      frameSrc: ["'self'", "https://player.vimeo.com"],
+        ? ["'self'", "ws:", "wss:", "https://meetings-eu1.hubspot.com"] // Required for Vite HMR websocket + HubSpot
+        : ["'self'", "https://meetings-eu1.hubspot.com"],
+      frameSrc: ["'self'", "https://player.vimeo.com", "https://meetings-eu1.hubspot.com"],
     },
   },
   hsts: {
@@ -131,10 +131,10 @@ app.use((req, res, next) => {
   }
 
   // ALWAYS serve the app on the port specified in the environment variable PORT
-  // Other ports are firewalled. Default to 5000 if not specified.
+  // Other ports are firewalled. Default to 5001 if not specified.
   // this serves both the API and the client.
   // It is the only port that is not firewalled.
-  const port = parseInt(process.env.PORT || '5000', 10);
+  const port = parseInt(process.env.PORT || '5001', 10);
   server.listen({
     port,
     host: "0.0.0.0",

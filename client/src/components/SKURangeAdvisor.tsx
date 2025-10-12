@@ -89,15 +89,27 @@ export function SKURangeAdvisor({
                 </Link>
                 
                 {tier.secondaryCta && tier.secondaryCtaLink && (
-                  <a href={tier.secondaryCtaLink} target="_blank" rel="noopener noreferrer" className="block">
-                    <Button 
-                      className="w-full" 
-                      variant="ghost"
-                      data-testid={`${testIdPrefix}-secondary-cta-${index}`}
-                    >
-                      {tier.secondaryCta}
-                    </Button>
-                  </a>
+                  tier.secondaryCtaLink.startsWith('http') ? (
+                    <a href={tier.secondaryCtaLink} target="_blank" rel="noopener noreferrer" className="block">
+                      <Button 
+                        className="w-full" 
+                        variant="ghost"
+                        data-testid={`${testIdPrefix}-secondary-cta-${index}`}
+                      >
+                        {tier.secondaryCta}
+                      </Button>
+                    </a>
+                  ) : (
+                    <Link href={tier.secondaryCtaLink}>
+                      <Button 
+                        className="w-full" 
+                        variant="ghost"
+                        data-testid={`${testIdPrefix}-secondary-cta-${index}`}
+                      >
+                        {tier.secondaryCta}
+                      </Button>
+                    </Link>
+                  )
                 )}
               </div>
             </CardContent>

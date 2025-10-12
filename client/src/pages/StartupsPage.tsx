@@ -118,7 +118,7 @@ export function StartupsPage() {
       cta: "Enterprise Features",
       ctaLink: "/quote2",
       secondaryCta: "Book Consultation",
-      secondaryCtaLink: "https://meetings.hubspot.com/gwc-logistics"
+      secondaryCtaLink: "/rate-calculator#book-consultation"
     }
   ];
 
@@ -241,65 +241,6 @@ export function StartupsPage() {
         {/* Logo Carousel */}
         <SocialProofSection />
 
-        {/* Marketplace Integrations Section */}
-        <section className="py-16 bg-gradient-to-b from-muted/20 to-background">
-          <div className="container mx-auto px-4">
-            <motion.div
-              className="text-center mb-12 max-w-4xl mx-auto"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
-              <Badge variant="outline" className="mb-4">
-                <Globe className="w-3 h-3 mr-1" />
-                Marketplace Integrations
-              </Badge>
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Connect to Leading Marketplaces in Minutes
-              </h2>
-              <p className="text-xl text-muted-foreground mb-2">
-                Quick integration to multiple marketplaces means you can start selling across borders faster than ever. No technical expertise required.
-              </p>
-              <p className="text-lg font-medium text-primary">
-                Connect with 40+ supported platforms and marketplaces
-              </p>
-            </motion.div>
-
-            <motion.div
-              className="flex justify-center items-center gap-8 flex-wrap max-w-3xl mx-auto"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <motion.div 
-                className="flex items-center gap-3 bg-background px-8 py-6 rounded-xl shadow-lg border border-border hover:shadow-xl hover:border-primary/50 transition-all"
-                whileHover={{ scale: 1.05, y: -5 }}
-              >
-                <Package className="w-8 h-8 text-primary" />
-                <span className="font-semibold text-lg">Amazon</span>
-              </motion.div>
-              
-              <motion.div 
-                className="flex items-center gap-3 bg-background px-8 py-6 rounded-xl shadow-lg border border-border hover:shadow-xl hover:border-primary/50 transition-all"
-                whileHover={{ scale: 1.05, y: -5 }}
-              >
-                <Package className="w-8 h-8 text-primary" />
-                <span className="font-semibold text-lg">Noon</span>
-              </motion.div>
-              
-              <motion.div 
-                className="flex items-center gap-3 bg-background px-8 py-6 rounded-xl shadow-lg border border-border hover:shadow-xl hover:border-primary/50 transition-all"
-                whileHover={{ scale: 1.05, y: -5 }}
-              >
-                <Package className="w-8 h-8 text-primary" />
-                <span className="font-semibold text-lg">Shopify</span>
-              </motion.div>
-            </motion.div>
-          </div>
-        </section>
-
         {/* Platform Integrations - Global Solutions Powered by Quivo */}
         <IntegrationsSection />
 
@@ -317,7 +258,7 @@ export function StartupsPage() {
                 GWC is Your E-commerce Fulfillment Partner in the UAE
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                From modern warehouses to advanced technology and reliable delivery fleet—we've got everything you need to succeed
+                From modern warehouses to advanced technology and reliable delivery fleet—we've got everything you need to succeed.
               </p>
             </motion.div>
 
@@ -330,8 +271,9 @@ export function StartupsPage() {
             >
               {/* Warehouse Image */}
               <motion.div
-                className="relative group overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500"
+                className="relative group overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer"
                 whileHover={{ scale: 1.02, y: -5 }}
+                onClick={() => window.open('https://www.gwclogistics.com/logistics-hubs/', '_blank')}
               >
                 <img 
                   src={warehouseImage} 
@@ -340,15 +282,16 @@ export function StartupsPage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                  <h3 className="text-lg font-semibold mb-1">State-of-the-Art Facility</h3>
-                  <p className="text-sm opacity-90">Modern warehouses equipped for your growth</p>
+                  <h3 className="text-lg font-semibold mb-1">State-of-the-Art Facility.</h3>
+                  <p className="text-sm opacity-90">Modern warehouses equipped for your growth.</p>
               </div>
               </motion.div>
 
               {/* Technology Image */}
               <motion.div
-                className="relative group overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500"
+                className="relative group overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer"
                 whileHover={{ scale: 1.02, y: -5 }}
+                onClick={() => window.open('https://www.gwclogistics.com/soft-infrastructure/corporate-information-technology/', '_blank')}
               >
                 <img 
                   src={technologyImage} 
@@ -357,15 +300,16 @@ export function StartupsPage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                  <h3 className="text-lg font-semibold mb-1">Advanced Technology</h3>
-                  <p className="text-sm opacity-90">Real-time tracking and inventory management</p>
+                  <h3 className="text-lg font-semibold mb-1">Advanced Technology.</h3>
+                  <p className="text-sm opacity-90">Multi-channel integration and real-time tracking.</p>
             </div>
               </motion.div>
 
               {/* Fleet Image */}
               <motion.div
-                className="relative group overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500"
+                className="relative group overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer"
                 whileHover={{ scale: 1.02, y: -5 }}
+                onClick={() => window.open('https://www.gwclogistics.com/gwc-services/transport-solution/', '_blank')}
               >
                 <img 
                   src={vanImage} 
@@ -374,8 +318,8 @@ export function StartupsPage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                  <h3 className="text-lg font-semibold mb-1">Reliable Fleet</h3>
-                  <p className="text-sm opacity-90">Fast and secure delivery across the GCC</p>
+                  <h3 className="text-lg font-semibold mb-1">Reliable Fleet.</h3>
+                  <p className="text-sm opacity-90">Fast and secure delivery across the GCC.</p>
                     </div>
               </motion.div>
             </motion.div>

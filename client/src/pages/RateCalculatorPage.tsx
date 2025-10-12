@@ -8,13 +8,38 @@ import { useEffect } from "react";
 
 export function RateCalculatorPage() {
   useEffect(() => {
-    window.scrollTo(0, 0);
     document.title = "UAE Fulfillment Cost Calculator - Transparent Pricing | GWC with Quivo";
     
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute('content', 'Calculate your exact fulfillment costs in UAE. Transparent pricing for warehousing, fulfillment, shipping, and returns. No hidden fees.');
     }
+
+    // Load HubSpot meetings embed script
+    const script = document.createElement('script');
+    script.src = 'https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js';
+    script.async = true;
+    document.body.appendChild(script);
+
+    // Handle anchor navigation
+    const hash = window.location.hash;
+    if (hash) {
+      setTimeout(() => {
+        const element = document.querySelector(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    } else {
+      window.scrollTo(0, 0);
+    }
+
+    return () => {
+      // Cleanup script on unmount
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
+    };
   }, []);
 
   return (
@@ -156,7 +181,7 @@ export function RateCalculatorPage() {
         </section>
 
         {/* Book a Consultation Section */}
-        <section id="book-consultation" className="py-16 bg-gradient-to-b from-background to-muted/20">
+        <section id="book-consultation" className="py-16 bg-gradient-to-b from-background to-muted/20 scroll-mt-20">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-8">
@@ -174,7 +199,6 @@ export function RateCalculatorPage() {
 
               <div className="bg-background rounded-lg shadow-lg p-8">
                 <div className="meetings-iframe-container" data-src="https://meetings-eu1.hubspot.com/sameh-jarour1?embed=true"></div>
-                <script type="text/javascript" src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js"></script>
               </div>
             </div>
           </div>
