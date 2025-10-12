@@ -713,7 +713,7 @@ export function GWCRateCalculatorV2() {
                       <p className="font-medium">Warehousing & Storage</p>
                       <p className="text-sm text-gray-600">{environment} Storage for {storageUnits} units</p>
                     </td>
-                    <td className="text-right p-3">{formatCurrency(result.storage.total)}</td>
+                    <td className="text-right p-3">{formatCurrency(result.warehousing.total)}</td>
                   </tr>
                   <tr className="border-b">
                     <td className="p-3">
@@ -736,20 +736,20 @@ export function GWCRateCalculatorV2() {
                     </td>
                     <td className="text-right p-3">{formatCurrency(result.returns.total)}</td>
                   </tr>
-                  {result.integrations && result.integrations.total > 0 && (
+                  {result.one_time && result.one_time.total > 0 && (
                     <tr className="border-b">
                       <td className="p-3">
                         <p className="font-medium">Integration Fees</p>
                         <p className="text-sm text-gray-600">Platform integration setup</p>
                       </td>
-                      <td className="text-right p-3">{formatCurrency(result.integrations.total)}</td>
+                      <td className="text-right p-3">{formatCurrency(result.one_time.total)}</td>
                     </tr>
                   )}
                 </tbody>
                 <tfoot className="bg-primary text-white">
                   <tr>
                     <td className="p-4 font-bold text-lg">MONTHLY TOTAL</td>
-                    <td className="text-right p-4 font-bold text-lg">{formatCurrency(result.monthly_total)}</td>
+                    <td className="text-right p-4 font-bold text-lg">{formatCurrency(result.totals.operational)}</td>
                   </tr>
                 </tfoot>
               </table>
@@ -761,11 +761,11 @@ export function GWCRateCalculatorV2() {
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <p className="text-sm text-gray-600">Per Unit Fulfilled</p>
-                  <p className="text-2xl font-bold text-primary">{formatCurrency(result.per_unit_fulfilled)}</p>
+                  <p className="text-2xl font-bold text-primary">{formatCurrency(result.totals.per_item_fulfilled)}</p>
                 </div>
                 <div>
                   <p className="text-sm text-gray-600">Per Package Shipped</p>
-                  <p className="text-2xl font-bold text-primary">{formatCurrency(result.per_package_shipped)}</p>
+                  <p className="text-2xl font-bold text-primary">{formatCurrency(result.totals.per_package)}</p>
                 </div>
               </div>
             </div>
