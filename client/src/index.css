@@ -385,3 +385,16 @@
     transition: transform 0.1s ease-out;
   }
 }
+
+/* Print styles for PDF quote generation */
+@media print {
+  @page {
+    margin: 1cm;
+    size: A4;
+  }
+  
+  body {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+}

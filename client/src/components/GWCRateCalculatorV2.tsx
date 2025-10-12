@@ -625,17 +625,8 @@ export function GWCRateCalculatorV2() {
 
       {/* Print-Only Quote View */}
       {result && (
-        <div className="hidden print:block print:p-8 print:max-w-none">
-          <style>{`
-            @media print {
-              body * { visibility: hidden; }
-              .print-quote, .print-quote * { visibility: visible; }
-              .print-quote { position: absolute; left: 0; top: 0; width: 100%; }
-              @page { margin: 1cm; size: A4; }
-            }
-          `}</style>
-          
-          <div className="print-quote">
+        <div className="hidden print:block p-8">
+          <div className="print-quote max-w-full">
             {/* Header */}
             <div className="mb-8 pb-6 border-b-2 border-gray-300">
               <div className="flex justify-between items-start">
