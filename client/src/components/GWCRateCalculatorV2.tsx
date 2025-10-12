@@ -150,7 +150,7 @@ export function GWCRateCalculatorV2() {
         </CardHeader>
       </Card>
 
-      <div className="grid lg:grid-cols-2 gap-8">
+      <div className="grid lg:grid-cols-2 gap-8 print:hidden">
         {/* LEFT COLUMN - INPUTS */}
         <div className="space-y-6">
           {/* Product Size Selection */}
