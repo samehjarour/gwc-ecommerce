@@ -36,10 +36,10 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import warehouseImage from "@assets/DJI_0432-HDR_1758598111840.jpg";
 import technologyImage from "@assets/technology_1758599610299.webp";
 import vanImage from "@assets/GWC Truck - Dubai_1757565747938.jpg";
-import shopifyLogo from "../../attached_assets/shopify_1758598346980.png";
-import amazonLogo from "../../attached_assets/amazon_1758598346980.png";
-import wooLogo from "../../attached_assets/woo (1)_1758598346980.png";
-import tiktokLogo from "../../attached_assets/tiktok_1758598346981.png";
+import shopifyLogo from "@assets/shopify_1758598346980.png";
+import amazonLogo from "@assets/amazon_1758598346980.png";
+import wooLogo from "@assets/woo (1)_1758598346980.png";
+import tiktokLogo from "@assets/tiktok_1758598346981.png";
 
 export function StartupsPage() {
   const [activeTab, setActiveTab] = useState("signup");
