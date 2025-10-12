@@ -154,7 +154,7 @@ export function StartupsPage() {
                   Start to Scale: Built for small startups to scale up companies
                 </Badge>
                 <h1 className="text-4xl md:text-5xl font-bold mb-6" data-testid="heading-hero">
-                  Expand your e-commerce brand globally with zero CapEx.
+                  Expand your e-commerce brand globally with <span className="text-primary">zero CapEx</span>.
                 </h1>
                 <p className="text-2xl font-semibold mb-4">
                   Start to Scale by GWC: The fastest way to grow across markets and marketplaces.
@@ -170,39 +170,6 @@ export function StartupsPage() {
                   <p className="text-base leading-relaxed text-blue-800 dark:text-blue-200">
                     Get started today and start fulfilling orders within 48 hours. No lengthy onboarding, no delays.
                   </p>
-                </div>
-
-                <div className="bg-background/80 p-6 rounded-lg border border-border mb-6">
-                  <p className="text-base leading-relaxed mb-4">
-                    <strong>Start to Scale by GWC</strong> gives startups and growing brands instant access to new markets and digital marketplaces at the same time.
-                  </p>
-                  <p className="text-base leading-relaxed text-muted-foreground">
-                    With fulfillment, last-mile delivery, and marketplace integration all under one system, your products move faster, reach further, and scale smarter.
-                  </p>
-                </div>
-
-                <div className="bg-gradient-to-br from-primary/5 to-primary/10 p-6 rounded-lg border border-primary/20 mb-8">
-                  <h4 className="font-semibold mb-3 flex items-center gap-2">
-                    <Globe className="w-5 h-5 text-primary" />
-                    Quick Integration to Leading Marketplaces
-                  </h4>
-                  <p className="text-sm text-muted-foreground mb-4">
-                    Connect instantly to 40+ marketplaces and start selling across borders in days, not months.
-                  </p>
-                  <div className="flex items-center gap-4 flex-wrap">
-                    <div className="bg-background/80 px-4 py-3 rounded-lg shadow-sm">
-                      <img src={shopifyLogo} alt="Shopify" className="h-6 object-contain" />
-                    </div>
-                    <div className="bg-background/80 px-4 py-3 rounded-lg shadow-sm">
-                      <img src={amazonLogo} alt="Amazon FBM" className="h-6 object-contain" />
-                    </div>
-                    <div className="bg-background/80 px-4 py-3 rounded-lg shadow-sm">
-                      <img src={wooLogo} alt="WooCommerce" className="h-6 object-contain" />
-                    </div>
-                    <div className="bg-background/80 px-4 py-3 rounded-lg shadow-sm">
-                      <img src={tiktokLogo} alt="TikTok Shop" className="h-6 object-contain" />
-                    </div>
-                  </div>
                 </div>
 
                 <motion.div 
@@ -245,6 +212,32 @@ export function StartupsPage() {
                     data-testid="fulfillment-video"
                   ></iframe>
                 </div>
+                
+                {/* Marketplace Logos */}
+                <motion.div 
+                  className="mt-6"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.4 }}
+                >
+                  <p className="text-sm text-muted-foreground mb-3 text-center">
+                    Connect instantly to 40+ marketplaces
+                  </p>
+                  <div className="flex items-center justify-center gap-4 flex-wrap">
+                    <div className="bg-background/80 px-4 py-3 rounded-lg shadow-sm">
+                      <img src={shopifyLogo} alt="Shopify" className="h-6 object-contain" />
+                    </div>
+                    <div className="bg-background/80 px-4 py-3 rounded-lg shadow-sm">
+                      <img src={amazonLogo} alt="Amazon FBM" className="h-6 object-contain" />
+                    </div>
+                    <div className="bg-background/80 px-4 py-3 rounded-lg shadow-sm">
+                      <img src={wooLogo} alt="WooCommerce" className="h-6 object-contain" />
+                    </div>
+                    <div className="bg-background/80 px-4 py-3 rounded-lg shadow-sm">
+                      <img src={tiktokLogo} alt="TikTok Shop" className="h-6 object-contain" />
+                    </div>
+                  </div>
+                </motion.div>
               </motion.div>
             </div>
           </div>
