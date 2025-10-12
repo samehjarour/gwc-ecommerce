@@ -506,9 +506,9 @@ export function StartupsPage() {
         </section>
 
         {/* How It Works - UAE Delivery Section */}
-        <section className="py-20 bg-gradient-to-b from-muted/20 to-background relative overflow-hidden">
+        <section className="py-20 bg-primary text-primary-foreground relative overflow-hidden">
           <motion.div 
-            className="absolute top-40 left-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none"
+            className="absolute top-40 left-20 w-96 h-96 bg-white/5 rounded-full blur-3xl pointer-events-none"
             style={{ y: section6Y }}
           />
           <div className="container mx-auto px-4 relative z-10">
@@ -519,10 +519,10 @@ export function StartupsPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-3xl md:text-4xl font-bold mb-4" data-testid="heading-how-it-works">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white" data-testid="heading-how-it-works">
                 Simplify Your UAE Fulfillment with Seamless Integrations
               </h2>
-              <p className="text-xl text-muted-foreground">
+              <p className="text-xl text-white/90">
                 Connect your store and start delivering across UAE in hours
               </p>
             </motion.div>
@@ -531,7 +531,7 @@ export function StartupsPage() {
               className="max-w-4xl mx-auto"
               style={{ y: section6Y }}
             >
-              <div className="flex border-b mb-8 overflow-x-auto" data-testid="tabs-how-it-works">
+              <div className="flex border-b border-white/20 mb-8 overflow-x-auto" data-testid="tabs-how-it-works">
                 {[
                   { id: "signup", label: "1. INTEGRATE", icon: <Zap className="w-5 h-5" /> },
                   { id: "inventory", label: "2. INVENTORY", icon: <Package className="w-5 h-5" /> },
@@ -543,8 +543,8 @@ export function StartupsPage() {
                     onClick={() => setActiveTab(tab.id)}
                     className={`flex items-center gap-2 px-6 py-3 font-semibold border-b-2 transition-colors whitespace-nowrap ${
                       activeTab === tab.id
-                        ? "border-primary text-primary"
-                        : "border-transparent text-muted-foreground hover:text-foreground"
+                        ? "border-white text-white"
+                        : "border-transparent text-white/60 hover:text-white/80"
                     }`}
                     data-testid={`tab-${tab.id}`}
                   >
@@ -554,33 +554,33 @@ export function StartupsPage() {
                 ))}
               </div>
 
-              <div className="min-h-[300px]">
+              <div className="min-h-[300px] text-white">
                 {activeTab === "signup" && (
                   <div className="text-center" data-testid="content-signup">
-                    <h3 className="text-2xl font-semibold mb-4">
+                    <h3 className="text-2xl font-semibold mb-4 text-white">
                       Connect your store with one-click integration and start selling in UAE within 24 hours
                     </h3>
-                    <div className="grid md:grid-cols-2 gap-6 mt-8">
+                    <div className="grid md:grid-cols-2 gap-6 mt-8 text-left">
                       <div className="flex items-start gap-3">
-                        <CheckCircle className="w-6 h-6 text-primary mt-1" />
+                        <CheckCircle className="w-6 h-6 text-white mt-1" />
                         <div>
                           <strong>Quick setup:</strong> Our efficient process gets you started immediately in UAE markets.
                         </div>
                       </div>
                       <div className="flex items-start gap-3">
-                        <CheckCircle className="w-6 h-6 text-primary mt-1" />
+                        <CheckCircle className="w-6 h-6 text-white mt-1" />
                         <div>
                           <strong>Easy integration:</strong> Connect Shopify, WooCommerce, or any platform in minutes.
                         </div>
                       </div>
                       <div className="flex items-start gap-3">
-                        <CheckCircle className="w-6 h-6 text-primary mt-1" />
+                        <CheckCircle className="w-6 h-6 text-white mt-1" />
                         <div>
                           <strong>Expert guidance:</strong> Our team provides specialized knowledge for UAE delivery.
                         </div>
                       </div>
                       <div className="flex items-start gap-3">
-                        <CheckCircle className="w-6 h-6 text-primary mt-1" />
+                        <CheckCircle className="w-6 h-6 text-white mt-1" />
                         <div>
                           <strong>Powered by Quivo:</strong> Advanced integration technology for seamless operations.
                         </div>
@@ -591,30 +591,30 @@ export function StartupsPage() {
                 
                 {activeTab === "inventory" && (
                   <div className="text-center" data-testid="content-inventory">
-                    <h3 className="text-2xl font-semibold mb-4">
+                    <h3 className="text-2xl font-semibold mb-4 text-white">
                       Keep your products safe with our climate-controlled UAE warehouses
                     </h3>
-                    <div className="grid md:grid-cols-2 gap-6 mt-8">
+                    <div className="grid md:grid-cols-2 gap-6 mt-8 text-left">
                       <div className="flex items-start gap-3">
-                        <CheckCircle className="w-6 h-6 text-primary mt-1" />
+                        <CheckCircle className="w-6 h-6 text-white mt-1" />
                         <div>
                           <strong>Climate control:</strong> Optimal temperature for product protection in UAE heat.
                         </div>
                       </div>
                       <div className="flex items-start gap-3">
-                        <CheckCircle className="w-6 h-6 text-primary mt-1" />
+                        <CheckCircle className="w-6 h-6 text-white mt-1" />
                         <div>
                           <strong>Strategic location:</strong> Warehouses positioned for fast UAE-wide delivery.
                         </div>
                       </div>
                       <div className="flex items-start gap-3">
-                        <CheckCircle className="w-6 h-6 text-primary mt-1" />
+                        <CheckCircle className="w-6 h-6 text-white mt-1" />
                         <div>
                           <strong>Enhanced security:</strong> 24/7 monitoring and top-tier security measures.
                         </div>
                       </div>
                       <div className="flex items-start gap-3">
-                        <CheckCircle className="w-6 h-6 text-primary mt-1" />
+                        <CheckCircle className="w-6 h-6 text-white mt-1" />
                         <div>
                           <strong>Real-time tracking:</strong> Live inventory monitoring across all channels.
                         </div>
@@ -625,30 +625,30 @@ export function StartupsPage() {
 
                 {activeTab === "fulfill" && (
                   <div className="text-center" data-testid="content-fulfill">
-                    <h3 className="text-2xl font-semibold mb-4">
+                    <h3 className="text-2xl font-semibold mb-4 text-white">
                       Experience hassle-free UAE fulfillment with reliable pick, pack, and shipping
                     </h3>
-                    <div className="grid md:grid-cols-2 gap-6 mt-8">
+                    <div className="grid md:grid-cols-2 gap-6 mt-8 text-left">
                       <div className="flex items-start gap-3">
-                        <CheckCircle className="w-6 h-6 text-primary mt-1" />
+                        <CheckCircle className="w-6 h-6 text-white mt-1" />
                         <div>
                           <strong>Efficient operations:</strong> Advanced systems ensure accurate order fulfillment.
                         </div>
                       </div>
                       <div className="flex items-start gap-3">
-                        <CheckCircle className="w-6 h-6 text-primary mt-1" />
+                        <CheckCircle className="w-6 h-6 text-white mt-1" />
                         <div>
                           <strong>Custom packaging:</strong> Build your brand with customized unboxing experiences.
                         </div>
                       </div>
                       <div className="flex items-start gap-3">
-                        <CheckCircle className="w-6 h-6 text-primary mt-1" />
+                        <CheckCircle className="w-6 h-6 text-white mt-1" />
                         <div>
                           <strong>Quality control:</strong> Rigorous measures to prevent defects or damages.
                         </div>
                       </div>
                       <div className="flex items-start gap-3">
-                        <CheckCircle className="w-6 h-6 text-primary mt-1" />
+                        <CheckCircle className="w-6 h-6 text-white mt-1" />
                         <div>
                           <strong>Multi-channel sync:</strong> Orders from all platforms fulfilled automatically.
                         </div>
@@ -659,30 +659,30 @@ export function StartupsPage() {
 
                 {activeTab === "deliver" && (
                   <div className="text-center" data-testid="content-deliver">
-                    <h3 className="text-2xl font-semibold mb-4">
+                    <h3 className="text-2xl font-semibold mb-4 text-white">
                       Deliver across UAE with same-day options and real-time tracking
                     </h3>
-                    <div className="grid md:grid-cols-2 gap-6 mt-8">
+                    <div className="grid md:grid-cols-2 gap-6 mt-8 text-left">
                       <div className="flex items-start gap-3">
-                        <CheckCircle className="w-6 h-6 text-primary mt-1" />
+                        <CheckCircle className="w-6 h-6 text-white mt-1" />
                         <div>
                           <strong>Same-day delivery:</strong> Available across Dubai, Abu Dhabi, and major UAE cities.
                         </div>
                       </div>
                       <div className="flex items-start gap-3">
-                        <CheckCircle className="w-6 h-6 text-primary mt-1" />
+                        <CheckCircle className="w-6 h-6 text-white mt-1" />
                         <div>
                           <strong>Real-time tracking:</strong> Customers track deliveries with live updates.
                         </div>
                       </div>
                       <div className="flex items-start gap-3">
-                        <CheckCircle className="w-6 h-6 text-primary mt-1" />
+                        <CheckCircle className="w-6 h-6 text-white mt-1" />
                         <div>
                           <strong>Local expertise:</strong> Navigate UAE customs and delivery requirements seamlessly.
                         </div>
                       </div>
                       <div className="flex items-start gap-3">
-                        <CheckCircle className="w-6 h-6 text-primary mt-1" />
+                        <CheckCircle className="w-6 h-6 text-white mt-1" />
                         <div>
                           <strong>Returns management:</strong> Smooth returns processing for UAE customers.
                         </div>
