@@ -55,7 +55,7 @@ function Router() {
       <Route path="/quote2" component={Quote2Page} />
       <Route path="/quote2-ar" component={Quote2PageAr} />
       
-      {/* Protected Routes */}}
+      {/* Protected Routes */}
       <Route path="/enterprise">
         {() => <ProtectedRoute><HomePageEnterprise /></ProtectedRoute>}
       </Route>
