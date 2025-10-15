@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Languages } from "lucide-react";
+import { Menu, X, Languages, LogOut } from "lucide-react";
+import { useAuth } from "@/contexts/AuthContext";
 
 export function HeaderAr() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [location] = useLocation();
+  const { isAuthenticated, logout } = useAuth();
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -73,6 +75,17 @@ export function HeaderAr() {
             <Link href="/quote2-ar">
               <Button data-testid="button-get-quote">احصل على عرض أسعار</Button>
             </Link>
+            {isAuthenticated && (
+              <Button 
+                variant="outline" 
+                size="sm"
+                onClick={logout}
+                className="gap-2"
+              >
+                <LogOut className="w-4 h-4" />
+                تسجيل خروج
+              </Button>
+            )}
           </nav>
 
           {/* Mobile Menu Button */}

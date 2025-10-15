@@ -4,6 +4,9 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { useEffect } from "react";
+import { AuthProvider } from "@/contexts/AuthContext";
+import { ProtectedRoute } from "@/components/ProtectedRoute";
+import { LoginPage } from "@/pages/LoginPage";
 import { HomePage } from "@/pages/HomePage";
 import { HomePageEnterprise } from "@/pages/HomePageEnterprise";
 import { HomePageAlternative } from "@/pages/HomePageAlternative";
@@ -32,6 +35,7 @@ import { UaeVideoPage } from "@/pages/UaeVideoPage";
 import { SwitchPage } from "@/pages/SwitchPage";
 import { StartupsPage } from "@/pages/StartupsPage";
 import { StartupsCalculatorPage } from "@/pages/StartupsCalculatorPage";
+import { StartupsCalculatorPageAr } from "@/pages/StartupsCalculatorPageAr";
 import { StartupsPageAr } from "@/pages/StartupsPageAr";
 import { RateCalculatorPage } from "@/pages/RateCalculatorPage";
 import NotFound from "@/pages/not-found";
@@ -39,36 +43,97 @@ import NotFound from "@/pages/not-found";
 function Router() {
   return (
     <Switch>
-      <Route path="/" component={QatarVideoPage} />
-      <Route path="/enterprise" component={HomePageEnterprise} />
-      <Route path="/alternative" component={HomePageAlternative} />
-      <Route path="/alternative-integrations" component={HomePageAlternativeIntegrations} />
-      <Route path="/gcc-internal" component={GccInternalPage} />
-      <Route path="/video" component={VideoLandingPage} />
-      <Route path="/lead" component={HomePageLead} />
-      <Route path="/alt3" component={HomePageAlt3} />
-      <Route path="/landing-pages" component={LandingPagesOverview} />
-      <Route path="/quote" component={QuotePage} />
-      <Route path="/eu-sme-gcc" component={EuSmeGccPage} />
-      <Route path="/gcc-eu-muslim" component={GccEuMuslimPage} />
-      <Route path="/enterprise-cross-border" component={EnterpriseCrossBorderPage} />
-      <Route path="/tech-innovation" component={TechInnovationPage} />
-      <Route path="/uae-regional" component={UaeRegionalPage} />
-      <Route path="/local-gcc-expansion" component={LocalGccExpansionPage} />
-      <Route path="/uae-transparent-pricing" component={UaeTransparentPricing} />
-      <Route path="/uae-reliable-service" component={UaeReliableService} />
-      <Route path="/qatar-transparent-pricing" component={QatarTransparentPricing} />
-      <Route path="/qatar-reliable-service" component={QatarReliableService} />
-      <Route path="/quote2" component={Quote2Page} />
-      <Route path="/quote2-ar" component={Quote2PageAr} />
-      <Route path="/qatar-video" component={QatarVideoPage} />
-      <Route path="/qatar-video-ar" component={QatarVideoPageAr} />
-      <Route path="/uae-video" component={UaeVideoPage} />
-      <Route path="/switch" component={SwitchPage} />
+      {/* Public Routes */}
+      <Route path="/" component={StartupsPage} />
+      <Route path="/login" component={LoginPage} />
       <Route path="/startups" component={StartupsPage} />
-      <Route path="/startups-calculator" component={StartupsCalculatorPage} />
       <Route path="/startups-ar" component={StartupsPageAr} />
-      <Route path="/rate-calculator" component={RateCalculatorPage} />
+      <Route path="/startups-calculator" component={StartupsCalculatorPage} />
+      <Route path="/startups-calculator-ar" component={StartupsCalculatorPageAr} />
+      
+      {/* Protected Routes */}
+      <Route path="/enterprise">
+        {() => <ProtectedRoute><HomePageEnterprise /></ProtectedRoute>}
+      </Route>
+      <Route path="/alternative">
+        {() => <ProtectedRoute><HomePageAlternative /></ProtectedRoute>}
+      </Route>
+      <Route path="/alternative-integrations">
+        {() => <ProtectedRoute><HomePageAlternativeIntegrations /></ProtectedRoute>}
+      </Route>
+      <Route path="/gcc-internal">
+        {() => <ProtectedRoute><GccInternalPage /></ProtectedRoute>}
+      </Route>
+      <Route path="/video">
+        {() => <ProtectedRoute><VideoLandingPage /></ProtectedRoute>}
+      </Route>
+      <Route path="/lead">
+        {() => <ProtectedRoute><HomePageLead /></ProtectedRoute>}
+      </Route>
+      <Route path="/alt3">
+        {() => <ProtectedRoute><HomePageAlt3 /></ProtectedRoute>}
+      </Route>
+      <Route path="/landing-pages">
+        {() => <ProtectedRoute><LandingPagesOverview /></ProtectedRoute>}
+      </Route>
+      <Route path="/quote">
+        {() => <ProtectedRoute><QuotePage /></ProtectedRoute>}
+      </Route>
+      <Route path="/eu-sme-gcc">
+        {() => <ProtectedRoute><EuSmeGccPage /></ProtectedRoute>}
+      </Route>
+      <Route path="/gcc-eu-muslim">
+        {() => <ProtectedRoute><GccEuMuslimPage /></ProtectedRoute>}
+      </Route>
+      <Route path="/enterprise-cross-border">
+        {() => <ProtectedRoute><EnterpriseCrossBorderPage /></ProtectedRoute>}
+      </Route>
+      <Route path="/tech-innovation">
+        {() => <ProtectedRoute><TechInnovationPage /></ProtectedRoute>}
+      </Route>
+      <Route path="/uae-regional">
+        {() => <ProtectedRoute><UaeRegionalPage /></ProtectedRoute>}
+      </Route>
+      <Route path="/local-gcc-expansion">
+        {() => <ProtectedRoute><LocalGccExpansionPage /></ProtectedRoute>}
+      </Route>
+      <Route path="/uae-transparent-pricing">
+        {() => <ProtectedRoute><UaeTransparentPricing /></ProtectedRoute>}
+      </Route>
+      <Route path="/uae-reliable-service">
+        {() => <ProtectedRoute><UaeReliableService /></ProtectedRoute>}
+      </Route>
+      <Route path="/qatar-transparent-pricing">
+        {() => <ProtectedRoute><QatarTransparentPricing /></ProtectedRoute>}
+      </Route>
+      <Route path="/qatar-reliable-service">
+        {() => <ProtectedRoute><QatarReliableService /></ProtectedRoute>}
+      </Route>
+      <Route path="/quote2">
+        {() => <ProtectedRoute><Quote2Page /></ProtectedRoute>}
+      </Route>
+      <Route path="/quote2-ar">
+        {() => <ProtectedRoute><Quote2PageAr /></ProtectedRoute>}
+      </Route>
+      <Route path="/qatar-video">
+        {() => <ProtectedRoute><QatarVideoPage /></ProtectedRoute>}
+      </Route>
+      <Route path="/qatar-video-ar">
+        {() => <ProtectedRoute><QatarVideoPageAr /></ProtectedRoute>}
+      </Route>
+      <Route path="/uae-video">
+        {() => <ProtectedRoute><UaeVideoPage /></ProtectedRoute>}
+      </Route>
+      <Route path="/switch">
+        {() => <ProtectedRoute><SwitchPage /></ProtectedRoute>}
+      </Route>
+      <Route path="/rate-calculator">
+        {() => <ProtectedRoute><RateCalculatorPage /></ProtectedRoute>}
+      </Route>
+      <Route path="/home">
+        {() => <ProtectedRoute><HomePage /></ProtectedRoute>}
+      </Route>
+      
       <Route component={NotFound} />
     </Switch>
   );
@@ -126,10 +191,12 @@ function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Router />
-      </TooltipProvider>
+      <AuthProvider>
+        <TooltipProvider>
+          <Toaster />
+          <Router />
+        </TooltipProvider>
+      </AuthProvider>
     </QueryClientProvider>
   );
 }

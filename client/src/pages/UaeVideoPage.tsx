@@ -52,7 +52,7 @@ export function UaeVideoPage() {
               <div className="relative">
                 <div className="relative rounded-lg overflow-hidden shadow-2xl" style={{ padding: '56.25% 0 0 0' }}>
                   <iframe 
-                    src="https://player.vimeo.com/video/1124864507?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&amp;controls=0" 
+                    src="https://player.vimeo.com/video/1127601906?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&amp;controls=0" 
                     className="absolute top-0 left-0 w-full h-full"
                     frameBorder="0"
                     allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
@@ -181,7 +181,7 @@ export function UaeVideoPage() {
               <div className="relative">
                 <div className="relative rounded-lg overflow-hidden" style={{ padding: '56.25% 0 0 0' }}>
                   <iframe 
-                    src="https://player.vimeo.com/video/1124864507?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&amp;controls=0" 
+                    src="https://player.vimeo.com/video/1127601906?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&amp;controls=0" 
                     className="absolute top-0 left-0 w-full h-full"
                     frameBorder="0"
                     allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 

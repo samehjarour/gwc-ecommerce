@@ -1,9 +1,8 @@
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
-import { SocialProofSection } from "@/components/SocialProofSection";
-import { SKURangeAdvisor } from "@/components/SKURangeAdvisor";
-import { IntegrationsSection } from "@/components/IntegrationsSection";
-import { CTASection } from "@/components/CTASection";
+import { HeaderAr } from "@/components/HeaderAr";
+import { FooterAr } from "@/components/FooterAr";
+import { SocialProofSectionAr } from "@/components/SocialProofSectionAr";
+import { IntegrationsSectionAr } from "@/components/IntegrationsSectionAr";
+import { CTASectionAr } from "@/components/CTASectionAr";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -15,9 +14,8 @@ import {
   CheckCircle,
   CheckCircle2, 
   Clock,
-  Users,
   BarChart,
-  ArrowRight,
+  ArrowLeft,
   Zap,
   Shield,
   Package2,
@@ -27,8 +25,7 @@ import {
   Sparkles,
   Box,
   Truck,
-  Activity,
-  Globe
+  Activity
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link } from "wouter";
@@ -37,7 +34,7 @@ import warehouseImage from "@assets/DJI_0432-HDR_1758598111840.jpg";
 import technologyImage from "@assets/technology_1758599610299.webp";
 import vanImage from "@assets/GWC Truck - Dubai_1757565747938.jpg";
 
-export function StartupsCalculatorPage() {
+export function StartupsCalculatorPageAr() {
   const [activeTab, setActiveTab] = useState("signup");
   const { scrollYProgress } = useScroll();
   
@@ -56,75 +53,80 @@ export function StartupsCalculatorPage() {
   
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Transparent Pricing Calculator - See Your Fulfillment Costs Upfront | GWC with Quivo";
+    document.documentElement.dir = 'rtl';
+    document.title = "حاسبة الأسعار الشفافة - شاهد تكاليف التنفيذ مقدماً | GWC مع Quivo";
     
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute('content', 'Complete price visibility for your e-commerce fulfillment. Calculate your exact costs upfront with no hidden fees. Transparent pricing from 1 product to 1000+. Know what you pay before you commit.');
+      metaDescription.setAttribute('content', 'شفافية كاملة في الأسعار لتنفيذ التجارة الإلكترونية. احسب تكاليفك الدقيقة مقدماً بدون رسوم مخفية. أسعار شفافة من منتج واحد إلى 1000+. اعرف ما ستدفعه قبل الالتزام.');
     }
+
+    return () => {
+      document.documentElement.dir = 'ltr';
+    };
   }, []);
 
   const skuTiers = [
     {
-      range: "1-10 SKUs",
-      segment: "Just Starting",
+      range: "1-10 منتجات",
+      segment: "بداية الطريق",
       icon: <Rocket className="w-8 h-8 text-white" />,
       color: "bg-blue-500",
       features: [
-        "Start with just 1 product",
-        "No minimum order requirements",
-        "Pay-as-you-go pricing",
-        "Free setup (AED 0)",
-        "Shopify, WooCommerce integration",
-        "Basic analytics dashboard"
+        "ابدأ بمنتج واحد فقط",
+        "لا حد أدنى للطلبات",
+        "أسعار حسب الاستخدام",
+        "إعداد مجاني (0 درهم)",
+        "تكامل مع Shopify و WooCommerce",
+        "لوحة تحليلات أساسية"
       ],
-      cta: "Start with 1 Product",
+      cta: "ابدأ بمنتج واحد",
       ctaLink: "/rate-calculator",
-      secondaryCta: "Book Consultation",
+      secondaryCta: "احجز استشارة",
       secondaryCtaLink: "https://meetings.hubspot.com/gwc-logistics"
     },
     {
-      range: "10-50 SKUs",
-      segment: "Growing Fast",
+      range: "10-50 منتج",
+      segment: "نمو سريع",
       icon: <TrendingUp className="w-8 h-8 text-white" />,
       color: "bg-primary",
       features: [
-        "Multi-channel inventory sync",
-        "Amazon & Noon integration",
-        "Real-time stock alerts",
-        "Advanced analytics",
-        "Priority support (90-min response)",
-        "Bulk shipping discounts"
+        "مزامنة المخزون عبر القنوات",
+        "تكامل مع Amazon و Noon",
+        "تنبيهات المخزون الفورية",
+        "تحليلات متقدمة",
+        "دعم ذو أولوية (90 دقيقة)",
+        "خصومات الشحن بالجملة"
       ],
       highlight: true,
-      cta: "Scale Your Business",
+      cta: "وسّع عملك",
       ctaLink: "/rate-calculator",
-      secondaryCta: "Book Consultation",
+      secondaryCta: "احجز استشارة",
       secondaryCtaLink: "https://meetings.hubspot.com/gwc-logistics"
     },
     {
-      range: "50-100 SKUs",
-      segment: "Scaling Up",
+      range: "50-100 منتج",
+      segment: "توسع كبير",
       icon: <BarChart className="w-8 h-8 text-white" />,
       color: "bg-green-600",
       features: [
-        "All Growing Fast features",
-        "Custom bundling & kitting",
-        "Returns management",
-        "Dedicated account manager",
-        "API access for custom integrations",
-        "Volume pricing discounts"
+        "جميع ميزات النمو السريع",
+        "التجميع والتعبئة المخصصة",
+        "إدارة المرتجعات",
+        "مدير حساب مخصص",
+        "وصول API للتكاملات المخصصة",
+        "خصومات الأحجام الكبيرة"
       ],
-      cta: "Enterprise Features",
+      cta: "ميزات المؤسسات",
       ctaLink: "/rate-calculator",
-      secondaryCta: "Book Consultation",
+      secondaryCta: "احجز استشارة",
       secondaryCtaLink: "https://meetings.hubspot.com/gwc-logistics"
     }
   ];
 
   return (
-    <div className="min-h-screen">
-      <Header />
+    <div className="min-h-screen arabic-font" dir="rtl">
+      <HeaderAr />
       <main>
         {/* Hero Section */}
         <section className="relative py-20 bg-gradient-to-b from-background to-muted/20 overflow-hidden">
@@ -133,60 +135,60 @@ export function StartupsCalculatorPage() {
             className="absolute inset-0 pointer-events-none"
             style={{ y: floatingY }}
           >
-            <div className="absolute top-10 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
-            <div className="absolute bottom-10 right-10 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl" />
+            <div className="absolute top-10 right-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
+            <div className="absolute bottom-10 left-10 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl" />
           </motion.div>
           
           <div className="container mx-auto px-4 relative z-10">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <motion.div
-                initial={{ opacity: 0, x: -50 }}
+                initial={{ opacity: 0, x: 50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
                 style={{ y: heroY, opacity: heroOpacity }}
               >
-                <Badge variant="outline" className="mb-4" data-testid="badge-startups">
-                  <Rocket className="w-3 h-3 mr-1" />
-                  Built for Online Startups & Small Sellers
+                <Badge variant="outline" className="mb-4">
+                  <Rocket className="w-3 h-3 ml-1" />
+                  مصمم للشركات الناشئة والبائعين الصغار
                 </Badge>
-                <h1 className="text-4xl md:text-5xl font-bold mb-6" data-testid="heading-hero">
-                  <span className="text-primary">Complete Price Visibility</span> for Your E-commerce Business
+                <h1 className="text-4xl md:text-5xl font-bold mb-6">
+                  <span className="text-primary">شفافية كاملة في الأسعار</span> لأعمال التجارة الإلكترونية
                 </h1>
                 <p className="text-xl text-muted-foreground mb-8">
-                  Know exactly what you'll pay before you commit. Transparent pricing, no hidden fees. Start with 1 product or scale to 1000+. Pay only for what you use.
+                  اعرف بالضبط ما ستدفعه قبل الالتزام. أسعار شفافة، بدون رسوم مخفية. ابدأ بمنتج واحد أو توسع إلى 1000+. ادفع فقط مقابل ما تستخدمه.
                 </p>
                 
                 <div className="space-y-4 mb-8">
                   <motion.div 
                     className="flex items-start gap-3 bg-background/80 p-4 rounded-lg border border-border"
-                    initial={{ opacity: 0, x: -30 }}
+                    initial={{ opacity: 0, x: 30 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5, delay: 0.6 }}
                     whileHover={{ scale: 1.02, boxShadow: "0 10px 30px rgba(0,0,0,0.1)" }}
                   >
                     <Zap className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
                     <div>
-                      <h4 className="font-semibold mb-1">Launch in 48 Hours</h4>
+                      <h4 className="font-semibold mb-1">إطلاق في 48 ساعة</h4>
                       <p className="text-sm text-muted-foreground">
-                        Quick integration. Send inventory. Start selling immediately.
+                        تكامل سريع. أرسل المخزون. ابدأ البيع فوراً.
                       </p>
-                  </div>
+                    </div>
                   </motion.div>
 
                   <motion.div 
                     className="flex items-start gap-3 bg-background/80 p-4 rounded-lg border border-border"
-                    initial={{ opacity: 0, x: -30 }}
+                    initial={{ opacity: 0, x: 30 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5, delay: 0.8 }}
                     whileHover={{ scale: 1.02, boxShadow: "0 10px 30px rgba(0,0,0,0.1)" }}
                   >
                     <TrendingUp className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
                     <div>
-                      <h4 className="font-semibold mb-1">Scale Without Limits</h4>
+                      <h4 className="font-semibold mb-1">توسع بلا حدود</h4>
                       <p className="text-sm text-muted-foreground">
-                        From 1 order to 1000+ per day. We grow with you automatically.
+                        من طلب واحد إلى 1000+ يومياً. ننمو معك تلقائياً.
                       </p>
-                  </div>
+                    </div>
                   </motion.div>
                 </div>
 
@@ -197,9 +199,9 @@ export function StartupsCalculatorPage() {
                   transition={{ duration: 0.5, delay: 1 }}
                 >
                   <Link href="/rate-calculator">
-                    <Button size="lg" data-testid="button-get-quote">
-                      Calculate Your Costs
-                      <ArrowRight className="ml-2 h-5 w-5" />
+                    <Button size="lg">
+                      احسب تكاليفك
+                      <ArrowLeft className="mr-2 h-5 w-5" />
                     </Button>
                   </Link>
                   <Button 
@@ -207,14 +209,14 @@ export function StartupsCalculatorPage() {
                     variant="outline"
                     onClick={() => document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' })}
                   >
-                    See How It Works
+                    شاهد كيف يعمل
                   </Button>
                 </motion.div>
               </motion.div>
 
               <motion.div 
                 className="relative"
-                initial={{ opacity: 0, x: 50 }}
+                initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
               >
@@ -225,8 +227,7 @@ export function StartupsCalculatorPage() {
                     frameBorder="0"
                     allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
                     referrerPolicy="strict-origin-when-cross-origin" 
-                    title="GWC Fulfillment Center Video"
-                    data-testid="fulfillment-video"
+                    title="فيديو مركز GWC للتنفيذ"
                   ></iframe>
                 </div>
               </motion.div>
@@ -235,7 +236,7 @@ export function StartupsCalculatorPage() {
         </section>
 
         {/* Logo Carousel */}
-        <SocialProofSection />
+        <SocialProofSectionAr />
 
         {/* Facility & Technology Showcase */}
         <section className="py-16 bg-background">
@@ -248,10 +249,10 @@ export function StartupsCalculatorPage() {
               transition={{ duration: 0.5 }}
             >
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                GWC is Your E-commerce Fulfillment Partner in the UAE
+                GWC شريكك في تنفيذ التجارة الإلكترونية في الإمارات
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                From modern warehouses to advanced technology and reliable delivery fleet—we've got everything you need to succeed
+                من المستودعات الحديثة إلى التقنية المتقدمة وأسطول التوصيل الموثوق - لدينا كل ما تحتاجه للنجاح
               </p>
             </motion.div>
 
@@ -269,13 +270,13 @@ export function StartupsCalculatorPage() {
               >
                 <img 
                   src={warehouseImage} 
-                  alt="GWC Warehouse Facility"
+                  alt="مرافق مستودعات GWC"
                   className="w-full h-64 object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                  <h3 className="text-lg font-semibold mb-1">State-of-the-Art Facility</h3>
-                  <p className="text-sm opacity-90">Modern warehouses equipped for your growth</p>
+                  <h3 className="text-lg font-semibold mb-1">منشأة حديثة</h3>
+                  <p className="text-sm opacity-90">مستودعات عصرية مجهزة لنموك</p>
                 </div>
               </motion.div>
 
@@ -286,13 +287,13 @@ export function StartupsCalculatorPage() {
               >
                 <img 
                   src={technologyImage} 
-                  alt="Advanced Technology Systems"
+                  alt="أنظمة تقنية متقدمة"
                   className="w-full h-64 object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                  <h3 className="text-lg font-semibold mb-1">Advanced Technology</h3>
-                  <p className="text-sm opacity-90">Real-time tracking and inventory management</p>
+                  <h3 className="text-lg font-semibold mb-1">تقنية متقدمة</h3>
+                  <p className="text-sm opacity-90">تتبع فوري وإدارة مخزون</p>
                 </div>
               </motion.div>
 
@@ -303,13 +304,13 @@ export function StartupsCalculatorPage() {
               >
                 <img 
                   src={vanImage} 
-                  alt="GWC Fleet in Dubai"
+                  alt="أسطول GWC في دبي"
                   className="w-full h-64 object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                  <h3 className="text-lg font-semibold mb-1">Reliable Fleet</h3>
-                  <p className="text-sm opacity-90">Fast and secure delivery across the GCC</p>
+                  <h3 className="text-lg font-semibold mb-1">أسطول موثوق</h3>
+                  <p className="text-sm opacity-90">توصيل سريع وآمن عبر دول الخليج</p>
                 </div>
               </motion.div>
             </motion.div>
@@ -319,7 +320,7 @@ export function StartupsCalculatorPage() {
         {/* Pricing Calculator */}
         <section className="py-20 bg-gradient-to-b from-muted/20 to-background relative overflow-hidden">
           <motion.div 
-            className="absolute bottom-20 right-20 w-72 h-72 bg-green-500/5 rounded-full blur-3xl pointer-events-none"
+            className="absolute bottom-20 left-20 w-72 h-72 bg-green-500/5 rounded-full blur-3xl pointer-events-none"
             style={{ y: section4Y }}
           />
           <div className="container mx-auto px-4 relative z-10">
@@ -331,14 +332,14 @@ export function StartupsCalculatorPage() {
               transition={{ duration: 0.6 }}
             >
               <Badge variant="outline" className="mb-4">
-                <DollarSign className="w-3 h-3 mr-1" />
-                Transparent Pricing
+                <DollarSign className="w-3 h-3 ml-1" />
+                أسعار شفافة
               </Badge>
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                See Exactly What You'll Pay
+                شاهد بالضبط ما ستدفعه
               </h2>
               <p className="text-xl text-muted-foreground">
-                No surprises. No hidden fees. Calculate your costs right now.
+                لا مفاجآت. لا رسوم مخفية. احسب تكاليفك الآن.
               </p>
             </motion.div>
             
@@ -355,27 +356,27 @@ export function StartupsCalculatorPage() {
                       <DollarSign className="w-10 h-10 text-white" />
                     </div>
                     <h3 className="text-2xl md:text-3xl font-bold mb-4 group-hover:text-primary transition-colors">
-                      Launch Your Rate Calculator
+                      افتح حاسبة الأسعار
                     </h3>
                     <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-                      Get instant pricing tailored to your business needs. Input your product details and see real-time fulfillment costs.
+                      احصل على أسعار فورية مخصصة لاحتياجات عملك. أدخل تفاصيل منتجك وشاهد تكاليف التنفيذ الفورية.
                     </p>
                     <Button size="lg" className="group-hover:shadow-lg group-hover:shadow-primary/30 transition-all">
-                      Calculate My Costs
-                      <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                      احسب تكاليفي
+                      <ArrowLeft className="mr-2 h-5 w-5 group-hover:-translate-x-1 transition-transform" />
                     </Button>
                     <div className="mt-6 flex items-center justify-center gap-6 text-sm text-muted-foreground">
                       <div className="flex items-center gap-2">
                         <CheckCircle2 className="w-4 h-4 text-primary" />
-                        <span>No Hidden Fees</span>
+                        <span>لا رسوم مخفية</span>
                       </div>
                       <div className="flex items-center gap-2">
                         <CheckCircle2 className="w-4 h-4 text-primary" />
-                        <span>Real-Time Quotes</span>
+                        <span>عروض أسعار فورية</span>
                       </div>
                       <div className="flex items-center gap-2">
                         <CheckCircle2 className="w-4 h-4 text-primary" />
-                        <span>Instant Results</span>
+                        <span>نتائج فورية</span>
                       </div>
                     </div>
                   </CardContent>
@@ -385,28 +386,13 @@ export function StartupsCalculatorPage() {
           </div>
         </section>
 
-        {/* Platform Integrations - Global Solutions Powered by Quivo */}
-        <IntegrationsSection />
-
-        {/* SKU Tiers Section */}
-        <section className="py-20 bg-gradient-to-b from-muted/20 to-background relative overflow-hidden">
-          <motion.div 
-            className="absolute top-20 right-10 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl pointer-events-none"
-            style={{ y: floatingY }}
-          />
-          <div className="container mx-auto px-4 relative z-10">
-            <SKURangeAdvisor 
-              tiers={skuTiers}
-              title="Perfect Solution for Your Growth Stage"
-              subtitle="Start small, scale big. We support you at every stage"
-            />
-          </div>
-        </section>
+        {/* Platform Integrations */}
+        <IntegrationsSectionAr />
 
         {/* How It Works Section */}
         <section id="how-it-works" className="py-20 relative overflow-hidden">
           <motion.div 
-            className="absolute top-32 left-10 w-80 h-80 bg-primary/5 rounded-full blur-3xl pointer-events-none"
+            className="absolute top-32 right-10 w-80 h-80 bg-primary/5 rounded-full blur-3xl pointer-events-none"
             style={{ y: section3Y }}
           />
           <div className="container mx-auto px-4 relative z-10">
@@ -418,11 +404,11 @@ export function StartupsCalculatorPage() {
               transition={{ duration: 0.6 }}
             >
               <Badge variant="outline" className="mb-4">
-                <Zap className="w-3 h-3 mr-1" />
-                Launch in 3 Simple Steps
+                <Zap className="w-3 h-3 ml-1" />
+                الإطلاق في 3 خطوات بسيطة
               </Badge>
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                From Signup to First Sale in <span className="text-primary">48 Hours</span>
+                من التسجيل إلى أول عملية بيع في <span className="text-primary">48 ساعة</span>
               </h2>
             </motion.div>
 
@@ -436,13 +422,13 @@ export function StartupsCalculatorPage() {
                     1
                   </div>
                   <Package className="w-12 h-12 text-primary mx-auto mb-4" />
-                  <h3 className="text-xl font-semibold mb-3">Connect Your Store</h3>
+                  <h3 className="text-xl font-semibold mb-3">اربط متجرك</h3>
                   <p className="text-muted-foreground mb-4">
-                    5-minute integration with Shopify, WooCommerce, Salla, or Zid. No technical skills needed.
+                    تكامل 5 دقائق مع Shopify أو WooCommerce أو Salla أو Zid. لا حاجة لمهارات تقنية.
                   </p>
                   <Badge variant="outline" className="text-xs">
-                    <Clock className="w-3 h-3 mr-1" />
-                    5 minutes
+                    <Clock className="w-3 h-3 ml-1" />
+                    5 دقائق
                   </Badge>
                 </CardContent>
               </Card>
@@ -453,13 +439,13 @@ export function StartupsCalculatorPage() {
                     2
                   </div>
                   <TrendingUp className="w-12 h-12 text-primary mx-auto mb-4" />
-                  <h3 className="text-xl font-semibold mb-3">Send Your Products</h3>
+                  <h3 className="text-xl font-semibold mb-3">أرسل منتجاتك</h3>
                   <p className="text-muted-foreground mb-4">
-                    Ship inventory to our Dubai warehouse. We receive, count, and store everything for you.
+                    شحن المخزون إلى مستودعنا في دبي. نستلم ونعد ونخزن كل شيء لك.
                   </p>
                   <Badge variant="outline" className="text-xs">
-                    <Clock className="w-3 h-3 mr-1" />
-                    24-48 hours
+                    <Clock className="w-3 h-3 ml-1" />
+                    24-48 ساعة
                   </Badge>
                 </CardContent>
               </Card>
@@ -470,23 +456,23 @@ export function StartupsCalculatorPage() {
                     3
                   </div>
                   <Rocket className="w-12 h-12 text-primary mx-auto mb-4" />
-                  <h3 className="text-xl font-semibold mb-3">Start Selling</h3>
+                  <h3 className="text-xl font-semibold mb-3">ابدأ البيع</h3>
                   <p className="text-muted-foreground mb-4">
-                    Orders automatically fulfilled. Track everything in real-time. Focus on marketing and growth.
+                    تنفيذ الطلبات تلقائياً. تتبع كل شيء في الوقت الفعلي. ركز على التسويق والنمو.
                   </p>
                   <Badge variant="outline" className="text-xs">
-                    <Zap className="w-3 h-3 mr-1" />
-                    Instant
+                    <Zap className="w-3 h-3 ml-1" />
+                    فوري
                   </Badge>
                 </CardContent>
               </Card>
             </motion.div>
 
             <div className="text-center mt-12">
-              <Link href="/quote2">
-                <Button size="lg" data-testid="btn-get-started">
-                  Get Started Today
-                  <ArrowRight className="ml-2 h-5 w-5" />
+              <Link href="/quote2-ar">
+                <Button size="lg">
+                  ابدأ اليوم
+                  <ArrowLeft className="mr-2 h-5 w-5" />
                 </Button>
               </Link>
             </div>
@@ -496,7 +482,7 @@ export function StartupsCalculatorPage() {
         {/* How It Works - UAE Delivery Section */}
         <section className="py-20 bg-gradient-to-b from-muted/20 to-background relative overflow-hidden">
           <motion.div 
-            className="absolute top-40 left-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none"
+            className="absolute top-40 right-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none"
             style={{ y: section6Y }}
           />
           <div className="container mx-auto px-4 relative z-10">
@@ -507,11 +493,11 @@ export function StartupsCalculatorPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-3xl md:text-4xl font-bold mb-4" data-testid="heading-how-it-works">
-                Simplify Your UAE Fulfillment with Seamless Integrations
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                بسّط تنفيذ الإمارات مع تكاملات سلسة
               </h2>
               <p className="text-xl text-muted-foreground">
-                Connect your store and start delivering across UAE in hours
+                اربط متجرك وابدأ التوصيل في جميع أنحاء الإمارات في ساعات
               </p>
             </motion.div>
 
@@ -519,12 +505,12 @@ export function StartupsCalculatorPage() {
               className="max-w-4xl mx-auto"
               style={{ y: section6Y }}
             >
-              <div className="flex border-b mb-8 overflow-x-auto" data-testid="tabs-how-it-works">
+              <div className="flex border-b mb-8 overflow-x-auto">
                 {[
-                  { id: "signup", label: "1. INTEGRATE", icon: <Zap className="w-5 h-5" /> },
-                  { id: "inventory", label: "2. INVENTORY", icon: <Package className="w-5 h-5" /> },
-                  { id: "fulfill", label: "3. FULFILL", icon: <Activity className="w-5 h-5" /> },
-                  { id: "deliver", label: "4. DELIVER", icon: <Truck className="w-5 h-5" /> }
+                  { id: "signup", label: "1. التكامل", icon: <Zap className="w-5 h-5" /> },
+                  { id: "inventory", label: "2. المخزون", icon: <Package className="w-5 h-5" /> },
+                  { id: "fulfill", label: "3. التنفيذ", icon: <Activity className="w-5 h-5" /> },
+                  { id: "deliver", label: "4. التوصيل", icon: <Truck className="w-5 h-5" /> }
                 ].map((tab) => (
                   <button
                     key={tab.id}
@@ -534,7 +520,6 @@ export function StartupsCalculatorPage() {
                         ? "border-primary text-primary"
                         : "border-transparent text-muted-foreground hover:text-foreground"
                     }`}
-                    data-testid={`tab-${tab.id}`}
                   >
                     {tab.icon}
                     {tab.label}
@@ -544,33 +529,33 @@ export function StartupsCalculatorPage() {
 
               <div className="min-h-[300px]">
                 {activeTab === "signup" && (
-                  <div className="text-center" data-testid="content-signup">
+                  <div className="text-center">
                     <h3 className="text-2xl font-semibold mb-4">
-                      Connect your store with one-click integration and start selling in UAE within 24 hours
+                      اربط متجرك بتكامل بنقرة واحدة وابدأ البيع في الإمارات خلال 24 ساعة
                     </h3>
                     <div className="grid md:grid-cols-2 gap-6 mt-8">
                       <div className="flex items-start gap-3">
                         <CheckCircle className="w-6 h-6 text-primary mt-1" />
-                        <div>
-                          <strong>Quick setup:</strong> Our efficient process gets you started immediately in UAE markets.
+                        <div className="text-right">
+                          <strong>إعداد سريع:</strong> عمليتنا الفعالة تجعلك تبدأ فوراً في أسواق الإمارات.
                         </div>
                       </div>
                       <div className="flex items-start gap-3">
                         <CheckCircle className="w-6 h-6 text-primary mt-1" />
-                        <div>
-                          <strong>Easy integration:</strong> Connect Shopify, WooCommerce, or any platform in minutes.
+                        <div className="text-right">
+                          <strong>تكامل سهل:</strong> اربط Shopify أو WooCommerce أو أي منصة في دقائق.
                         </div>
                       </div>
                       <div className="flex items-start gap-3">
                         <CheckCircle className="w-6 h-6 text-primary mt-1" />
-                        <div>
-                          <strong>Expert guidance:</strong> Our team provides specialized knowledge for UAE delivery.
+                        <div className="text-right">
+                          <strong>إرشاد خبراء:</strong> يوفر فريقنا معرفة متخصصة لتوصيل الإمارات.
                         </div>
                       </div>
                       <div className="flex items-start gap-3">
                         <CheckCircle className="w-6 h-6 text-primary mt-1" />
-                        <div>
-                          <strong>Powered by Quivo:</strong> Advanced integration technology for seamless operations.
+                        <div className="text-right">
+                          <strong>مدعوم من Quivo:</strong> تقنية تكامل متقدمة لعمليات سلسة.
                         </div>
                       </div>
                     </div>
@@ -578,33 +563,33 @@ export function StartupsCalculatorPage() {
                 )}
                 
                 {activeTab === "inventory" && (
-                  <div className="text-center" data-testid="content-inventory">
+                  <div className="text-center">
                     <h3 className="text-2xl font-semibold mb-4">
-                      Keep your products safe with our climate-controlled UAE warehouses
+                      احتفظ بمنتجاتك بأمان في مستودعاتنا المكيفة في الإمارات
                     </h3>
                     <div className="grid md:grid-cols-2 gap-6 mt-8">
                       <div className="flex items-start gap-3">
                         <CheckCircle className="w-6 h-6 text-primary mt-1" />
-                        <div>
-                          <strong>Climate control:</strong> Optimal temperature for product protection in UAE heat.
+                        <div className="text-right">
+                          <strong>تحكم بالمناخ:</strong> درجة حرارة مثالية لحماية المنتجات من حرارة الإمارات.
                         </div>
                       </div>
                       <div className="flex items-start gap-3">
                         <CheckCircle className="w-6 h-6 text-primary mt-1" />
-                        <div>
-                          <strong>Strategic location:</strong> Warehouses positioned for fast UAE-wide delivery.
+                        <div className="text-right">
+                          <strong>موقع استراتيجي:</strong> مستودعات موضوعة للتوصيل السريع في جميع أنحاء الإمارات.
                         </div>
                       </div>
                       <div className="flex items-start gap-3">
                         <CheckCircle className="w-6 h-6 text-primary mt-1" />
-                        <div>
-                          <strong>Enhanced security:</strong> 24/7 monitoring and top-tier security measures.
+                        <div className="text-right">
+                          <strong>أمان معزز:</strong> مراقبة 24/7 وإجراءات أمنية من الدرجة الأولى.
                         </div>
                       </div>
                       <div className="flex items-start gap-3">
                         <CheckCircle className="w-6 h-6 text-primary mt-1" />
-                        <div>
-                          <strong>Real-time tracking:</strong> Live inventory monitoring across all channels.
+                        <div className="text-right">
+                          <strong>تتبع فوري:</strong> مراقبة المخزون الحية عبر جميع القنوات.
                         </div>
                       </div>
                     </div>
@@ -612,33 +597,33 @@ export function StartupsCalculatorPage() {
                 )}
 
                 {activeTab === "fulfill" && (
-                  <div className="text-center" data-testid="content-fulfill">
+                  <div className="text-center">
                     <h3 className="text-2xl font-semibold mb-4">
-                      Experience hassle-free UAE fulfillment with reliable pick, pack, and shipping
+                      اختبر تنفيذ الإمارات الخالي من المتاعب مع الانتقاء والتعبئة والشحن الموثوق
                     </h3>
                     <div className="grid md:grid-cols-2 gap-6 mt-8">
                       <div className="flex items-start gap-3">
                         <CheckCircle className="w-6 h-6 text-primary mt-1" />
-                        <div>
-                          <strong>Efficient operations:</strong> Advanced systems ensure accurate order fulfillment.
+                        <div className="text-right">
+                          <strong>عمليات فعالة:</strong> أنظمة متقدمة تضمن تنفيذ الطلبات بدقة.
                         </div>
                       </div>
                       <div className="flex items-start gap-3">
                         <CheckCircle className="w-6 h-6 text-primary mt-1" />
-                        <div>
-                          <strong>Custom packaging:</strong> Build your brand with customized unboxing experiences.
+                        <div className="text-right">
+                          <strong>تعبئة مخصصة:</strong> ابنِ علامتك التجارية بتجارب فتح علب مخصصة.
                         </div>
                       </div>
                       <div className="flex items-start gap-3">
                         <CheckCircle className="w-6 h-6 text-primary mt-1" />
-                        <div>
-                          <strong>Quality control:</strong> Rigorous measures to prevent defects or damages.
+                        <div className="text-right">
+                          <strong>مراقبة الجودة:</strong> إجراءات صارمة لمنع العيوب أو الأضرار.
                         </div>
                       </div>
                       <div className="flex items-start gap-3">
                         <CheckCircle className="w-6 h-6 text-primary mt-1" />
-                        <div>
-                          <strong>Multi-channel sync:</strong> Orders from all platforms fulfilled automatically.
+                        <div className="text-right">
+                          <strong>مزامنة متعددة القنوات:</strong> تنفيذ الطلبات من جميع المنصات تلقائياً.
                         </div>
                       </div>
                     </div>
@@ -646,33 +631,33 @@ export function StartupsCalculatorPage() {
                 )}
 
                 {activeTab === "deliver" && (
-                  <div className="text-center" data-testid="content-deliver">
+                  <div className="text-center">
                     <h3 className="text-2xl font-semibold mb-4">
-                      Deliver across UAE with same-day options and real-time tracking
+                      التوصيل في جميع أنحاء الإمارات مع خيارات نفس اليوم والتتبع الفوري
                     </h3>
                     <div className="grid md:grid-cols-2 gap-6 mt-8">
                       <div className="flex items-start gap-3">
                         <CheckCircle className="w-6 h-6 text-primary mt-1" />
-                        <div>
-                          <strong>Same-day delivery:</strong> Available across Dubai, Abu Dhabi, and major UAE cities.
+                        <div className="text-right">
+                          <strong>توصيل نفس اليوم:</strong> متوفر في دبي وأبوظبي والمدن الرئيسية في الإمارات.
                         </div>
                       </div>
                       <div className="flex items-start gap-3">
                         <CheckCircle className="w-6 h-6 text-primary mt-1" />
-                        <div>
-                          <strong>Real-time tracking:</strong> Customers track deliveries with live updates.
+                        <div className="text-right">
+                          <strong>تتبع فوري:</strong> يتتبع العملاء التوصيلات بتحديثات حية.
                         </div>
                       </div>
                       <div className="flex items-start gap-3">
                         <CheckCircle className="w-6 h-6 text-primary mt-1" />
-                        <div>
-                          <strong>Local expertise:</strong> Navigate UAE customs and delivery requirements seamlessly.
+                        <div className="text-right">
+                          <strong>خبرة محلية:</strong> التنقل في الجمارك ومتطلبات التوصيل في الإمارات بسلاسة.
                         </div>
                       </div>
                       <div className="flex items-start gap-3">
                         <CheckCircle className="w-6 h-6 text-primary mt-1" />
-                        <div>
-                          <strong>Returns management:</strong> Smooth returns processing for UAE customers.
+                        <div className="text-right">
+                          <strong>إدارة المرتجعات:</strong> معالجة سلسة للمرتجعات لعملاء الإمارات.
                         </div>
                       </div>
                     </div>
@@ -686,7 +671,7 @@ export function StartupsCalculatorPage() {
         {/* Value-Added Services Section */}
         <section className="py-20 bg-gradient-to-b from-muted/20 to-background relative overflow-hidden">
           <motion.div 
-            className="absolute bottom-32 right-10 w-80 h-80 bg-blue-500/5 rounded-full blur-3xl pointer-events-none"
+            className="absolute bottom-32 left-10 w-80 h-80 bg-blue-500/5 rounded-full blur-3xl pointer-events-none"
             style={{ y: floatingY }}
           />
           <div className="container mx-auto px-4 relative z-10">
@@ -698,14 +683,14 @@ export function StartupsCalculatorPage() {
               transition={{ duration: 0.6 }}
             >
               <Badge variant="outline" className="mb-4">
-                <Sparkles className="w-3 h-3 mr-1" />
-                Professional Services Included
+                <Sparkles className="w-3 h-3 ml-1" />
+                خدمات احترافية مضمنة
               </Badge>
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                More Than Just Storage & Shipping
+                أكثر من مجرد تخزين وشحن
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Get the same services that enterprise businesses pay thousands for - included as you grow with us.
+                احصل على نفس الخدمات التي تدفع شركات المؤسسات آلاف الدراهم مقابلها - مضمنة مع نموك معنا.
               </p>
             </motion.div>
 
@@ -721,13 +706,13 @@ export function StartupsCalculatorPage() {
                   <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                     <Box className="w-6 h-6 text-primary" />
                   </div>
-                  <h3 className="text-xl font-semibold mb-3">Kitting & Bundling</h3>
+                  <h3 className="text-xl font-semibold mb-3">التجميع والتعبئة</h3>
                   <p className="text-muted-foreground mb-4">
-                    Create product bundles and gift sets to increase average order value. Perfect for promotions and special offers.
+                    أنشئ حزم منتجات ومجموعات هدايا لزيادة متوسط قيمة الطلب. مثالي للعروض الترويجية والعروض الخاصة.
                   </p>
                   <div className="bg-primary/5 p-3 rounded-lg">
                     <p className="text-sm font-medium">
-                      💡 Example: Bundle 3 products + gift wrapping for holiday sales
+                      💡 مثال: جمع 3 منتجات + تغليف هدايا لمبيعات العطلات
                     </p>
                   </div>
                 </CardContent>
@@ -738,13 +723,13 @@ export function StartupsCalculatorPage() {
                   <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                     <Wrench className="w-6 h-6 text-primary" />
                   </div>
-                  <h3 className="text-xl font-semibold mb-3">Light Assembly</h3>
+                  <h3 className="text-xl font-semibold mb-3">تجميع خفيف</h3>
                   <p className="text-muted-foreground mb-4">
-                    Simple assembly work so your products arrive ready to use. Save on manufacturing costs.
+                    عمل تجميع بسيط حتى تصل منتجاتك جاهزة للاستخدام. وفر على تكاليف التصنيع.
                   </p>
                   <div className="bg-primary/5 p-3 rounded-lg">
                     <p className="text-sm font-medium">
-                      💡 Example: Attach accessories, insert batteries, or add final components
+                      💡 مثال: إرفاق الملحقات، إدراج البطاريات، أو إضافة المكونات النهائية
                     </p>
                   </div>
                 </CardContent>
@@ -755,13 +740,13 @@ export function StartupsCalculatorPage() {
                   <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                     <Tags className="w-6 h-6 text-primary" />
                   </div>
-                  <h3 className="text-xl font-semibold mb-3">Relabeling & Barcoding</h3>
+                  <h3 className="text-xl font-semibold mb-3">إعادة وضع العلامات والباركود</h3>
                   <p className="text-muted-foreground mb-4">
-                    Update labels for different markets or add your branding without returning to manufacturer.
+                    تحديث الملصقات لأسواق مختلفة أو إضافة علامتك التجارية دون العودة إلى الشركة المصنعة.
                   </p>
                   <div className="bg-primary/5 p-3 rounded-lg">
                     <p className="text-sm font-medium">
-                      💡 Example: Add Arabic labels for GCC market or compliance stickers
+                      💡 مثال: إضافة ملصقات عربية لسوق الخليج أو ملصقات الامتثال
                     </p>
                   </div>
                 </CardContent>
@@ -772,13 +757,13 @@ export function StartupsCalculatorPage() {
                   <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                     <Shield className="w-6 h-6 text-primary" />
                   </div>
-                  <h3 className="text-xl font-semibold mb-3">Fragile Item Care</h3>
+                  <h3 className="text-xl font-semibold mb-3">رعاية العناصر الهشة</h3>
                   <p className="text-muted-foreground mb-4">
-                    Special handling for delicate products. Extra padding and custom packaging included.
+                    معالجة خاصة للمنتجات الحساسة. حشوة إضافية وتغليف مخصص مضمن.
                   </p>
                   <div className="bg-primary/5 p-3 rounded-lg">
                     <p className="text-sm font-medium">
-                      💡 Perfect for: Glassware, electronics, cosmetics, art
+                      💡 مثالي لـ: الأواني الزجاجية، الإلكترونيات، مستحضرات التجميل، الفن
                     </p>
                   </div>
                 </CardContent>
@@ -789,13 +774,13 @@ export function StartupsCalculatorPage() {
                   <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                     <Sparkles className="w-6 h-6 text-primary" />
                   </div>
-                  <h3 className="text-xl font-semibold mb-3">High-Value Security</h3>
+                  <h3 className="text-xl font-semibold mb-3">أمن عالي القيمة</h3>
                   <p className="text-muted-foreground mb-4">
-                    Enhanced security for jewelry, electronics, and luxury goods. Insurance options available.
+                    أمان معزز للمجوهرات والإلكترونيات والسلع الفاخرة. خيارات التأمين متاحة.
                   </p>
                   <div className="bg-primary/5 p-3 rounded-lg">
                     <p className="text-sm font-medium">
-                      💡 Perfect for: Luxury brands, jewelry, designer items
+                      💡 مثالي لـ: العلامات التجارية الفاخرة، المجوهرات، العناصر المصممة
                     </p>
                   </div>
                 </CardContent>
@@ -806,13 +791,13 @@ export function StartupsCalculatorPage() {
                   <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                     <ThermometerSnowflake className="w-6 h-6 text-primary" />
                   </div>
-                  <h3 className="text-xl font-semibold mb-3">Temperature Control</h3>
+                  <h3 className="text-xl font-semibold mb-3">التحكم في درجة الحرارة</h3>
                   <p className="text-muted-foreground mb-4">
-                    Climate-controlled storage for products sensitive to heat or humidity.
+                    تخزين مكيف للمنتجات الحساسة للحرارة أو الرطوبة.
                   </p>
                   <div className="bg-primary/5 p-3 rounded-lg">
                     <p className="text-sm font-medium">
-                      💡 Perfect for: Cosmetics, supplements, chocolates, candles
+                      💡 مثالي لـ: مستحضرات التجميل، المكملات الغذائية، الشوكولاتة، الشموع
                     </p>
                   </div>
                 </CardContent>
@@ -830,23 +815,23 @@ export function StartupsCalculatorPage() {
                 <CardContent className="p-6">
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-2">
                     <CheckCircle className="w-6 h-6 text-green-600" />
-                    For Startups: Pay As You Grow
+                    للشركات الناشئة: ادفع كلما نميت
                   </h3>
                   <p className="text-muted-foreground mb-4">
-                    Start with basic fulfillment, add services as you need them. No upfront commitments.
+                    ابدأ بالتنفيذ الأساسي، أضف الخدمات كما تحتاجها. لا التزامات مسبقة.
                   </p>
                   <ul className="space-y-2 text-sm">
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
-                      <span>Use services only when needed</span>
+                      <span>استخدم الخدمات فقط عند الحاجة</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
-                      <span>No minimum volume requirements</span>
+                      <span>لا متطلبات حد أدنى للحجم</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
-                      <span>Flexible pricing based on usage</span>
+                      <span>أسعار مرنة حسب الاستخدام</span>
                     </li>
                   </ul>
                 </CardContent>
@@ -856,18 +841,18 @@ export function StartupsCalculatorPage() {
                 <CardContent className="p-6">
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-2">
                     <Package2 className="w-6 h-6 text-primary" />
-                    Why Competitors Charge Extra
+                    لماذا يفرض المنافسون رسوماً إضافية
                   </h3>
                   <p className="text-muted-foreground mb-4">
-                    Traditional 3PLs charge AED 500-2,000+ per month for these services. We include them.
+                    مزودو الخدمات اللوجستية التقليديون يفرضون 500-2,000+ درهم شهرياً لهذه الخدمات. نحن نضمنها.
                   </p>
                   <div className="bg-background/80 p-4 rounded-lg">
-                    <p className="text-sm font-semibold mb-2">You Save on:</p>
+                    <p className="text-sm font-semibold mb-2">توفر على:</p>
                     <ul className="text-sm space-y-1 text-muted-foreground">
-                      <li>• Hiring staff for kitting</li>
-                      <li>• Renting separate storage</li>
-                      <li>• Managing multiple vendors</li>
-                      <li>• Minimum service fees</li>
+                      <li>• توظيف موظفين للتجميع</li>
+                      <li>• استئجار تخزين منفصل</li>
+                      <li>• إدارة عدة موردين</li>
+                      <li>• رسوم خدمة الحد الأدنى</li>
                     </ul>
                   </div>
                 </CardContent>
@@ -876,12 +861,10 @@ export function StartupsCalculatorPage() {
           </div>
         </section>
 
-
-
         {/* Video Section */}
         <section className="py-20 relative overflow-hidden">
           <motion.div 
-            className="absolute bottom-20 left-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none"
+            className="absolute bottom-20 right-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none"
             style={{ y: floatingY }}
           />
           <div className="container mx-auto px-4 relative z-10">
@@ -893,14 +876,14 @@ export function StartupsCalculatorPage() {
               transition={{ duration: 0.6 }}
             >
               <Badge variant="outline" className="mb-4">
-                <Package className="w-3 h-3 mr-1" />
-                Behind the Scenes
+                <Package className="w-3 h-3 ml-1" />
+                خلف الكواليس
               </Badge>
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                See How We <span className="text-primary">Handle Your Products</span>
+                شاهد كيف <span className="text-primary">نتعامل مع منتجاتك</span>
               </h2>
               <p className="text-xl text-muted-foreground">
-                Professional fulfillment from day one. Your products in expert hands.
+                تنفيذ احترافي من اليوم الأول. منتجاتك في أيدٍ خبيرة.
               </p>
             </motion.div>
             <motion.div 
@@ -917,8 +900,7 @@ export function StartupsCalculatorPage() {
                   frameBorder="0"
                   allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
                   referrerPolicy="strict-origin-when-cross-origin" 
-                  title="GWC Fulfillment Center Video"
-                  data-testid="fulfillment-video"
+                  title="فيديو مركز GWC للتنفيذ"
                 ></iframe>
               </div>
             </motion.div>
@@ -932,10 +914,10 @@ export function StartupsCalculatorPage() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <CTASection />
+          <CTASectionAr />
         </motion.div>
       </main>
-      <Footer />
+      <FooterAr />
     </div>
   );
 }
