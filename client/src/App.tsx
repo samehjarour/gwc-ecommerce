@@ -50,8 +50,12 @@ function Router() {
       <Route path="/startups-ar" component={StartupsPageAr} />
       <Route path="/startups-calculator" component={StartupsCalculatorPage} />
       <Route path="/startups-calculator-ar" component={StartupsCalculatorPageAr} />
+      <Route path="/rate-calculator" component={RateCalculatorPage} />
+      <Route path="/quote" component={QuotePage} />
+      <Route path="/quote2" component={Quote2Page} />
+      <Route path="/quote2-ar" component={Quote2PageAr} />
       
-      {/* Protected Routes */}
+      {/* Protected Routes */}}
       <Route path="/enterprise">
         {() => <ProtectedRoute><HomePageEnterprise /></ProtectedRoute>}
       </Route>
@@ -75,9 +79,6 @@ function Router() {
       </Route>
       <Route path="/landing-pages">
         {() => <ProtectedRoute><LandingPagesOverview /></ProtectedRoute>}
-      </Route>
-      <Route path="/quote">
-        {() => <ProtectedRoute><QuotePage /></ProtectedRoute>}
       </Route>
       <Route path="/eu-sme-gcc">
         {() => <ProtectedRoute><EuSmeGccPage /></ProtectedRoute>}
@@ -109,12 +110,6 @@ function Router() {
       <Route path="/qatar-reliable-service">
         {() => <ProtectedRoute><QatarReliableService /></ProtectedRoute>}
       </Route>
-      <Route path="/quote2">
-        {() => <ProtectedRoute><Quote2Page /></ProtectedRoute>}
-      </Route>
-      <Route path="/quote2-ar">
-        {() => <ProtectedRoute><Quote2PageAr /></ProtectedRoute>}
-      </Route>
       <Route path="/qatar-video">
         {() => <ProtectedRoute><QatarVideoPage /></ProtectedRoute>}
       </Route>
@@ -126,9 +121,6 @@ function Router() {
       </Route>
       <Route path="/switch">
         {() => <ProtectedRoute><SwitchPage /></ProtectedRoute>}
-      </Route>
-      <Route path="/rate-calculator">
-        {() => <ProtectedRoute><RateCalculatorPage /></ProtectedRoute>}
       </Route>
       <Route path="/home">
         {() => <ProtectedRoute><HomePage /></ProtectedRoute>}
