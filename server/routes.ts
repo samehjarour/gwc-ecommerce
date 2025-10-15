@@ -31,6 +31,18 @@ const analyticsRateLimiter = rateLimit({
   legacyHeaders: false,
 });
 
+// Security: Rate limiter for authentication attempts
+const authRateLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 5, // Limit each IP to 5 login attempts per 15 minutes
+  message: { 
+    error: "Too many login attempts", 
+    message: "Please try again later" 
+  },
+  standardHeaders: true,
+  legacyHeaders: false,
+});
+
 // Security: Sanitize user input to prevent XSS
 function sanitizeInput(text: string | null | undefined): string | null {
   if (!text) return null;
@@ -157,6 +169,43 @@ export async function registerRoutes(app: Express): Promise<Server> {
       res.status(500).json({
         error: "Internal server error",
         message: "Failed to retrieve analytics events",
+      });
+    }
+  });
+
+  // Authentication endpoint with rate limiting
+  app.post("/api/auth/login", authRateLimiter, async (req, res) => {
+    try {
+      const { email, password } = req.body;
+      
+      // Validate inputs
+      if (!email || !password) {
+        return res.status(400).json({
+          success: false,
+          message: "Email and password are required",
+        });
+      }
+
+      // Check credentials against environment variables (server-side only)
+      const adminEmail = process.env.VITE_ADMIN_EMAIL;
+      const adminPassword = process.env.VITE_ADMIN_PASSWORD;
+
+      if (email === adminEmail && password === adminPassword) {
+        return res.status(200).json({
+          success: true,
+          message: "Login successful",
+        });
+      } else {
+        return res.status(401).json({
+          success: false,
+          message: "Invalid email or password",
+        });
+      }
+    } catch (error) {
+      console.error("Error during authentication");
+      res.status(500).json({
+        success: false,
+        message: "Internal server error",
       });
     }
   });
