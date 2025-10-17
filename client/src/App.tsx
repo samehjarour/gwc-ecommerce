@@ -39,18 +39,35 @@ import { StartupsCalculatorPageAr } from "@/pages/StartupsCalculatorPageAr";
 import { StartupsPageAr } from "@/pages/StartupsPageAr";
 import { RateCalculatorPage } from "@/pages/RateCalculatorPage";
 import NotFound from "@/pages/not-found";
+// AE Regional Pages
+import { AEStartupsPage } from "@/pages/ae/StartupsPage";
+import { QAStartupsPage } from "@/pages/qa/StartupsPage";
 
 function Router() {
   return (
     <Switch>
       {/* Public Routes */}
-      <Route path="/" component={StartupsPage} />
+      <Route path="/" component={HomePage} />
       <Route path="/login" component={LoginPage} />
-      <Route path="/startups" component={StartupsPage} />
+      
+      {/* UAE Regional Routes */}
+      <Route path="/ae/startups" component={AEStartupsPage} />
+      <Route path="/ae/startups-ar" component={StartupsPageAr} />
+      <Route path="/ae/startups-calculator" component={StartupsCalculatorPage} />
+      <Route path="/ae/startups-calculator-ar" component={StartupsCalculatorPageAr} />
+      <Route path="/ae/rate-calculator" component={RateCalculatorPage} />
+      
+      {/* Qatar Regional Routes */}
+      <Route path="/qa/startups" component={QAStartupsPage} />
+      
+      {/* Legacy Redirects - Keep for backwards compatibility */}
+      <Route path="/startups" component={AEStartupsPage} />
       <Route path="/startups-ar" component={StartupsPageAr} />
       <Route path="/startups-calculator" component={StartupsCalculatorPage} />
       <Route path="/startups-calculator-ar" component={StartupsCalculatorPageAr} />
       <Route path="/rate-calculator" component={RateCalculatorPage} />
+      
+      {/* Quote Forms - Public */}
       <Route path="/quote" component={QuotePage} />
       <Route path="/quote2" component={Quote2Page} />
       <Route path="/quote2-ar" component={Quote2PageAr} />
