@@ -35,7 +35,7 @@ import { Link } from "wouter";
 import { motion, useScroll, useTransform } from "framer-motion";
 import warehouseImage from "@assets/DJI_0432-HDR_1758598111840.jpg";
 import technologyImage from "@assets/technology_1758599610299.webp";
-import vanImage from "@assets/GWC Truck - Doha_1757565747938.jpg";
+import vanImage from "@assets/GWC Truck - Dubai_1757565747938.jpg";
 
 export function QAStartupsCalculatorPage() {
   const [activeTab, setActiveTab] = useState("signup");
