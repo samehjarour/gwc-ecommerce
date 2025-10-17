@@ -89,6 +89,15 @@ export function Quote2PageAr() {
       const result = await response.json();
       console.log("Quote submitted successfully:", result);
       setIsSubmitted(true);
+      
+      // Track Google Ads conversion
+      if (typeof window !== 'undefined' && (window as any).gtag) {
+        (window as any).gtag('event', 'conversion', {
+          'send_to': 'AW-17653547806/DRHgCM_-m64bEJ6G7-FB',
+          'value': 1.0,
+          'currency': 'USD'
+        });
+      }
     } catch (error) {
       console.error("Error submitting quote:", error);
       alert("فشل في إرسال طلب عرض الأسعار. يرجى المحاولة مرة أخرى.");
