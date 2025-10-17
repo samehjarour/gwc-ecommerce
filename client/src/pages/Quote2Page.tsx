@@ -36,6 +36,7 @@ const productCategories = [
 export function Quote2Page() {
   const [currentStep, setCurrentStep] = useState<Step>(1);
   const [formData, setFormData] = useState({
+    region: "UAE", // Region field (UAE or Qatar)
     shipFrom: ["Qatar", "UAE"], // Pre-filled for these landing pages
     shipTo: ["GCC"], // Pre-filled
     platforms: [] as string[],
