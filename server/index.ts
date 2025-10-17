@@ -18,15 +18,15 @@ app.use(helmet({
     directives: {
       defaultSrc: ["'self'"],
       scriptSrc: isDevelopment 
-        ? ["'self'", "'unsafe-inline'", "'unsafe-eval'", "https://static.hsappstatic.net"] // Required for Vite HMR in dev + HubSpot
-        : ["'self'", "https://static.hsappstatic.net"], // HubSpot in production
+        ? ["'self'", "'unsafe-inline'", "'unsafe-eval'", "https://static.hsappstatic.net", "https://www.googletagmanager.com", "https://www.google-analytics.com"] // Required for Vite HMR in dev + HubSpot + Google
+        : ["'self'", "'unsafe-inline'", "https://static.hsappstatic.net", "https://www.googletagmanager.com", "https://www.google-analytics.com"], // HubSpot + Google in production
       styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
       fontSrc: ["'self'", "https://fonts.gstatic.com"],
       imgSrc: ["'self'", "data:", "https:"],
       mediaSrc: ["'self'"], // Allow videos from same origin
       connectSrc: isDevelopment
-        ? ["'self'", "ws:", "wss:", "https://meetings-eu1.hubspot.com"] // Required for Vite HMR websocket + HubSpot
-        : ["'self'", "https://meetings-eu1.hubspot.com"],
+        ? ["'self'", "ws:", "wss:", "https://meetings-eu1.hubspot.com", "https://www.google-analytics.com", "https://analytics.google.com"] // Required for Vite HMR websocket + HubSpot + Google Analytics
+        : ["'self'", "https://meetings-eu1.hubspot.com", "https://www.google-analytics.com", "https://analytics.google.com"],
       frameSrc: ["'self'", "https://player.vimeo.com", "https://meetings-eu1.hubspot.com"],
     },
   },
