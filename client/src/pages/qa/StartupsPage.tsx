@@ -244,7 +244,11 @@ export function QAStartupsPage() {
 
         {/* Services */}
         <SocialProofSection />
-        <SKURangeAdvisor />
+        <SKURangeAdvisor 
+          tiers={skuTiers}
+          title="Perfect Solution for Your Growth Stage"
+          subtitle="Start small, scale big. We support you at every stage"
+        />
         <IntegrationsSection />
         <CTASection />
       </main>
