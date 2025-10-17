@@ -41,7 +41,10 @@ import { RateCalculatorPage } from "@/pages/RateCalculatorPage";
 import NotFound from "@/pages/not-found";
 // AE Regional Pages
 import { AEStartupsPage } from "@/pages/ae/StartupsPage";
+import { AEStartupsCalculatorPage } from "@/pages/ae/StartupsCalculatorPage";
+import { AEStartupsCalculatorPageAr } from "@/pages/ae/StartupsCalculatorPageAr";
 import { QAStartupsPage } from "@/pages/qa/StartupsPage";
+import { QAStartupsCalculatorPage } from "@/pages/qa/StartupsCalculatorPage";
 import { QARateCalculatorPage } from "@/pages/qa/RateCalculatorPage";
 
 function Router() {
@@ -54,12 +57,13 @@ function Router() {
       {/* UAE Regional Routes */}
       <Route path="/ae/startups" component={AEStartupsPage} />
       <Route path="/ae/startups-ar" component={StartupsPageAr} />
-      <Route path="/ae/startups-calculator" component={StartupsCalculatorPage} />
-      <Route path="/ae/startups-calculator-ar" component={StartupsCalculatorPageAr} />
+      <Route path="/ae/startups-calculator" component={AEStartupsCalculatorPage} />
+      <Route path="/ae/startups-calculator-ar" component={AEStartupsCalculatorPageAr} />
       <Route path="/ae/rate-calculator" component={RateCalculatorPage} />
       
       {/* Qatar Regional Routes */}
       <Route path="/qa/startups" component={QAStartupsPage} />
+      <Route path="/qa/startups-calculator" component={QAStartupsCalculatorPage} />
       <Route path="/qa/rate-calculator" component={QARateCalculatorPage} />
       
       {/* Legacy Redirects - Keep for backwards compatibility */}
