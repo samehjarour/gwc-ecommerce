@@ -213,7 +213,7 @@ export function AEStartupsPage() {
           <div className="container mx-auto px-4">
             <div className="text-center max-w-3xl mx-auto mb-16">
               <Badge variant="outline" className="mb-4">
-                <Layers className="w-3 h-3 mr-1" />
+                <Package2 className="w-3 h-3 mr-1" />
                 Choose Your Plan
               </Badge>
               <h2 className="text-4xl font-bold mb-4">Solutions for Every Scale</h2>
@@ -279,5 +279,3 @@ export function AEStartupsPage() {
     </div>
   );
 }
-
-const Layers = () => <Package2 className="w-3 h-3" />;
