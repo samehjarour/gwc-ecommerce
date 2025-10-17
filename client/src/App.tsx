@@ -42,6 +42,7 @@ import NotFound from "@/pages/not-found";
 // AE Regional Pages
 import { AEStartupsPage } from "@/pages/ae/StartupsPage";
 import { QAStartupsPage } from "@/pages/qa/StartupsPage";
+import { QARateCalculatorPage } from "@/pages/qa/RateCalculatorPage";
 
 function Router() {
   return (
@@ -59,6 +60,7 @@ function Router() {
       
       {/* Qatar Regional Routes */}
       <Route path="/qa/startups" component={QAStartupsPage} />
+      <Route path="/qa/rate-calculator" component={QARateCalculatorPage} />
       
       {/* Legacy Redirects - Keep for backwards compatibility */}
       <Route path="/startups" component={AEStartupsPage} />
